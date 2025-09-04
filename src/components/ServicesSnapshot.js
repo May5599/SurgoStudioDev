@@ -69,7 +69,7 @@ export default function ServicesSnapshotClient() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section className="relative py-24 px-6 bg-gradient-to-b from-[#09141d] via-[#09141d] to-[#09141d] text-white overflow-hidden">
+    <section className="relative py-24 px-6 bg-black/90 text-white overflow-hidden">
       <div className="max-w-7xl mx-auto space-y-16 text-center relative z-10">
         {/* Section Heading */}
         <div className="space-y-4">
@@ -123,8 +123,8 @@ export default function ServicesSnapshotClient() {
 
       {/* Ambient background orbs */}
       <div className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none">
-        <div className="absolute w-96 h-96 top-[-20%] left-[-10%] rounded-full bg-purple-500/10 blur-3xl animate-pulse-slow" />
-        <div className="absolute w-64 h-64 bottom-[-15%] right-[-5%] rounded-full bg-yellow-400/10 blur-3xl animate-pulse-slow delay-1000" />
+        <div className="absolute w-96 h-96 top-[-20%] left-[-10%] rounded-full  blur-3xl animate-pulse-slow" />
+        <div className="absolute w-64 h-64 bottom-[-15%] right-[-5%] rounded-full  blur-3xl animate-pulse-slow delay-1000" />
       </div>
 
       {/* Custom CSS Animations */}

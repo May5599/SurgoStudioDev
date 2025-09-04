@@ -13,10 +13,10 @@ export default function CallToActionSection() {
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1.2, ease: "easeOut" }}
       viewport={{ once: true }}
-      className="relative bg-[#0f0a37] text-white py-28 px-6 text-center overflow-hidden"
+      className="relative bg-[#0f0e2c] text-white py-28 px-6 text-center overflow-hidden"
     >
       {/* Glowing Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1c115c] via-[#0f0a37] to-[#1c115c] opacity-70 pointer-events-none z-0" />
+      <div className="absolute inset-0 bg-gradient-to-br bg-black/90 pointer-events-none z-0" />
 
       <div className="relative z-10 max-w-3xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold mb-6 font-[var(--font-mozilla-headline)] ">
@@ -33,7 +33,7 @@ export default function CallToActionSection() {
           onClick={() => setShowModal(true)}
           className="inline-block bg-white text-[#0f0a37] px-8 py-4 rounded-full font-semibold text-base hover:scale-105 transition shadow-lg hover:shadow-xl"
         >
-          🚀 Book a Call with Us
+        Book a Call with Us
         </button>
 
         <p className="mt-6 text-sm text-white/50">

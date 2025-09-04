@@ -37,7 +37,7 @@ export default function TestimonialsSection() {
   const { name, company, quote, image } = testimonials[index];
 
   return (
-    <section className="relative py-28 bg-[#FBF7F5] text-gray-900 overflow-hidden">
+    <section className="relative py-28 bg-black/90 text-white-900 overflow-hidden">
       <div className="max-w-5xl mx-auto px-6 text-center space-y-8">
         <h2 className="text-4xl sm:text-5xl font-bold font-[var(--font-audiowide)] tracking-wide">
           Trusted By Visionaries

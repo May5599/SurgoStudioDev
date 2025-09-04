@@ -7,22 +7,20 @@ import ClientTestimonials from '@/components/ClientTestimonials';
 import HowItWorksSection from '@/components/HowItWorksSection';
 import WhyWorkWithUs from '@/components/WhyWorkWithUs';
 import Footer from '../components/Footer';
+import PreloaderWrapper from '@/components/PreLoader';
 
 export default function Home() {
   return (
-    <>
+    <PreloaderWrapper>
       <Navbar />
       <HeroSection />
-      <TrustedBySection/>
-      <ServicesSnapshot/>
-      <PortfolioPreview/>
-      <HowItWorksSection/>
-      <WhyWorkWithUs/>
-      <ClientTestimonials/>
-      <Footer/>
-      
-
-      
-    </>
+      <TrustedBySection />
+      <ServicesSnapshot />
+      <PortfolioPreview />
+      <HowItWorksSection />
+      <WhyWorkWithUs />
+      <ClientTestimonials />
+      <Footer />
+    </PreloaderWrapper>
   );
 }
