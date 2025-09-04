@@ -1,7 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { Audiowide } from "next/font/google";
-import { Nothing_You_Could_Do, Special_Elite } from "next/font/google"; // ✅ New fonts
+import { Nothing_You_Could_Do, Special_Elite } from "next/font/google";
 import "./globals.css";
+import PreloaderWrapper from "@/components/PreLoader"; // <-- import here
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,13 +21,13 @@ const audiowide = Audiowide({
 });
 
 const nothingYouCouldDo = Nothing_You_Could_Do({
-  variable: "--font-nothing-you-could-do", // ✅
+  variable: "--font-nothing-you-could-do",
   subsets: ["latin"],
   weight: "400",
 });
 
 const specialElite = Special_Elite({
-  variable: "--font-special-elite", // ✅
+  variable: "--font-special-elite",
   subsets: ["latin"],
   weight: "400",
 });
@@ -42,7 +43,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${audiowide.variable} ${nothingYouCouldDo.variable} ${specialElite.variable} antialiased`}
       >
-        {children}
+        <PreloaderWrapper>
+          {children}
+        </PreloaderWrapper>
       </body>
     </html>
   );

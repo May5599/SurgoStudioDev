@@ -1,26 +1,44 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function CinematicMontage({
   items = DEFAULT_ITEMS,
   speed = 45,
+  mobileFlipInterval = 4000, // 4s per flip
 }) {
   const rootRef = useRef(null);
+  const [mobileIndex, setMobileIndex] = useState(0);
+
+  // Handle reduced motion (desktop marquee)
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     const apply = () => {
       if (!rootRef.current) return;
-      rootRef.current.style.setProperty("--marquee-play", mq.matches ? "paused" : "running");
+      rootRef.current.style.setProperty(
+        "--marquee-play",
+        mq.matches ? "paused" : "running"
+      );
     };
     apply();
     mq.addEventListener?.("change", apply);
     return () => mq.removeEventListener?.("change", apply);
   }, []);
 
+  // Handle mobile auto-flip
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMobileIndex((i) => (i + 1) % items.length);
+    }, mobileFlipInterval);
+    return () => clearInterval(interval);
+  }, [items.length, mobileFlipInterval]);
+
   const half = Math.ceil(items.length / 2);
   const rowA = items.slice(0, half);
-  const rowB = items.slice(half).concat(items.slice(0, Math.max(0, 6 - (items.length - half))));
+  const rowB = items
+    .slice(half)
+    .concat(items.slice(0, Math.max(0, 6 - (items.length - half))));
 
   return (
     <section
@@ -32,12 +50,36 @@ export default function CinematicMontage({
       }}
       aria-label="Cinematic montage"
     >
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black to-transparent z-20" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black to-transparent z-20" />
-
-      <div className="relative max-w-none py-10 md:py-16">
+      {/* --- Desktop / Tablet: Marquee Rows --- */}
+      <div className="hidden sm:block relative max-w-none py-10 md:py-16">
         <MarqueeRow items={rowA} reverse={false} />
         <MarqueeRow items={rowB} reverse className="mt-6 md:mt-10" />
+      </div>
+
+      {/* --- Mobile: Flip Animation --- */}
+      <div className="sm:hidden relative flex flex-col items-center py-12">
+        <div className="relative w-[85vw] aspect-[16/9]">
+          <AnimatePresence mode="wait">
+            <motion.video
+              key={mobileIndex}
+              src={items[mobileIndex].src}
+              poster={items[mobileIndex].poster}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className="absolute inset-0 w-full h-full object-cover rounded-2xl border border-white/10 shadow-xl"
+              initial={{ rotateY: 90, opacity: 0 }}
+              animate={{ rotateY: 0, opacity: 1 }}
+              exit={{ rotateY: -90, opacity: 0 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+            />
+          </AnimatePresence>
+        </div>
+        <div className="mt-3 text-sm text-black/70 text-center max-w-[80vw]">
+          {items[mobileIndex].caption}
+        </div>
       </div>
     </section>
   );
@@ -54,8 +96,12 @@ function MarqueeRow({ items, reverse = false, className = "" }) {
           animationDuration: "var(--marquee-duration)",
           animationPlayState: "var(--marquee-play)",
         }}
-        onMouseEnter={(e) => (e.currentTarget.style.animationPlayState = "paused")}
-        onMouseLeave={(e) => (e.currentTarget.style.animationPlayState = "var(--marquee-play)")}
+        onMouseEnter={(e) =>
+          (e.currentTarget.style.animationPlayState = "paused")
+        }
+        onMouseLeave={(e) =>
+          (e.currentTarget.style.animationPlayState = "var(--marquee-play)")
+        }
       >
         {loop.map((it, idx) => (
           <Tile key={idx} {...it} />

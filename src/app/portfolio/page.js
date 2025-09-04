@@ -19,15 +19,16 @@ export default function PortfolioPage() {
     <main className="bg-black text-white">
         <Navbar/>
         <PortfolioHero />
-         
-          <SurgoReelsShowcase/>
-        
-        <CreativeCommentary/>
         <ShowcaseGrid/>
-       <ProjectsReel/>
+        <ProjectsReel/>
+       
+        <SurgoReelsShowcase/>
+        
+       
         <TestimonialsSection/>
         <TrustedBySection/> 
        <ImpactSection/>
+        <CreativeCommentary/>
         <CallToActionSection />
         {/* <SurgoReelsShowcase/> */}
         <SurgoBanner/>

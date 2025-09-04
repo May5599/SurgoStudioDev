@@ -3,7 +3,7 @@ export default function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="bg-[#FBF7F5] py-32 px-6 text-[#0f0761] text-center flex flex-col items-center"
+      className="bg-black/90 py-32 px-6 text-[#0f0761] text-center flex flex-col items-center"
     >
       
 
@@ -15,7 +15,7 @@ export default function TestimonialsSection() {
         />
       </div>
 
-      <p className="mt-12 text-xl md:text-2xl text-black/70 max-w-2xl font-medium leading-relaxed">
+      <p className="mt-12 text-xl md:text-2xl text-white/70 max-w-2xl font-medium leading-relaxed">
         Real voices. Real stories. Real impact.<br />
         Our clients say it best and they all say:
         <span className="ml-2 font-bold text-green-400">We love Surgo!</span>

@@ -20,6 +20,13 @@ module.exports = {
           to: { transform: "translateY(calc(-100% - var(--gap)))" },
         },
       },
+
+      // 👇 Add this
+      fontFamily: {
+        mozilla: "var(--font-mozilla-headline)", // bold display font
+        rammetto: "var(--font-rammetto-one)", // playful heading
+        script: "var(--font-dancing-script)", // handwritten style
+      },
     },
   },
   plugins: [],

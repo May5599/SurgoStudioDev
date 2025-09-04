@@ -3,11 +3,11 @@ import React from "react";
 
 const TrustedBySection = () => {
   return (
-    <section className="relative bg-[#edf0f8] text-white py-20 px-6 overflow-hidden">
+    <section className="relative bg-black/90 text-white py-20 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto text-center space-y-12">
         {/* Section Title */}
         <div className="relative inline-block">
-          <h3 className="text-[0.5rem] sm:text-[1rem] md:text-2xl tracking-widest uppercase text-[#3f4043] font-mono z-10 relative">
+          <h3 className="text-[0.5rem] sm:text-[1rem] md:text-2xl tracking-widest uppercase text-yellow font-mono z-10 relative">
             — TRUSTED BY —
           </h3>
           <div className="absolute inset-x-0 -bottom-1 h-[1px] bg-gradient-to-r from-transparent via-yellow-400 to-transparent blur-sm" />
@@ -16,9 +16,9 @@ const TrustedBySection = () => {
         {/* Logos Row */}
         <div className="relative w-full overflow-hidden mt-4">
           {/* Left gradient fade */}
-          <div className="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-[#edf0f8] via-[#edf0f8]-200/80 to-transparent z-20 pointer-events-none" />
+          <div className="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-[#00000] via-[#00000]-200/80 to-transparent z-20 pointer-events-none" />
           {/* Right gradient fade */}
-          <div className="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-[#edf0f8] via-[#edf0f8]-200/80 to-transparent z-20 pointer-events-none" />
+          <div className="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-[#00000] via-[#00000]-200/80 to-transparent z-20 pointer-events-none" />
 
           {/* Scrolling logo container */}
           <div className="flex animate-scroll whitespace-nowrap space-x-[7.5rem] opacity-90">
@@ -42,8 +42,8 @@ const TrustedBySection = () => {
 
       {/* ✨ Subtle Background Orbs */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0">
-        <div className="absolute w-64 h-64 bg-yellow-400/10 rounded-full blur-3xl top-10 left-[10%] animate-pulse-slow" />
-        <div className="absolute w-40 h-40 bg-cyan-500/10 rounded-full blur-2xl bottom-10 right-[10%] animate-pulse-slow" />
+        <div className="absolute w-64 h-64 rounded-full blur-3xl top-10 left-[10%] animate-pulse-slow" />
+        <div className="absolute w-40 h-40 rounded-full blur-2xl bottom-10 right-[10%] animate-pulse-slow" />
       </div>
 
       {/* Custom animation */}

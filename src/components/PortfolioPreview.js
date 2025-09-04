@@ -17,7 +17,7 @@ export default function PortfolioPreview() {
   const [activeVideo, setActiveVideo] = useState(null);
 
   return (
-    <section className="relative py-28 px-6 bg-[#09141d] text-white overflow-hidden">
+    <section className="relative py-28 px-6 bg-black/90 text-white overflow-hidden">
       <div className="max-w-7xl mx-auto space-y-16 text-center relative z-10">
 
         {/* Heading */}

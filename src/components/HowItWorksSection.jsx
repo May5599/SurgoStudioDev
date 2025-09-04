@@ -31,7 +31,7 @@ export default function HowItWorksSection() {
   };
 
   return (
-    <section className="relative py-28 px-6 bg-gradient-to-b from-[#09141d] via-[#09141d] to-[#16324f] text-white overflow-hidden">
+    <section className="relative py-28 px-6 bg-black/90 text-white overflow-hidden">
 
       <div className="max-w-4xl mx-auto text-center space-y-10 relative z-10">
         <h2 className="text-4xl sm:text-5xl font-bold font-[var(--font-audiowide)] tracking-wide">

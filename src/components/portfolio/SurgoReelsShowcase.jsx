@@ -2,61 +2,23 @@
 
 import { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
-import { ChevronLeft, ChevronRight, Volume2, VolumeX, Play, Pause } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Volume2,
+  VolumeX,
+  Play,
+  Pause,
+} from "lucide-react";
 
-/**
- * SurgoReelsShowcase
- *
- * A hyper-impact, full-width reels section with:
- * - Hero intro with quick montage
- * - Oversized masked-typography intro (fallbacks gracefully)
- * - Edge-to-edge featured reel with parallax
- * - Interactive timeline (thumbnails) to swap reels
- * - Minimal overlay captions & stats
- *
- * TailwindCSS + Framer Motion. Drop into any Next.js page.
- *
- * Usage:
- * <SurgoReelsShowcase reels={[
- *   { src:"/reels/reel1.mp4", thumb:"/reels/thumb1.jpg", title:"Campaign A", stat:"+3.2M views", quote:"Shifted the conversation." },
- *   { src:"/reels/reel2.mp4", thumb:"/reels/thumb2.jpg", title:"Campaign B", stat:"4x engagement", quote:"Hooked in 3 seconds." },
- * ]} brandWord="SURGO IMPACT" />
- */
 export default function SurgoReelsShowcase({
   reels: inputReels,
   brandWord = "SURGO IMPACT",
   autoPlay = true,
-  onReelChange, // optional callback(index)
+  onReelChange,
 }) {
-  const defaultReels = useMemo(
-    () => [
-      {
-        src: "/reel1.mp4",
-        thumb:
-          "https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?q=80&w=1200&auto=format&fit=crop",
-        title: "Story in Motion",
-        stat: "+2.4M reach",
-        quote: "Momentum you can feel.",
-      },
-      {
-        src: "reel2.mp4",
-        thumb:
-          "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1200&auto=format&fit=crop",
-        title: "Vertical Energy",
-        stat: "4x engagement",
-        quote: "Hooked in three seconds.",
-      },
-      {
-        src: "reel3.mp4",
-        thumb:
-          "https://images.unsplash.com/photo-1520975922284-9f53e3cf335b?q=80&w=1200&auto=format&fit=crop",
-        title: "Human Focus",
-        stat: "+1.1M plays",
-        quote: "Every frame, intention.",
-      },
-    ],
-    []
-  );
+  const defaultReels = useMemo( () => [ { src: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto/v1756914502/reel2_uy1pjd.mp4", thumb: "https://res.cloudinary.com/dvqibrc9d/video/upload/w_600,f_auto,q_auto,so_2/v1756914502/reel2_uy1pjd.jpg", title: "Story in Motion", stat: "+2.4M reach", quote: "Momentum you can feel.", }, { src: "https://res.cloudinary.com/dvqibrc9d/video/upload/v1756914498/reel1_ghfwq2.mp4", thumb: "https://res.cloudinary.com/dvqibrc9d/video/upload/v1756914498/reel1_ghfwq2.mp4", title: "Vertical Energy", stat: "4x engagement", quote: "Hooked in three seconds.", }, { src: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto/v1756914496/reel3_gfb9d0.mp4", thumb: "https://images.unsplash.com/photo-1520975922284-9f53e3cf335b?q=80&w=800&auto=format&fit=crop", title: "Human Focus", stat: "+1.1M plays", quote: "Every frame, intention.", }, ], [] ); 
+
 
   const reels = inputReels?.length ? inputReels : defaultReels;
 
@@ -68,7 +30,7 @@ export default function SurgoReelsShowcase({
   const videoRefHero = useRef(null);
   const videoRefStage = useRef(null);
 
-  // Parallax controls
+  // Motion values for parallax
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useTransform(y, [-150, 150], [6, -6]);
@@ -95,13 +57,10 @@ export default function SurgoReelsShowcase({
     const t = e.changedTouches?.[0];
     if (!t) return;
     const dx = t.clientX - touchStart.current.x;
-    const dy = t.clientY - touchStart.current.y;
-    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
-      goto(dx < 0 ? 1 : -1);
-    }
+    if (Math.abs(dx) > 40) goto(dx < 0 ? 1 : -1);
   };
 
-  // Keyboard controls
+  // Keyboard
   const goto = useCallback(
     (dir) => {
       setCurrent((c) => (c + dir + reels.length) % reels.length);
@@ -122,30 +81,29 @@ export default function SurgoReelsShowcase({
     return () => window.removeEventListener("keydown", onKey);
   }, [goto]);
 
-  // Quick montage intro (flash through first 3 reels)
+  // Intro reel flash
   useEffect(() => {
     if (!showIntro) return;
     let idx = 0;
     const id = setInterval(() => {
-      setCurrent((p) => (p + 1) % Math.min(3, Math.max(1, reels.length)));
+      setCurrent((p) => (p + 1) % Math.min(3, reels.length));
       idx += 1;
       if (idx > 4) {
         clearInterval(id);
         setShowIntro(false);
         setCurrent(0);
       }
-    }, 650);
+    }, 600);
     return () => clearInterval(id);
   }, [showIntro, reels.length]);
 
-  // Ensure play/pause state applies to both videos reliably after src changes
+  // Sync play/pause + mute
   useEffect(() => {
     const apply = (v) => {
       if (!v) return;
       v.muted = muted;
       if (playing) {
-        const p = v.play();
-        if (p?.catch) p.catch(() => {});
+        v.play().catch(() => {});
       } else {
         v.pause();
       }
@@ -153,14 +111,13 @@ export default function SurgoReelsShowcase({
     apply(videoRefHero.current);
     apply(videoRefStage.current);
     onReelChange?.(current);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [playing, muted, current]);
+  }, [playing, muted, current, onReelChange]);
 
-  // Inject no-scrollbar CSS once (client-only)
+  // Hide scrollbars globally
   useEffect(() => {
-    const css = `.no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}`;
+    const css =
+      ".no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}";
     const el = document.createElement("style");
-    el.setAttribute("data-surgo-reels", "true");
     el.innerHTML = css;
     document.head.appendChild(el);
     return () => {
@@ -169,17 +126,10 @@ export default function SurgoReelsShowcase({
   }, []);
 
   return (
-    <section
-      className="relative w-full bg-black text-white overflow-hidden"
-      aria-label="Surgo Reels Showcase"
-    >
-      {/* Background soft glow based on current thumb */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/70" />
-
-
-      {/* HERO: Masked Typography over video (with graceful fallback) */}
+    <section className="relative w-full bg-black text-white overflow-hidden">
+      {/* HERO */}
       <div
-        className="relative h-[60vh] md:h-[80vh]"
+        className="relative h-[60vh] md:h-[75vh]"
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
@@ -195,11 +145,10 @@ export default function SurgoReelsShowcase({
             playsInline
             preload="metadata"
           />
-          {/* Darken for contrast */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/70" />
         </div>
 
-        {/* Mask-style headline (blend-mode fallback) */}
+        {/* Headline */}
         <div
           className="absolute inset-0 flex items-center justify-center"
           onMouseMove={onMouseMove}
@@ -209,122 +158,105 @@ export default function SurgoReelsShowcase({
             className="text-center font-black tracking-tight leading-[0.9] select-none"
             aria-hidden
           >
-            <span className="block text-[9vw] md:text-[10vw] mix-blend-screen text-white/90 drop-shadow-[0_0_30px_rgba(255,255,255,0.25)]">
+            <span className="block text-[9vw] md:text-[8vw] lg:text-[7vw] mix-blend-screen text-white/90 drop-shadow-[0_0_25px_rgba(255,255,255,0.2)]">
               {brandWord}
             </span>
           </motion.h1>
         </div>
 
-        {/* Minimal top-right controls */}
-        <div className="absolute top-5 right-5 z-10 flex items-center gap-3">
+        {/* Controls */}
+        <div className="absolute top-5 right-5 z-10 flex items-center gap-2">
           <button
             onClick={() => setMuted((m) => !m)}
-            className="rounded-2xl bg-white/10 backdrop-blur px-3 py-2 hover:bg-white/20 transition"
-            aria-label={muted ? "Unmute" : "Mute"}
-            title={muted ? "Unmute" : "Mute"}
+            className="rounded-xl bg-white/10 backdrop-blur px-3 py-2 hover:bg-white/20 transition"
           >
             {muted ? <VolumeX size={18} /> : <Volume2 size={18} />}
           </button>
           <button
             onClick={() => setPlaying((p) => !p)}
-            className="rounded-2xl bg-white/10 backdrop-blur px-3 py-2 hover:bg-white/20 transition"
-            aria-label={playing ? "Pause" : "Play"}
-            title={playing ? "Pause" : "Play"}
+            className="rounded-xl bg-white/10 backdrop-blur px-3 py-2 hover:bg-white/20 transition"
           >
             {playing ? <Pause size={18} /> : <Play size={18} />}
           </button>
         </div>
       </div>
 
-     {/* Featured Reel Stage with Parallax frame */}
-<div className="relative w-full max-w-[1400px] mx-auto px-4 md:px-8 -mt-16 md:-mt-24">
-  {/* NEW: animated shooting star border wrapper */}
-  <div className="shooting-border rounded-3xl p-[2px]">
-    <motion.div
-      onMouseMove={onMouseMove}
-      style={{ rotateX, rotateY, x: translateX, y: translateY }}
-      className="relative rounded-3xl overflow-hidden shadow-2xl bg-black" // removed static border
-      onTouchStart={onTouchStart}
-      onTouchEnd={onTouchEnd}
-    >
-      <div className="aspect-[16/9] w-full bg-black">
-        <video
-          key={reels[current]?.src + "-stage"}
-          ref={videoRefStage}
-          className="h-full w-full object-cover"
-          src={reels[current]?.src}
-          autoPlay={autoPlay}
-          loop
-          muted={muted}
-          playsInline
-          preload="metadata"
-        />
-      </div>
-
-      {/* Overlay content */}
-      <div className="absolute inset-0 pointer-events-none flex items-end">
-        <div className="w-full p-5 md:p-7 flex items-center justify-between">
-          <div className="backdrop-blur bg-black/35 rounded-2xl px-4 py-3 max-w-[70%]">
-            <p className="text-sm md:text-base uppercase tracking-widest text-white/70">
-              {reels[current]?.title}
-            </p>
-            <p className="text-lg md:text-2xl font-semibold">
-              {reels[current]?.quote}
-            </p>
-          </div>
-          <div className="backdrop-blur bg-white/10 rounded-2xl px-4 py-3 text-right">
-            <p className="text-xs md:text-sm text-white/80">Result</p>
-            <p className="text-xl md:text-2xl font-bold">
-              {reels[current]?.stat}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Nav Arrows */}
-      <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between p-3 md:p-5 pointer-events-none">
-        <button
-          onClick={() => goto(-1)}
-          className="pointer-events-auto grid place-items-center h-11 w-11 md:h-12 md:w-12 rounded-full bg-black/40 backdrop-blur hover:bg-black/60 transition"
-          aria-label="Previous reel"
-          title="Previous"
+      {/* Featured Reel */}
+      <div className="relative w-full max-w-[1200px] mx-auto px-4 md:px-8 -mt-14 md:-mt-20">
+        <motion.div
+          onMouseMove={onMouseMove}
+          style={{ rotateX, rotateY, x: translateX, y: translateY }}
+          className="relative rounded-2xl overflow-hidden shadow-2xl bg-black"
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
         >
-          <ChevronLeft />
-        </button>
-        <button
-          onClick={() => goto(1)}
-          className="pointer-events-auto grid place-items-center h-11 w-11 md:h-12 md:w-12 rounded-full bg-black/40 backdrop-blur hover:bg-black/60 transition"
-          aria-label="Next reel"
-          title="Next"
-        >
-          <ChevronRight />
-        </button>
-      </div>
-    </motion.div>
-  </div>
-</div>
-
-
-      {/* Timeline / Reel Selector */}
-      <div className="relative mt-10 md:mt-12 pb-10">
-        <div className="max-w-[1400px] mx-auto px-4 md:px-8">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg md:text-xl font-semibold tracking-tight">
-              Explore More Reels
-            </h3>
+          <div className="aspect-[16/9] w-full bg-black">
+            <video
+              key={reels[current]?.src + "-stage"}
+              ref={videoRefStage}
+              className="h-full w-full object-cover"
+              src={reels[current]?.src}
+              autoPlay={autoPlay}
+              loop
+              muted={muted}
+              playsInline
+              preload="metadata"
+            />
           </div>
 
-          <div className="relative">
-            <div className="flex gap-4 overflow-x-auto no-scrollbar py-2">
-              {reels.map((r, i) => (
-                <TimelineThumb
-                  key={i + r.src}
-                  active={i === current}
-                  reel={r}
-                  onClick={() => setCurrent(i)}
-                />
-              ))}
+          {/* Overlay Info */}
+          <div className="absolute inset-0 pointer-events-none flex items-end">
+            <div className="w-full p-4 md:p-6 flex items-center justify-between gap-3">
+              <div className="backdrop-blur bg-black/40 rounded-xl px-3 py-2 md:px-4 md:py-3 max-w-[70%]">
+                <p className="text-xs md:text-sm uppercase tracking-widest text-white/70">
+                  {reels[current]?.title}
+                </p>
+                <p className="text-base md:text-lg lg:text-xl font-semibold leading-snug">
+                  {reels[current]?.quote}
+                </p>
+              </div>
+              <div className="backdrop-blur bg-white/10 rounded-xl px-3 py-2 md:px-4 md:py-3 text-right">
+                <p className="text-[10px] md:text-xs text-white/80">Result</p>
+                <p className="text-base md:text-xl lg:text-2xl font-bold">
+                  {reels[current]?.stat}
+                </p>
+              </div>
             </div>
+          </div>
+
+          {/* Nav Arrows */}
+          <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between p-3 md:p-5 pointer-events-none">
+            <button
+              onClick={() => goto(-1)}
+              className="pointer-events-auto grid place-items-center h-10 w-10 md:h-11 md:w-11 rounded-full bg-black/40 backdrop-blur hover:bg-black/60 transition"
+            >
+              <ChevronLeft />
+            </button>
+            <button
+              onClick={() => goto(1)}
+              className="pointer-events-auto grid place-items-center h-10 w-10 md:h-11 md:w-11 rounded-full bg-black/40 backdrop-blur hover:bg-black/60 transition"
+            >
+              <ChevronRight />
+            </button>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Timeline */}
+      <div className="relative mt-6 md:mt-8 pb-6">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+          <h3 className="text-base md:text-lg font-semibold mb-3">
+            Explore More Reels
+          </h3>
+          <div className="flex gap-4 overflow-x-auto no-scrollbar py-2">
+            {reels.map((r, i) => (
+              <TimelineThumb
+                key={i + r.src}
+                active={i === current}
+                reel={r}
+                onClick={() => setCurrent(i)}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -333,49 +265,44 @@ export default function SurgoReelsShowcase({
 }
 
 function TimelineThumb({ reel, active, onClick }) {
+  // Generate thumb from video: use 2s mark (adjust as needed)
+  const thumbFromVideo = reel.src.replace("/upload/", "/upload/so_2,f_auto,q_auto/") + ".jpg";
+
   return (
     <button
       onClick={onClick}
-      className={`group shrink-0 w-[220px] md:w-[260px] rounded-2xl overflow-hidden border transition relative ${
+      className={`group shrink-0 w-[180px] md:w-[220px] lg:w-[260px] rounded-xl overflow-hidden border transition relative ${
         active
-          ? "border-white/70 ring-2 ring-white/30"
+          ? "border-white/70 ring-1 ring-white/30"
           : "border-white/10 hover:border-white/30"
       }`}
-      aria-label={`Open reel ${reel.title}`}
-      title={reel.title}
     >
       <div className="aspect-[16/9] w-full bg-zinc-900 relative">
-        {/* Thumb */}
         <img
-          src={reel.thumb}
+          src={thumbFromVideo}
           alt={reel.title}
           className={`h-full w-full object-cover transition duration-500 ${
             active ? "scale-105" : "group-hover:scale-105"
           }`}
           loading="lazy"
         />
-        {/* Overlay play pulse */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div
-            className={`h-10 w-10 rounded-full bg-white/90 grid place-items-center shadow ${
+            className={`h-8 w-8 md:h-10 md:w-10 rounded-full bg-white/90 grid place-items-center shadow ${
               active ? "scale-110" : "group-hover:scale-105"
             } transition`}
           >
-            <Play size={16} className="ml-0.5" />
+            <Play size={14} className="ml-0.5" />
           </div>
         </div>
       </div>
-      <div className="p-3 text-left bg-white/5 backdrop-blur">
-        <p className="text-sm font-semibold leading-tight">{reel.title}</p>
-        <p className="text-xs text-white/70">{reel.stat}</p>
+      <div className="p-2 md:p-3 text-left bg-white/5 backdrop-blur">
+        <p className="text-xs md:text-sm font-semibold leading-tight">
+          {reel.title}
+        </p>
+        <p className="text-[10px] md:text-xs text-white/70">{reel.stat}</p>
       </div>
-      {/* Active underline */}
-      <div
-        className={`absolute bottom-0 left-0 h-1 bg-white transition-all ${
-          active ? "w-full" : "w-0 group-hover:w-1/2"
-        }`}
-      />
     </button>
   );
 }
