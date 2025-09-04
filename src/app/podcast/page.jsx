@@ -1,6 +1,6 @@
 // app/podcast/page.jsx
 import Navbar from "@/components/Navbar";
-import Section1 from "@/components/podcast/section1";
+import Section1 from "@/components/podcast/Section1";
 import Footer from "@/components/Footer";
 import Script from "next/script";
 
