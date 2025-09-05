@@ -30,14 +30,14 @@ export default function AboutPage() {
   const leadership = [
     {
       name: "Raha",
-      role: "Creative Strategist",
-      img: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1756999295/raha_sesm1k.jpg",
-      bio: "Raha helps guide Surgo’s storytelling approach, ensuring every project reflects clarity, creativity, and emotional impact.",
+      role: "Creative Director",
+      img: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757094295/IMG_7875_copy_zpkjoh.jpg",
+      bio: "Raha leads and guide Surgo’s storytelling approach, ensuring every project reflects clarity, creativity, and emotional impact.",
     },
     {
       name: "Vahid",
       role: "Head of Production",
-      img: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1756999295/vahid_zliitl.jpg",
+      img: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757094344/VAF03130_B_W_dwq9i1.jpg",
       bio: "Vahid oversees the production process, ensuring that Surgo’s vision comes to life with precision and creative excellence.",
     },
   ];
@@ -205,10 +205,10 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="px-8 md:px-20 text-center mb-20">
+      <section className="px-8 md:px-20 text-center mb-50">
         <a
           href="/contact"
-          className="inline-block text-2xl font-bold font-rammetto underline hover:tracking-wider transition"
+          className="inline-block text-2xl font-bold font-rammetto underline hover:tracking-wider transition mb-30"
         >
           Ready to amplify your story? Contact us ➝
         </a>

@@ -169,7 +169,7 @@ export default function CinematicReelHub() {
   };
 
   return (
-    <section className="relative bg-gradient-to-b from-black via-[#0a0b11] to-black py-16 md:py-20 px-4 md:px-12 text-white">
+    <section id ="projects-reel" className="relative bg-gradient-to-b from-black via-[#0a0b11] to-black py-16 md:py-20 px-4 md:px-12 text-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12">

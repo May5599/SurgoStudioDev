@@ -3,7 +3,7 @@ import React from "react";
 
 const TrustedBySection = () => {
   return (
-    <section className="relative bg-black/90 text-white py-20 px-6 overflow-hidden">
+    <section className="relative bg-[#f2f2f2] text-black py-20 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto text-center space-y-12">
         {/* Section Title */}
         <div className="relative inline-block">

@@ -1,34 +1,60 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { PlayCircle, X } from 'lucide-react';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { PlayCircle, X } from "lucide-react";
 
 const portfolioItems = [
-  { title: 'Brand Ad for Nylo', video: '/demo1.mp4' },
-  { title: 'Surge Fitness Launch', video: '/demo2.mp4' },
-  { title: 'Luxury Interiors Teaser', video: '/demo3.mp4' },
-  { title: 'Resort Promo Clip', video: '/demo1.mp4' },
-  { title: 'Designer Shoes Spot', video: '/demo2.mp4' },
-  { title: 'Event Highlights Reel', video: '/demo3.mp4' },
+  {
+    title: "Brand Ad for Nylo",
+    video: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto/v1757080238/demo_hero_ymacfx.mp4",
+    poster: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1920/v1757080238/demo_hero_ymacfx.jpg",
+  },
+  {
+    title: "Surge Fitness Launch",
+    video: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto/v1757080238/demo_hero_ymacfx.mp4",
+    poster: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1920/v1757080238/demo_hero_ymacfx.jpg",
+  },
+  {
+    title: "Luxury Interiors Teaser",
+    video: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto/v1757080238/demo_hero_ymacfx.mp4",
+    poster: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1920/v1757080238/demo_hero_ymacfx.jpg",
+  },
+  {
+    title: "Resort Promo Clip",
+    video: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto/v1757080238/demo_hero_ymacfx.mp4",
+    poster: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1920/v1757080238/demo_hero_ymacfx.jpg",
+  },
+  {
+    title: "Designer Shoes Spot",
+    video: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto/v1757080238/demo_hero_ymacfx.mp4",
+    poster: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1920/v1757080238/demo_hero_ymacfx.jpg",
+  },
+  {
+    title: "Event Highlights Reel",
+    video: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto/v1757080238/demo_hero_ymacfx.mp4",
+    poster: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1920/v1757080238/demo_hero_ymacfx.jpg",
+  },
 ];
 
 export default function PortfolioPreview() {
   const [activeVideo, setActiveVideo] = useState(null);
 
   return (
-    <section className="relative py-28 px-6 bg-black/90 text-white overflow-hidden">
+    <section
+      className="relative py-28 px-6 bg-black/95 text-white overflow-hidden"
+      aria-label="Portfolio showcase of Surgo Studios"
+    >
       <div className="max-w-7xl mx-auto space-y-16 text-center relative z-10">
-
         {/* Heading */}
         <motion.div
-          initial={{ x: 300, opacity: 0 }}
+          initial={{ x: 200, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
           className="space-y-4"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold font-[var(--font-audiowide)] tracking-wide drop-shadow-md">
+          <h2 className="text-4xl sm:text-5xl font-mozilla font-bold tracking-wide drop-shadow-md">
             Our Work in Motion
           </h2>
           <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
@@ -36,40 +62,37 @@ export default function PortfolioPreview() {
           </p>
         </motion.div>
 
-        {/* Grid */}
+        {/* Grid - Always 2 cols on mobile */}
         <motion.div
-          initial={{ x: -300, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.9, ease: 'easeOut', delay: 0.2 }}
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-2 sm:px-4"
+          className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 auto-rows-[1fr] px-2 sm:px-4"
         >
           {portfolioItems.map((item, i) => (
             <motion.div
               key={i}
-              className="relative group overflow-hidden shadow-[0_20px_80px_-15px_rgba(255,255,255,0.05)] rounded-[30%_10%_40%_20%/20%_40%_30%_10%] bg-[#121212] transition duration-500 hover:scale-[1.015] hover:rotate-[-0.3deg]"
-              whileHover={{ scale: 1.02 }}
+              className="relative group overflow-hidden shadow-[0_20px_60px_-15px_rgba(255,255,255,0.08)] rounded-[25%_8%_35%_12%/15%_35%_25%_8%] bg-[#121212] transition duration-500 hover:scale-[1.02]"
+              whileHover={{ scale: 1.03 }}
             >
-              <div className="relative w-full h-64 overflow-hidden">
-
-                {/* Video */}
+              <div className="relative w-full aspect-[4/5] overflow-hidden">
+                {/* Video preview */}
                 <video
                   src={item.video}
+                  poster={item.poster}
                   autoPlay
                   loop
                   muted
                   playsInline
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-hover:skew-y-1"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-hover:rotate-[0.5deg]"
                 />
 
-                {/* Optional Grain Layer */}
-                {/* <div className="absolute inset-0 bg-[url('/noise.png')] opacity-5 mix-blend-overlay pointer-events-none" /> */}
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-80" />
 
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-70" />
-
-                {/* Floating Title Tag */}
-                <div className="absolute top-3 left-3 bg-[#0f0f0f]/80 text-xs text-white px-3 py-1 rounded-full font-semibold tracking-wide shadow-lg backdrop-blur-sm">
+                {/* Title */}
+                <div className="absolute top-3 left-3 bg-black/70 text-xs sm:text-sm text-white px-3 py-1 rounded-full font-semibold tracking-wide shadow-lg backdrop-blur-sm">
                   {item.title}
                 </div>
 
@@ -96,9 +119,9 @@ export default function PortfolioPreview() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="fixed top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2 w-[92%] sm:w-[800px] h-[450px] bg-[#111827] rounded-xl shadow-2xl border border-white/10 overflow-hidden"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md px-2"
           >
-            <div className="relative w-full h-full">
+            <div className="relative w-full h-full sm:h-[70vh] sm:max-w-3xl sm:rounded-xl bg-[#111827] shadow-2xl border border-white/10 overflow-hidden">
               <video
                 src={activeVideo.video}
                 controls
@@ -121,13 +144,14 @@ export default function PortfolioPreview() {
 
       {/* Background Glow */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute w-[500px] h-[500px] top-[-10%] left-[-10%] rounded-full bg-pink-500/10 blur-3xl animate-pulse-slow" />
-        <div className="absolute w-[400px] h-[400px] bottom-[-20%] right-[-5%] rounded-full bg-yellow-400/10 blur-3xl animate-pulse-slow delay-1000" />
+        <div className="absolute w-[500px] h-[500px] top-[-10%] left-[-10%] rounded-full bg-cyan-400/10 blur-3xl animate-pulse-slow" />
+        <div className="absolute w-[400px] h-[400px] bottom-[-20%] right-[-5%] rounded-full bg-pink-500/10 blur-3xl animate-pulse-slow delay-1000" />
       </div>
 
       <style jsx>{`
         @keyframes pulse-slow {
-          0%, 100% {
+          0%,
+          100% {
             transform: scale(1);
             opacity: 0.6;
           }

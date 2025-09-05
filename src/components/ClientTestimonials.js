@@ -1,30 +1,37 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
-    name: 'Rhea Kapoor',
-    company: 'Producer, Filmfare Studios',
+    name: "Amira Hassan",
+    role: "Creative Director",
     quote:
-      'They turned our rough vision into something unforgettable. The pace, the emotion, the vibe — pure gold!',
-    image: '/profile.png',
+      "Working with Surgo felt effortless. They didn’t just deliver a video, they crafted an experience that moved our audience.",
+    image: "/profile1.png",
   },
   {
-    name: 'Kabir Malhotra',
-    company: 'Founder, LuxeDesign Events',
+    name: "Diego Martinez",
+    role: "Entrepreneur",
     quote:
-      'A team that doesn’t just shoot — they *tell stories*. We saw our brand come alive in a way we never imagined.',
-    image: '/profile.png',
+      "Dynamic, bold, and cinematic. Every frame felt alive and true to our story. It was more than production — it was storytelling.",
+    image: "/profile2.png",
   },
   {
-    name: 'Zoya Fernandes',
-    company: 'CMO, NovaWear',
+    name: "Sofia Nguyen",
+    role: "Content Creator",
     quote:
-      'Creative. Professional. On-point. The campaign went viral. What more could I ask for?',
-    image: '/profile.png',
+      "The Surgo team brought so much heart and vision. They made me feel seen as a creator, and the results spoke louder than words.",
+    image: "/profile3.png",
+  },
+  {
+    name: "Marcus Johnson",
+    role: "Event Producer",
+    quote:
+      "The process was transparent, collaborative, and inspiring. The final edit captured the energy of the event like nothing else.",
+    image: "/profile4.png",
   },
 ];
 
@@ -34,54 +41,85 @@ export default function TestimonialsSection() {
   const prev = () =>
     setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
-  const { name, company, quote, image } = testimonials[index];
+  const { name, role, quote, image } = testimonials[index];
 
   return (
-    <section className="relative py-28 bg-black/90 text-white-900 overflow-hidden">
-      <div className="max-w-5xl mx-auto px-6 text-center space-y-8">
-        <h2 className="text-4xl sm:text-5xl font-bold font-[var(--font-audiowide)] tracking-wide">
-          Trusted By Visionaries
+    <section
+      className="relative py-28 px-6 bg-gradient-to-b from-black via-[#0b0b0b] to-black text-white overflow-hidden"
+      aria-label="Client testimonials"
+    >
+      <div className="max-w-5xl mx-auto text-center space-y-12 relative z-10">
+        <h2 className="text-4xl sm:text-5xl font-mozilla font-bold tracking-wide">
+          What People Say About Us
         </h2>
 
         {/* Testimonial Card */}
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -40 }}
-          transition={{ duration: 0.5 }}
-          className="relative rounded-xl bg-white border border-gray-200 p-10 shadow-lg"
-        >
-          <img
-            src={image}
-            alt={name}
-            className="w-20 h-20 rounded-full mx-auto mb-4 object-cover border-2 border-gray-300"
-          />
-          <p className="text-lg italic max-w-2xl mx-auto text-gray-600">“{quote}”</p>
-          <div className="mt-6 text-gray-900 font-semibold">{name}</div>
-          <div className="text-sm text-gray-500">{company}</div>
-        </motion.div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -40 }}
+            transition={{ duration: 0.5 }}
+            className="relative max-w-3xl mx-auto rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 p-10 shadow-lg"
+          >
+            <img
+              src={image}
+              alt={name}
+              className="w-20 h-20 rounded-full mx-auto mb-6 object-cover border-2 border-yellow-400/60 shadow-md"
+            />
+            <p className="text-lg sm:text-xl italic leading-relaxed text-gray-200">
+              “{quote}”
+            </p>
+            <div className="mt-6 text-yellow-400 font-semibold text-lg">
+              {name}
+            </div>
+            <div className="text-sm text-gray-400">{role}</div>
+          </motion.div>
+        </AnimatePresence>
 
         {/* Arrows */}
         <div className="flex justify-center gap-6 mt-6">
           <button
             onClick={prev}
-            className="p-2 bg-gray-200 hover:bg-gray-300 rounded-full transition"
+            className="p-3 bg-white/10 hover:bg-yellow-400 hover:text-black rounded-full transition border border-white/20"
           >
-            <ChevronLeft className="w-5 h-5 text-gray-700" />
+            <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={next}
-            className="p-2 bg-gray-200 hover:bg-gray-300 rounded-full transition"
+            className="p-3 bg-white/10 hover:bg-yellow-400 hover:text-black rounded-full transition border border-white/20"
           >
-            <ChevronRight className="w-5 h-5 text-gray-700" />
+            <ChevronRight className="w-6 h-6" />
           </button>
         </div>
       </div>
 
-      {/* Optional Background Glow (lighter now) */}
-      <div className="absolute w-[500px] h-[500px] top-[20%] left-[10%] bg-purple-300/20 blur-[140px] rounded-full -z-10" />
-      <div className="absolute w-[400px] h-[400px] bottom-[10%] right-[5%] bg-yellow-300/20 blur-[140px] rounded-full -z-10" />
+      {/* Cinematic Glows */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <div className="absolute w-[500px] h-[500px] top-[10%] left-[5%] bg-purple-500/20 blur-[160px] rounded-full animate-pulse-slow" />
+        <div className="absolute w-[400px] h-[400px] bottom-[5%] right-[10%] bg-yellow-500/20 blur-[160px] rounded-full animate-pulse-slow delay-1000" />
+      </div>
+
+      <style jsx>{`
+        @keyframes pulse-slow {
+          0%,
+          100% {
+            transform: scale(1);
+            opacity: 0.6;
+          }
+          50% {
+            transform: scale(1.05);
+            opacity: 0.9;
+          }
+        }
+        .animate-pulse-slow {
+          animation: pulse-slow 10s ease-in-out infinite;
+        }
+        .delay-1000 {
+          animation-delay: 1s;
+        }
+      `}</style>
     </section>
   );
 }
