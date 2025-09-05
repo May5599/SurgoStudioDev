@@ -30,7 +30,7 @@ export default function WhyWorkWithUs() {
 
           <h2
             id="why-work-with-us"
-            className="text-4xl sm:text-5xl font-bold font-[var(--font-audiowide)] leading-tight"
+            className="text-4xl sm:text-5xl font-mozilla font-bold leading-tight"
           >
             Why Work With Us
           </h2>
@@ -54,7 +54,7 @@ export default function WhyWorkWithUs() {
           </ul>
         </motion.div>
 
-        {/* Right Image or Visual */}
+        {/* Right Image */}
         <motion.div
           initial={{ opacity: 0, x: 80 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -64,12 +64,13 @@ export default function WhyWorkWithUs() {
         >
           <div className="relative aspect-[3/2] rounded-xl overflow-hidden border border-white/10 shadow-xl group-hover:scale-105 transition-transform duration-500">
             <Image
-              src="https://res.cloudinary.com/dvqibrc9d/image/upload/v1757015205/whyworkwithus_gflpod.jpg"
-              alt="Team working on creative studio video production setup"
+              src="https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1200/v1757015205/whyworkwithus_gflpod.jpg"
+              alt="Surgo team working on creative studio video production setup"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
               loading="lazy"
+              priority={false}
             />
           </div>
 
@@ -83,7 +84,7 @@ export default function WhyWorkWithUs() {
         </motion.div>
       </div>
 
-      {/* Decorative Gradient Circles */}
+      {/* Decorative Background Circles */}
       <div
         className="absolute top-[10%] left-[-10%] w-[300px] h-[300px] bg-purple-500/10 blur-[160px] rounded-full -z-10"
         aria-hidden="true"

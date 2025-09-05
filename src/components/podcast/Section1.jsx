@@ -119,84 +119,116 @@ function Showcase() {
   const cards = [
     {
       type: "video",
-      src: "https://cdn.coverr.co/videos/coverr-recording-studio-people-adjusting-microphone-7487/1080p.mp4",
-      caption: "Studio grade sound and clean dialog",
+      src: "https://res.cloudinary.com/dvqibrc9d/video/upload/v1757097186/BranchOfficeTrailerv3_f5ejqb.mp4",
+      caption: "Cinematic Sound • Crisp Dialogue",
       alt: "Ottawa podcast studio microphones and recording in progress",
+      layout: "hero",
     },
     {
       type: "image",
-      src: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1600&auto=format&fit=crop",
-      caption: "Multi camera video ready for reels and YouTube",
-      alt: "Multi camera podcast production setup in Ottawa studio",
+      src: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757094344/VAF03189_k7fgbf.jpg",
+      caption: "Behind the Scenes Magic",
+      alt: "Vertical studio shot Ottawa podcast",
+      layout: "tall",
+    },
+    {
+      type: "image",
+      src: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757103107/IMG_6606_siaca8.jpg",
+      caption: "Candid Studio Moments",
+      alt: "Candid podcast studio capture in Ottawa",
+      layout: "wide",
+    },
+    {
+      type: "image",
+      src: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757094340/VAF03010_copy_uxkwrn.jpg",
+      caption: "Cinematic Control Desk",
+      alt: "Horizontal studio desk Ottawa",
+      layout: "wide",
     },
   ];
 
   return (
-    <section id="samples" className="relative w-full bg-[#0F0E0E] py-16 sm:py-24">
+    <section id="samples" className="relative w-full bg-[#0F0E0E] py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-        <motion.h2 id="ottawa-podcast-recording"
-          className="text-balance bg-gradient-to-b from-white to-white/70 bg-clip-text text-3xl font-extrabold uppercase tracking-tight text-transparent sm:text-4xl md:text-5xl"
-          initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.35 }} variants={fadeUp}
+        <motion.h2
+          className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-3xl font-extrabold uppercase tracking-tight text-transparent sm:text-4xl md:text-5xl"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.35 }}
+          variants={fadeUp}
         >
           Professional podcast recording in Ottawa
         </motion.h2>
 
-        <div className="mt-8 grid grid-cols-1 gap-6 sm:mt-10 sm:gap-8 md:grid-cols-2">
-          {cards.map((card, idx) => (
-            <motion.article
-              key={idx}
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/40 shadow-2xl"
-              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className="relative aspect-[16/9] w-full overflow-hidden">
-                {card.type === "video" ? (
-                  <video
-                    src={card.src} autoPlay muted loop playsInline
-                    className="h-full w-full object-cover transition duration-700 will-change-transform group-hover:scale-[1.03]"
-                  />
-                ) : (
-                  <img
-                    src={card.src} alt={card.alt}
-                    className="h-full w-full object-cover transition duration-700 will-change-transform group-hover:scale-[1.03]"
-                    loading="lazy"
-                  />
-                )}
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
-                <motion.div
-                  className="absolute inset-x-0 bottom-0 p-4 sm:p-6" variants={fadeUp}
-                  initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.6 }}
-                >
-                  <p className="text-lg font-semibold text-white sm:text-xl">{card.caption}</p>
-                </motion.div>
-              </div>
-            </motion.article>
-          ))}
+        {/* Responsive grid — no wasted right margin */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[220px] sm:auto-rows-[280px] lg:auto-rows-[320px]">
+          {cards.map((card, idx) => {
+            let colSpan = "col-span-1";
+            let rowSpan = "row-span-1";
 
-          <motion.article
-            className="md:col-span-2 relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/40 shadow-2xl"
-            initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="relative aspect-[21/9] w-full overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?q=80&w=2000&auto=format&fit=crop"
-                alt="Surgo Studio Ottawa podcast control desk and monitors"
-                className="h-full w-full object-cover" loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-black/70" />
-              <div className="absolute inset-0 flex items-center px-6 sm:px-10">
-                <h3 className="text-balance text-2xl font-extrabold uppercase tracking-tight text-white sm:text-4xl md:text-5xl">
-                  Clean recording. Cinematic visuals. Editing and delivery included.
-                </h3>
-              </div>
-            </div>
-          </motion.article>
+            if (card.layout === "hero") {
+              colSpan = "sm:col-span-2 md:col-span-3 lg:col-span-4";
+              rowSpan = "row-span-2";
+            } else if (card.layout === "wide") {
+              colSpan = "sm:col-span-2 md:col-span-2";
+            } else if (card.layout === "tall") {
+              rowSpan = "row-span-2";
+            }
+
+            return (
+              <motion.article
+                key={idx}
+                className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/40 shadow-2xl ${colSpan} ${rowSpan}`}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, delay: idx * 0.08 }}
+              >
+                <div className="relative h-full w-full overflow-hidden">
+                  {card.type === "video" ? (
+                    <video
+                      src={card.src}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.08]"
+                    />
+                  ) : (
+                    <img
+                      src={card.src}
+                      alt={card.alt}
+                      className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.08]"
+                      loading="lazy"
+                    />
+                  )}
+
+                  {/* Gradient overlay for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/70 pointer-events-none" />
+
+                  {/* Catchy captions */}
+                  <motion.div
+                    className="absolute inset-x-0 bottom-0 p-5 sm:p-7"
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.5 }}
+                  >
+                    <p className="text-xl sm:text-2xl font-extrabold tracking-tight bg-gradient-to-r from-pink-400 via-yellow-300 to-purple-400 bg-clip-text text-transparent drop-shadow-lg">
+                      {card.caption}
+                    </p>
+                    <p className="mt-1 text-sm text-white/70">{card.alt}</p>
+                  </motion.div>
+                </div>
+              </motion.article>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
+
 
 // ---------- VALUE: provide, fix, help ----------
  function ValueShowcase() {

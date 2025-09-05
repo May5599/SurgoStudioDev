@@ -1,25 +1,25 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 const steps = [
   {
-    title: 'Step 1: The Spark',
-    desc: 'We sit down with you to understand your brand, vision, and the emotion you want to evoke. This is where the narrative begins.',
+    title: "Step 1: The Spark",
+    desc: "We sit down with you to understand your brand, vision, and the emotion you want to evoke. This is where the narrative begins.",
   },
   {
-    title: 'Step 2: The Script',
-    desc: 'Our team builds hooks, voice, moodboards, and storyboards — shaping your idea into a powerful visual script.',
+    title: "Step 2: The Script",
+    desc: "Our team builds hooks, voice, moodboards, and storyboards — shaping your idea into a powerful visual script.",
   },
   {
-    title: 'Step 3: Lights, Camera, Action',
-    desc: 'From camera rigs to set design — we direct and shoot with precision, style, and cinematic flair.',
+    title: "Step 3: Lights, Camera, Action",
+    desc: "From camera rigs to set design — we direct and shoot with precision, style, and cinematic flair.",
   },
   {
-    title: 'Step 4: Post & Polish',
-    desc: 'We edit, grade, design sound, and finalize every frame until it feels *just right*. Then we deliver for all platforms.',
+    title: "Step 4: Post & Polish",
+    desc: "We edit, grade, design sound, and finalize every frame until it feels *just right*. Then we deliver for all platforms.",
   },
 ];
 
@@ -31,48 +31,69 @@ export default function HowItWorksSection() {
   };
 
   return (
-    <section className="relative py-28 px-6 bg-black/90 text-white overflow-hidden">
-
+    <section
+      className="relative py-28 px-6 bg-black/90 text-white overflow-hidden"
+      aria-labelledby="how-it-works"
+    >
       <div className="max-w-4xl mx-auto text-center space-y-10 relative z-10">
-        <h2 className="text-4xl sm:text-5xl font-bold font-[var(--font-audiowide)] tracking-wide">
+        <h2
+          id="how-it-works"
+          className="text-4xl sm:text-5xl font-mozilla font-bold tracking-wide"
+        >
           How We Bring Your Story to Life
         </h2>
         <p className="text-gray-400 max-w-xl mx-auto">
-          It’s not just a process — it’s a journey. Crafted with vision, told with emotion, finished with style.
+          It’s not just a process — it’s a journey. Crafted with vision, told
+          with emotion, finished with style.
         </p>
 
-        <div className="text-left space-y-4">
-          {steps.map((step, i) => (
-            <div key={i} className="border-b border-white/10 pb-4">
-              <button
-                onClick={() => toggle(i)}
-                className="w-full flex items-center justify-between text-left text-lg sm:text-xl font-semibold text-white hover:text-yellow-300 transition"
+        <dl className="text-left space-y-4">
+          {steps.map((step, i) => {
+            const isOpen = openIndex === i;
+            return (
+              <div
+                key={i}
+                className={`border-b pb-4 ${
+                  isOpen ? "border-yellow-400/40" : "border-white/10"
+                }`}
               >
-                {step.title}
-                {openIndex === i ? (
-                  <ChevronUp className="w-5 h-5" />
-                ) : (
-                  <ChevronDown className="w-5 h-5" />
-                )}
-              </button>
-
-              <AnimatePresence>
-                {openIndex === i && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.4 }}
+                <dt>
+                  <button
+                    onClick={() => toggle(i)}
+                    className="w-full flex items-center justify-between text-left text-lg sm:text-xl font-semibold text-white hover:text-yellow-400 transition"
+                    aria-expanded={isOpen}
+                    aria-controls={`step-panel-${i}`}
+                    id={`step-button-${i}`}
                   >
-                    <p className="text-gray-400 mt-2 text-base sm:text-lg leading-relaxed">
-                      {step.desc}
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
-        </div>
+                    {step.title}
+                    {isOpen ? (
+                      <ChevronUp className="w-5 h-5" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5" />
+                    )}
+                  </button>
+                </dt>
+
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.dd
+                      id={`step-panel-${i}`}
+                      aria-labelledby={`step-button-${i}`}
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <p className="text-gray-400 mt-2 text-base sm:text-lg leading-relaxed">
+                        {step.desc}
+                      </p>
+                    </motion.dd>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </dl>
       </div>
 
       {/* Subtle glowing background */}
@@ -83,7 +104,8 @@ export default function HowItWorksSection() {
 
       <style jsx>{`
         @keyframes pulse-slow {
-          0%, 100% {
+          0%,
+          100% {
             transform: scale(1);
             opacity: 0.6;
           }

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 
-const headingText = " Creative Commentary ";
+const headingText = "Creative Commentary";
 const bodyText = `Every frame we craft tells a deeper story not just what’s seen, but what’s felt.
 
 We blend raw emotion with cinematic vision to evoke memories, moods, and meaning.`;
@@ -27,14 +27,16 @@ export default function CreativeCommentary() {
       let headingIndex = 0;
       let bodyIndex = 0;
 
+      // Typing heading
       const headingInterval = setInterval(() => {
-        setDisplayedHeading((prev) => prev + headingText[headingIndex]);
+        setDisplayedHeading(headingText.slice(0, headingIndex + 1));
         headingIndex++;
         if (headingIndex >= headingText.length) {
           clearInterval(headingInterval);
 
+          // Typing body after heading completes
           const bodyInterval = setInterval(() => {
-            setDisplayedBody((prev) => prev + bodyText[bodyIndex]);
+            setDisplayedBody(bodyText.slice(0, bodyIndex + 1));
             bodyIndex++;
             if (bodyIndex >= bodyText.length) {
               clearInterval(bodyInterval);
@@ -78,10 +80,10 @@ export default function CreativeCommentary() {
         </h2>
 
         <p
-          className="text-lg md:text-2xl leading-relaxed text-Black whitespace-pre-line px-2"
+          className="text-lg md:text-2xl leading-relaxed text-black whitespace-pre-line px-2"
           style={{ fontFamily: "'Special Elite', monospace", minHeight: "200px" }}
         >
-          {displayedBody}s
+          {displayedBody}
           {showCursor && <span className="text-[#0f0761] animate-pulse ml-1">|</span>}
         </p>
       </motion.div>

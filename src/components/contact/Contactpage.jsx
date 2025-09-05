@@ -7,15 +7,16 @@ export default function ContactPage() {
   const pathname = usePathname();
 
   return (
-    <section className="relative min-h-screen bg-black/90 text-white overflow-hidden flex flex-col justify-between pb-52">
+    <section className="relative min-h-screen bg-black/90 text-white overflow-hidden flex flex-col justify-between pb-20 sm:pb-32 md:pb-52">
       {/* Big Poster Typography */}
-      <div className="flex justify-end items-start w-full h-[70vh] pr-6 mt-30">
+      <div className="flex justify-end items-start w-full h-[60vh] sm:h-[70vh] pr-4 sm:pr-6 mt-16 sm:mt-20">
         <motion.h1
           key={pathname} // ensures re-animation after loader/nav
           initial={{ y: -300, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="text-[16vw] font-black leading-[0.9] text-white uppercase tracking-tighter font-mozilla"
+          className="font-black leading-[0.9] text-white uppercase tracking-tighter font-mozilla
+                     text-[14vw] sm:text-[16vw] md:text-[16vw] lg:text-[16vw]"
         >
           Say <br /> Hello <br /> Surgo
         </motion.h1>
@@ -26,7 +27,7 @@ export default function ContactPage() {
         initial={{ opacity: 0, y: 80 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.6 }}
-        className="relative mx-auto w-full max-w-xl px-6 space-y-8 mt-60"
+        className="relative mx-auto w-full max-w-xl px-6 space-y-8 mt-12 sm:mt-24 md:mt-32 lg:mt-60"
       >
         <div>
           <label className="block text-sm uppercase tracking-wide mb-2 text-gray-200 font-rammetto">
