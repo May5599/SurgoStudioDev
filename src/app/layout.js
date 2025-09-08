@@ -9,7 +9,7 @@ import {
   Special_Elite,
 } from "next/font/google";
 import "./globals.css";
-import PreloaderWrapper from "@/components/PreLoader";
+import PreloaderWrapper from "../components/PreLoader";
 
 // Geist Sans (general UI)
 const geistSans = Geist({
@@ -89,6 +89,11 @@ export const metadata = {
       "From reels to commercials to podcasts, Surgo Studios helps Ottawa brands tell cinematic stories and manage social content that connects.",
     url: "https://surgostudios.com",
     siteName: "Surgo Studios",
+    icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
     images: [
       {
         url: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757081567/white-logo_w6xinb.png",

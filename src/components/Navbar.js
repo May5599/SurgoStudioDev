@@ -22,10 +22,10 @@ export default function Navbar() {
 
   const menuItems = [
     { label: "Services", href: "/services" },
-    { label: "Industries", href: "#industries" },
+    // { label: "Industries", href: "#industries" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Podcast", href: "/podcast" },
-    { label: "Blog", href: "#blog" },
+    // { label: "Blog", href: "#blog" },
     { label: "Contact", href: "/contact" },
     { label: "About Us", href: "/about" },
   ];
