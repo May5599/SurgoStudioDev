@@ -9,9 +9,9 @@ const ALL_ITEMS = [
   {
     id: 1,
     title: "Canadian Film Collection",
-    src: "https://res.cloudinary.com/dvqibrc9d/video/upload/v1756916330/12221991_1080_1920_24fps_tpil3a.mp4",
+    src: "https://res.cloudinary.com/duwtym7w7/video/upload/v1757341700/Event_Fashion-TCC_yl6gkk.mov",
     poster:
-      "https://res.cloudinary.com/dvqibrc9d/video/upload/w_600,f_auto,q_auto,so_2/v1756916330/12221991_1080_1920_24fps_tpil3a.jpg",
+      "https://res.cloudinary.com/duwtym7w7/video/upload/w_600,f_auto,q_auto,so_2/v1757341700/Event_Fashion-TCC_yl6gkk.jpg",
     tag: "Features",
   },
   {

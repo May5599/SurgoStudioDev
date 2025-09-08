@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import {
   ChevronLeft,
@@ -25,17 +25,16 @@ const reelsData = [
       "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1200,so_2/v1756914502/reel2_uy1pjd.jpg",
   },
   {
-  title: "Branch Office Trailer",
-  stat: "Fresh Release",
-  quote: "A glimpse into the story.",
-  srcMp4:
-    "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,dpr_auto,w_1920/v1757097186/BranchOfficeTrailerv3_f5ejqb.mp4",
-  srcWebm:
-    "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,dpr_auto,w_1920/v1757097186/BranchOfficeTrailerv3_f5ejqb.webm",
-  poster:
-    "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1200,so_2/v1757097186/BranchOfficeTrailerv3_f5ejqb.jpg",
-},
-
+    title: "Branch Office Trailer",
+    stat: "Fresh Release",
+    quote: "A glimpse into the story.",
+    srcMp4:
+      "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,dpr_auto,w_1920/v1757097186/BranchOfficeTrailerv3_f5ejqb.mp4",
+    srcWebm:
+      "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,dpr_auto,w_1920/v1757097186/BranchOfficeTrailerv3_f5ejqb.webm",
+    poster:
+      "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,dpr_auto,w_1200,so_2/v1757097186/BranchOfficeTrailerv3_f5ejqb.jpg",
+  },
   {
     title: "Vertical Energy",
     stat: "4x engagement",
@@ -45,7 +44,7 @@ const reelsData = [
     srcWebm:
       "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,dpr_auto,w_1920/v1756914498/reel1_ghfwq2.webm",
     poster:
-      "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1200,so_2/v1756914498/reel1_ghfwq2.jpg",
+      "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,dpr_auto,w_1200,so_2/v1756914498/reel1_ghfwq2.jpg",
   },
   {
     title: "Immersive Frames",
@@ -56,7 +55,7 @@ const reelsData = [
     srcWebm:
       "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,dpr_auto,w_1920/v1757094343/website01_bwovoe.webm",
     poster:
-      "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1200,so_2/v1757094343/website01_bwovoe.jpg",
+      "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,dpr_auto,w_1200,so_2/v1757094343/website01_bwovoe.jpg",
   },
   {
     title: "Sequence Impact",
@@ -67,7 +66,7 @@ const reelsData = [
     srcWebm:
       "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,dpr_auto,w_1920/v1757094343/Sequence_09_j6obfh.webm",
     poster:
-      "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1200,so_2/v1757094343/Sequence_09_j6obfh.jpg",
+      "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,dpr_auto,w_1200,so_2/v1757094343/Sequence_09_j6obfh.jpg",
   },
 ];
 
@@ -77,7 +76,7 @@ export default function SurgoReelsShowcase({
   autoPlay = true,
 }) {
   const [current, setCurrent] = useState(0);
-  const [muted, setMuted] = useState(true);
+  const [muted, setMuted] = useState(true); // start muted
   const [playing, setPlaying] = useState(true);
 
   const videoRefHero = useRef(null);
@@ -103,16 +102,30 @@ export default function SurgoReelsShowcase({
     setCurrent((c) => (c + dir + reels.length) % reels.length);
   };
 
+  // apply play/pause + mute/unmute
   useEffect(() => {
     const apply = (ref) => {
       if (!ref?.current) return;
+      ref.current.pause();
+      ref.current.load();
       ref.current.muted = muted;
       if (playing) ref.current.play().catch(() => {});
-      else ref.current.pause();
     };
     apply(videoRefHero);
     apply(videoRefStage);
   }, [muted, playing, current]);
+
+  // auto-unmute on first user interaction
+  useEffect(() => {
+    const handleFirstClick = () => {
+      if (muted) {
+        setMuted(false);
+      }
+      window.removeEventListener("click", handleFirstClick);
+    };
+    window.addEventListener("click", handleFirstClick);
+    return () => window.removeEventListener("click", handleFirstClick);
+  }, [muted]);
 
   return (
     <section
@@ -125,6 +138,7 @@ export default function SurgoReelsShowcase({
         onMouseMove={onMouseMove}
       >
         <video
+          key={current}
           ref={videoRefHero}
           className="h-full w-full object-cover"
           autoPlay={autoPlay}
@@ -176,6 +190,7 @@ export default function SurgoReelsShowcase({
         >
           <div className="aspect-[16/9] w-full bg-black">
             <video
+              key={current}
               ref={videoRefStage}
               className="h-full w-full object-cover"
               autoPlay={autoPlay}
@@ -266,35 +281,6 @@ export default function SurgoReelsShowcase({
           </div>
         </div>
       </div>
-
-      {/* JSON-LD Video Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ItemList",
-            itemListElement: reels.map((r, i) => ({
-              "@type": "VideoObject",
-              position: i + 1,
-              name: r.title,
-              description: r.quote,
-              thumbnailUrl: [r.poster],
-              uploadDate: "2025-09-05",
-              contentUrl: r.srcMp4,
-              embedUrl: "https://surgostudios.com/reels",
-              publisher: {
-                "@type": "Organization",
-                name: "Surgo Studios",
-                logo: {
-                  "@type": "ImageObject",
-                  url: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757081567/white-logo_w6xinb.png",
-                },
-              },
-            })),
-          }),
-        }}
-      />
     </section>
   );
 }
