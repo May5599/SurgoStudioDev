@@ -3,11 +3,11 @@ import HeroSection from "../components/HeroSection";
 import TrustedBySection from "../components/TrustedBySection";
 import ServicesSnapshot from "../components/ServicesSnapshot";
 import PortfolioPreview from "../components/PortfolioPreview";
-import ClientTestimonials from "@/components/ClientTestimonials";
-import HowItWorksSection from "@/components/HowItWorksSection";
-import WhyWorkWithUs from "@/components/WhyWorkWithUs";
+import ClientTestimonials from "../components/ClientTestimonials";
+import HowItWorksSection from "../components/HowItWorksSection";
+import WhyWorkWithUs from "../components/WhyWorkWithUs";
 import Footer from "../components/Footer";
-import PreloaderWrapper from "@/components/PreLoader";
+import PreloaderWrapper from "../components/PreLoader";
 
 export const metadata = {
   title: "Surgo Studios | Ottawa Video Production & Creative Content Agency",

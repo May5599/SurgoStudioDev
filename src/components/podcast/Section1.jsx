@@ -12,8 +12,8 @@ import {
   Timer,
 } from "lucide-react";
 
-import BookCallModal from "@/components/BookCallModal";            // you already have this
-import BookCallSection from "@/components/podcast/BookCallSection"; // from earlier message
+import BookCallModal from "../../components/BookCallModal";            // you already have this
+import BookCallSection from "../../components/podcast/BookCallSection"; // from earlier message
 
 // ---------- Shared animation helpers ----------
 const fadeUp = {

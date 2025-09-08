@@ -1,7 +1,7 @@
 // app/podcast/page.jsx
-import Navbar from "@/components/Navbar";
-import Section1 from "@/components/podcast/Section1";
-import Footer from "@/components/Footer";
+import Navbar from "../../components/Navbar";
+import Section1 from "../../components/podcast/Section1";
+import Footer from "../../components/Footer";
 import Script from "next/script";
 
 // ---------- SEO: App Router Metadata ----------
@@ -19,7 +19,12 @@ export const metadata = {
     locale: "en_CA",
     siteName: "Surgo Studio",
     images: [
-      { url: "https://www.surgo.ca/og/ottawa-podcast-studio.jpg", width: 1200, height: 630 },
+      {
+        url: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757103107/IMG_6606_siaca8.jpg", // ✅ new podcast room photo
+        width: 1200,
+        height: 630,
+        alt: "Surgo Studio - Ottawa Podcast Recording Room",
+      },
     ],
   },
   twitter: {
@@ -27,7 +32,9 @@ export const metadata = {
     title: "Surgo Studio | Ottawa Podcast Recording Studio",
     description:
       "Book a professional podcast studio in Ottawa with everything included.",
-    images: ["https://www.surgo.ca/og/ottawa-podcast-studio.jpg"],
+    images: [
+      "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757103107/IMG_6606_siaca8.jpg", // ✅ same real photo for Twitter
+    ],
   },
 };
 
@@ -44,24 +51,26 @@ export default function PodcastPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Surgo Studio",
-            "url": "https://www.surgo.ca/podcast",
-            "image": "https://www.surgo.ca/og/ottawa-podcast-studio.jpg",
-            "telephone": "+1-xxx-xxx-xxxx",
-            "address": {
+            name: "Surgo Studio",
+            url: "https://www.surgo.ca/podcast",
+            image:
+              "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757103107/IMG_6606_siaca8.jpg",
+            telephone: "+1-xxx-xxx-xxxx",
+            address: {
               "@type": "PostalAddress",
-              "streetAddress": "Your street address",
-              "addressLocality": "Ottawa",
-              "addressRegion": "ON",
-              "postalCode": "K1X XXX",
-              "addressCountry": "CA"
+              streetAddress: "Your street address",
+              addressLocality: "Ottawa",
+              addressRegion: "ON",
+              postalCode: "K1X XXX",
+              addressCountry: "CA",
             },
-            "priceRange": "$$",
-            "description":
-              "Ottawa podcast recording studio with microphones, cameras, an engineer, editing, and distribution."
+            priceRange: "$$",
+            description:
+              "Ottawa podcast recording studio with microphones, cameras, an engineer, editing, and distribution.",
           }),
         }}
       />
+
       {/* Service JSON-LD */}
       <Script
         id="ld-service"
@@ -71,16 +80,17 @@ export default function PodcastPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Podcast recording and production",
-            "provider": { "@type": "LocalBusiness", "name": "Surgo Studio" },
-            "areaServed": { "@type": "City", "name": "Ottawa" },
-            "serviceType": "Podcast studio rental and production",
-            "description":
-              "Book a professional podcast studio in Ottawa. Microphones, cameras, engineer, editing, mastering, and distribution."
+            name: "Podcast recording and production",
+            provider: { "@type": "LocalBusiness", name: "Surgo Studio" },
+            areaServed: { "@type": "City", name: "Ottawa" },
+            serviceType: "Podcast studio rental and production",
+            description:
+              "Book a professional podcast studio in Ottawa. Microphones, cameras, engineer, editing, mastering, and distribution.",
           }),
         }}
       />
-      {/* FAQ JSON-LD (also add an on-page FAQ section later to reinforce this) */}
+
+      {/* FAQ JSON-LD */}
       <Script
         id="ld-faq"
         type="application/ld+json"
@@ -89,36 +99,63 @@ export default function PodcastPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [
+            mainEntity: [
               {
                 "@type": "Question",
-                "name": "Do I need to bring microphones or cameras?",
-                "acceptedAnswer": {
+                name: "Do I need to bring microphones or cameras?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "No. Surgo Studio provides microphones, cameras, lighting, and an engineer."
-                }
+                  text: "No. Surgo Studio provides microphones, cameras, lighting, and an engineer.",
+                },
               },
               {
                 "@type": "Question",
-                "name": "Do you handle editing and distribution?",
-                "acceptedAnswer": {
+                name: "Do you handle editing and distribution?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "Yes. We edit, master, and deliver your podcast with optional artwork and distribution to major platforms."
-                }
+                  text: "Yes. We edit, master, and deliver your podcast with optional artwork and distribution to major platforms.",
+                },
               },
               {
                 "@type": "Question",
-                "name": "Can I book a custom length session?",
-                "acceptedAnswer": {
+                name: "Can I book a custom length session?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "Yes. Sessions and pricing are tailored to your length and overall needs."
-                }
-              }
-            ]
+                  text: "Yes. Sessions and pricing are tailored to your length and overall needs.",
+                },
+              },
+            ],
           }),
         }}
       />
 
+      {/* PodcastSeries JSON-LD (optional if you produce your own episodes) */}
+      <Script
+        id="ld-podcast-series"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "PodcastSeries",
+            name: "Surgo Studios Podcast",
+            description:
+              "Conversations with creators, entrepreneurs, and storytellers from Ottawa and beyond.",
+            url: "https://www.surgo.ca/podcast",
+            publisher: {
+              "@type": "Organization",
+              name: "Surgo Studio",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757103107/IMG_6606_siaca8.jpg",
+              },
+            },
+            inLanguage: "en-CA",
+          }),
+        }}
+      />
+
+      {/* Page UI */}
       <Navbar />
       <Section1 />
       <Footer />
