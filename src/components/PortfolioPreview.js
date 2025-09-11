@@ -1,172 +1,165 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PlayCircle, X } from "lucide-react";
 
 const portfolioItems = [
   {
-    title: "Brand Ad for Nylo",
-    video: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto/v1757080238/demo_hero_ymacfx.mp4",
-    poster: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1920/v1757080238/demo_hero_ymacfx.jpg",
+    title: "DRYP",
+    video: "https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto/v1757613934/DRYP_30_4K_H265_Final_zwxg2r.mp4",
+    poster: "https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto,w_960/v1757613934/DRYP_30_4K_H265_Final_zwxg2r.jpg",
   },
   {
-    title: "Surge Fitness Launch",
-    video: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto/v1757080238/demo_hero_ymacfx.mp4",
-    poster: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1920/v1757080238/demo_hero_ymacfx.jpg",
+    title: "Westmount Capital",
+    video: "https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto/v1757613934/New_Logo_1_e8hhzs.mp4",
+    poster: "https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto,w_960/v1757613934/New_Logo_1_e8hhzs.jpg",
   },
   {
-    title: "Luxury Interiors Teaser",
-    video: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto/v1757080238/demo_hero_ymacfx.mp4",
-    poster: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1920/v1757080238/demo_hero_ymacfx.jpg",
+    title: "The Green Knight",
+    video: "https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto/v1757613937/THE_GREEN_KNIGHT_-__PROMO_5__HERO_16x9_gsscrh.mov",
+    poster: "https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto,w_960/v1757613937/THE_GREEN_KNIGHT_-__PROMO_5__HERO_16x9_gsscrh.jpg",
   },
   {
-    title: "Resort Promo Clip",
-    video: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto/v1757080238/demo_hero_ymacfx.mp4",
-    poster: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1920/v1757080238/demo_hero_ymacfx.jpg",
-  },
-  {
-    title: "Designer Shoes Spot",
-    video: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto/v1757080238/demo_hero_ymacfx.mp4",
-    poster: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1920/v1757080238/demo_hero_ymacfx.jpg",
-  },
-  {
-    title: "Event Highlights Reel",
-    video: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto/v1757080238/demo_hero_ymacfx.mp4",
-    poster: "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1920/v1757080238/demo_hero_ymacfx.jpg",
+    title: "Event Conference",
+    video: "https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto/v1757613934/cut_v1s354.mp4",
+    poster: "https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto,w_960/v1757613934/cut_v1s354.jpg",
   },
 ];
 
 export default function PortfolioPreview() {
   const [activeVideo, setActiveVideo] = useState(null);
+  const videoRefs = useRef([]);
+
+  // Intersection Observer for lazy video loading
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            video.load(); // load only when visible
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    videoRefs.current.forEach((v) => v && observer.observe(v));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
-      className="relative py-28 px-6 bg-black/95 text-white overflow-hidden"
+      className="relative py-20 px-4 sm:px-6 bg-black text-white overflow-hidden"
       aria-label="Portfolio showcase of Surgo Studios"
     >
-      <div className="max-w-7xl mx-auto space-y-16 text-center relative z-10">
+      <div className="max-w-7xl mx-auto space-y-12 text-center relative z-10">
         {/* Heading */}
-        <motion.div
-          initial={{ x: 200, opacity: 0 }}
+        <motion.header
+          initial={{ x: 150, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="space-y-4"
+          className="space-y-3"
         >
-          <h2 className="text-4xl sm:text-5xl font-mozilla font-bold tracking-wide drop-shadow-md">
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight">
             Our Work in Motion
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
-            A cinematic glimpse into the campaigns and stories we’ve shaped.
+          <p className="text-gray-400 text-sm sm:text-lg max-w-2xl mx-auto">
+            Cinematic campaigns and brand stories crafted by Surgo Studios.
           </p>
-        </motion.div>
+        </motion.header>
 
-        {/* Grid - Always 2 cols on mobile */}
+        {/* Grid – 2x2 on desktop, full width on mobile */}
         <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 auto-rows-[1fr] px-2 sm:px-4"
-        >
-          {portfolioItems.map((item, i) => (
-            <motion.div
-              key={i}
-              className="relative group overflow-hidden shadow-[0_20px_60px_-15px_rgba(255,255,255,0.08)] rounded-[25%_8%_35%_12%/15%_35%_25%_8%] bg-[#121212] transition duration-500 hover:scale-[1.02]"
-              whileHover={{ scale: 1.03 }}
-            >
-              <div className="relative w-full aspect-[4/5] overflow-hidden">
-                {/* Video preview */}
-                <video
-                  src={item.video}
-                  poster={item.poster}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-hover:rotate-[0.5deg]"
-                />
+  initial={{ y: 100, opacity: 0 }}
+  whileInView={{ y: 0, opacity: 1 }}
+  transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
+  viewport={{ once: true }}
+  className="grid grid-cols-1 md:grid-cols-2 gap-6 px-2 sm:px-4"
+>
+  {portfolioItems.map((item, i) => (
+    <motion.div
+      key={i}
+      className="relative group overflow-hidden 
+                 shadow-[0_20px_60px_-15px_rgba(255,255,255,0.08)] 
+                 rounded-[25%_8%_35%_12%/15%_35%_25%_8%] 
+                 bg-[#121212] transition duration-500 hover:scale-[1.02]"
+      whileHover={{ scale: 1.03 }}
+    >
+      <div className="relative w-full aspect-video overflow-hidden">
+        {/* Video preview */}
+        <video
+          src={item.video}
+          poster={item.poster}
+          preload="none"
+          muted
+          playsInline
+          loop
+          className="w-full h-full object-cover transition-transform duration-500 
+                     group-hover:scale-105 group-hover:rotate-[0.5deg]"
+        />
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-80" />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/20 opacity-20" />
 
-                {/* Title */}
-                <div className="absolute top-3 left-3 bg-black/70 text-xs sm:text-sm text-white px-3 py-1 rounded-full font-semibold tracking-wide shadow-lg backdrop-blur-sm">
-                  {item.title}
-                </div>
+        {/* Title */}
+        <div className="absolute top-3 left-3 bg-black/70 text-xs sm:text-sm text-white px-3 py-1 
+                        rounded-full font-semibold tracking-wide shadow-lg backdrop-blur-sm">
+          {item.title}
+        </div>
 
-                {/* Play Button */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <button
-                    onClick={() => setActiveVideo(item)}
-                    className="relative z-10 p-3 rounded-full border-2 border-white/30 hover:border-white/70 bg-white/10 backdrop-blur-md transition"
-                  >
-                    <PlayCircle className="w-10 h-10 text-white drop-shadow-md" />
-                    <div className="absolute inset-0 rounded-full border border-white/20 animate-ping" />
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+        {/* Play Button */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <button
+            onClick={() => setActiveVideo(item)}
+            className="relative z-10 p-3 rounded-full border-2 border-white/30 
+                       hover:border-white/70 bg-white/10 backdrop-blur-md transition"
+          >
+            <PlayCircle className="w-10 h-10 text-white drop-shadow-md" />
+            <div className="absolute inset-0 rounded-full border border-white/20 animate-ping" />
+          </button>
+        </div>
+      </div>
+    </motion.div>
+  ))}
+</motion.div>
+
       </div>
 
-      {/* Floating Video Player */}
+      {/* Modal Video Player */}
       <AnimatePresence>
         {activeVideo && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md px-2"
+            exit={{ opacity: 0, scale: 0.95 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 px-2"
           >
-            <div className="relative w-full h-full sm:h-[70vh] sm:max-w-3xl sm:rounded-xl bg-[#111827] shadow-2xl border border-white/10 overflow-hidden">
+            <div className="relative w-full max-w-5xl h-[70vh] rounded-xl overflow-hidden shadow-2xl border border-white/20">
               <video
                 src={activeVideo.video}
                 controls
                 autoPlay
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
               <button
                 onClick={() => setActiveVideo(null)}
-                className="absolute top-2 right-2 p-2 bg-black/50 rounded-full hover:bg-black/70"
+                aria-label="Close video"
+                className="absolute top-3 right-3 p-2 bg-black/60 rounded-full hover:bg-black/80"
               >
-                <X className="text-white w-5 h-5" />
+                <X className="w-6 h-6 text-white" />
               </button>
-              <div className="absolute bottom-2 left-4 text-white font-medium text-sm bg-black/50 px-2 py-1 rounded">
+              <div className="absolute bottom-2 left-3 text-xs sm:text-sm bg-black/60 px-2 py-1 rounded">
                 {activeVideo.title}
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Background Glow */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute w-[500px] h-[500px] top-[-10%] left-[-10%] rounded-full bg-cyan-400/10 blur-3xl animate-pulse-slow" />
-        <div className="absolute w-[400px] h-[400px] bottom-[-20%] right-[-5%] rounded-full bg-pink-500/10 blur-3xl animate-pulse-slow delay-1000" />
-      </div>
-
-      <style jsx>{`
-        @keyframes pulse-slow {
-          0%,
-          100% {
-            transform: scale(1);
-            opacity: 0.6;
-          }
-          50% {
-            transform: scale(1.05);
-            opacity: 0.9;
-          }
-        }
-        .animate-pulse-slow {
-          animation: pulse-slow 10s ease-in-out infinite;
-        }
-        .delay-1000 {
-          animation-delay: 1s;
-        }
-      `}</style>
     </section>
   );
 }

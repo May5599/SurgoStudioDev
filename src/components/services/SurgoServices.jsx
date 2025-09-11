@@ -318,7 +318,7 @@ const DEFAULT_SERVICES = [
     outcome:
       "Locked narrative, creative references, and a day-by-day plan that saves time on set.",
     ctaLabel: "Plan My Shoot",
-    ctaHref: "/contact?topic=preproduction",
+    ctaHref: "/contact",
   },
   {
     title: "Filming & Direction",
@@ -329,7 +329,7 @@ const DEFAULT_SERVICES = [
     help: "We design coverage, block talent, and shape performance so every frame serves the edit.",
     outcome: "A tight shoot that captures exactly what post needs—no bloat, no pickups.",
     ctaLabel: "Book a Crew",
-    ctaHref: "/contact?topic=filming",
+    ctaHref: "/contact",
   },
   {
     title: "Video Production",
@@ -340,7 +340,7 @@ const DEFAULT_SERVICES = [
     help: "We run the pipeline: permits, locations, art, wardrobe, HMU, gear, and set operations.",
     outcome: "A master cut plus platform-native versions ready to launch the same week.",
     ctaLabel: "Produce With Us",
-    ctaHref: "/contact?topic=production",
+    ctaHref: "/contact",
   },
   {
     title: "Creative Direction",
@@ -351,7 +351,7 @@ const DEFAULT_SERVICES = [
     help: "We set tone, palette, typography, motion language, and brand rules that travel across assets.",
     outcome: "A living style kit that keeps every deliverable on-brand and unmistakable.",
     ctaLabel: "Shape the Look",
-    ctaHref: "/contact?topic=creative-direction",
+    ctaHref: "/contact",
   },
   {
     title: "Post Production",
@@ -362,7 +362,7 @@ const DEFAULT_SERVICES = [
     help: "Offline/online edit, motion design, VFX touchups, sound sweetening, and calibrated color.",
     outcome: "A final master with clean OMF/AAF, color-managed exports, and captions on request.",
     ctaLabel: "Start Post",
-    ctaHref: "/contact?topic=post",
+    ctaHref: "/contact",
   },
   {
     title: "Sound Design",
@@ -374,7 +374,7 @@ const DEFAULT_SERVICES = [
     outcome:
       "Broadcast-safe stems and mixes (stereo/5.1) that make your cut feel bigger.",
     ctaLabel: "Polish the Mix",
-    ctaHref: "/contact?topic=sound",
+    ctaHref: "/contact",
   },
   {
     title: "Campaign Launch",
@@ -385,7 +385,7 @@ const DEFAULT_SERVICES = [
     help: "Rollout calendars, cutdown matrix, copy hooks, paid placements, and posting ops.",
     outcome: "A timed multi-asset drop with measurable lift—CTR, VTR, and retention upticks.",
     ctaLabel: "Launch It",
-    ctaHref: "/contact?topic=launch",
+    ctaHref: "/contact",
   },
   {
     title: "Cinematic Edits",
@@ -397,6 +397,6 @@ const DEFAULT_SERVICES = [
     outcome:
       "Hero film + short-form variants that hook in 3s and keep viewers to the end.",
     ctaLabel: "Cut My Story",
-    ctaHref: "/contact?topic=edits",
+    ctaHref: "/contact",
   },
 ];

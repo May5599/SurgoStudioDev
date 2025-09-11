@@ -1,15 +1,15 @@
 import PortfolioHero from '../../components/portfolio/PortfolioHero';
 import Navbar from "../../components/Navbar";
 import ProjectsReel from '../../components/portfolio/ProjectsReel';
-import CreativeCommentary from '../../components/portfolio/CreativeCommentary';
 import ShowcaseGrid from '../../components/portfolio/ShowcaseGrid';
 import ImpactSection from '../../components/portfolio/ImpactSection';
-import TestimonialsSection from '../../components/portfolio/TestimonialsSection';
+// import TestimonialsSection from '../../components/portfolio/TestimonialsSection';
 import TrustedBySection from '../../components/TrustedBySection';
 import CallToActionSection from '../../components/portfolio/CallToActionSection';
 import Footer from '../../components/Footer';
 import SurgoBanner from '../../components/portfolio/SurgoBanner';
 import SurgoReelsShowcase from '../../components/portfolio/SurgoReelsShowcase';
+import SurgoLogo from "../../components/portfolio/SurgoLogo";
 
 export const metadata = {
   title: "Portfolio | Surgo Studios - Ottawa Video Production Company",
@@ -44,9 +44,9 @@ export default function PortfolioPage() {
       <ShowcaseGrid />
       <TrustedBySection />
       <SurgoReelsShowcase />
-      <TestimonialsSection />
-      <ImpactSection />
-      <CreativeCommentary />
+      <ImpactSection/>
+      <SurgoLogo />
+      {/* <TestimonialsSection /> */}
       <CallToActionSection />
       <SurgoBanner />
       <Footer />
