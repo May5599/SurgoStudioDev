@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { FaHeart, FaUserFriends, FaVideo } from "react-icons/fa";
 
 const stats = [
@@ -83,81 +83,39 @@ export default function ImpactSection() {
           </a>
         </div>
 
-        {/* Right: Optimized Phone Mockups */}
+        {/* Right: Single Phone Mockup */}
         <div className="lg:w-1/2 w-full flex justify-center relative">
-          <PhoneMockups />
+          <PhoneMockup />
         </div>
       </div>
     </section>
   );
 }
 
-/* 📱 Phone Mockups Component */
-function PhoneMockups() {
-  const mainRef = useRef(null);
-  const diagRef = useRef(null);
-  const [isMainVisible, setIsMainVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.target === mainRef.current) {
-            setIsMainVisible(entry.isIntersecting);
-          }
-        });
-      },
-      { threshold: 0.5 } // play when 50% visible
-    );
-
-    if (mainRef.current) observer.observe(mainRef.current);
-    return () => observer.disconnect();
-  }, []);
-
+/* 📱 Single Phone Mockup Component */
+/* 📱 Single Phone Mockup Component */
+function PhoneMockup() {
   return (
-    <>
-      {/* Main phone */}
-      <motion.div
-        ref={mainRef}
-        initial={{ opacity: 0, y: 80 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="w-[250px] h-[500px] bg-black rounded-[2.5rem] shadow-2xl overflow-hidden relative border-4 border-gray-800 z-10"
-      >
-       <video
-  src="https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto/v1756916330/12221991_1080_1920_24fps_tpil3a.mp4"
-  autoPlay
-  loop
-  muted
-  playsInline
-  preload="auto"
-  className="w-full h-full object-cover object-top"
-/>
-
-      </motion.div>
-
-      {/* Diagonal overlapping phone */}
-      <motion.div
-        ref={diagRef}
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{ opacity: 0.9, y: 0 }}
-        transition={{ duration: 1, delay: 0.3 }}
-        viewport={{ once: true }}
-        className="w-[230px] h-[480px] bg-black rounded-[2.5rem] shadow-xl overflow-hidden absolute top-16 left-16 rotate-[-12deg] border-4 border-gray-700 z-0"
-      >
-        <video
-  src="https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto/v1756916330/12221991_1080_1920_24fps_tpil3a.mp4"
-  autoPlay
-  loop
-  muted
-  playsInline
-  preload="auto"
-  className="w-full h-full object-cover object-top"
-/>
-
-      </motion.div>
-    </>
+    <motion.div
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="w-[260px] sm:w-[280px] md:w-[300px] lg:w-[340px] h-[520px] 
+                 bg-black rounded-[2.5rem] shadow-2xl overflow-hidden 
+                 relative border-4 border-gray-800"
+    >
+      <video
+        src="https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto,w_720/v1757620080/final_05-_25_8_Architecture_bsjtsz.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        poster="https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto,w_600,so_1/v1757620080/final_05-_25_8_Architecture_bsjtsz.jpg"
+        className="w-full h-full object-cover object-top"
+      />
+    </motion.div>
   );
 }
 
