@@ -4,7 +4,7 @@ import ProjectsReel from '../../components/portfolio/ProjectsReel';
 import ShowcaseGrid from '../../components/portfolio/ShowcaseGrid';
 import ImpactSection from '../../components/portfolio/ImpactSection';
 // import TestimonialsSection from '../../components/portfolio/TestimonialsSection';
-import TrustedBySection from '../../components/TrustedBySection';
+// import TrustedBySection from '../../components/TrustedBySection';
 import CallToActionSection from '../../components/portfolio/CallToActionSection';
 import Footer from '../../components/Footer';
 import SurgoBanner from '../../components/portfolio/SurgoBanner';
@@ -40,15 +40,16 @@ export default function PortfolioPage() {
     <main className="bg-black text-white">
       <Navbar />
       <PortfolioHero />
+      <SurgoBanner />
       <ProjectsReel />
       <ShowcaseGrid />
-      <TrustedBySection />
+      {/* <TrustedBySection /> */}
       <SurgoReelsShowcase />
       <ImpactSection/>
       <SurgoLogo />
       {/* <TestimonialsSection /> */}
       <CallToActionSection />
-      <SurgoBanner />
+      {/* <SurgoBanner /> */}
       <Footer />
     </main>
   );

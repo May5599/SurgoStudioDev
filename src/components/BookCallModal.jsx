@@ -6,7 +6,6 @@ import "react-calendar/dist/Calendar.css";
 import TimePicker from "react-time-picker";
 import "react-time-picker/dist/TimePicker.css";
 
-
 export default function BookCallModal({ isOpen, onClose }) {
   const [date, setDate] = useState(new Date());
   const [time, setTime] = useState("10:00");
@@ -32,7 +31,7 @@ export default function BookCallModal({ isOpen, onClose }) {
           name,
           email,
           message,
-          date: date.toISOString(), // ✅ send ISO string
+          date: date.toISOString(),
           time,
         }),
       });
@@ -42,8 +41,11 @@ export default function BookCallModal({ isOpen, onClose }) {
       setSuccess(true);
       setTimeout(() => {
         onClose();
-        setName(""); setEmail(""); setMessage("");
-        setDate(new Date()); setTime("10:00");
+        setName("");
+        setEmail("");
+        setMessage("");
+        setDate(new Date());
+        setTime("10:00");
         setSuccess(false);
       }, 2000);
     } catch (err) {
@@ -57,20 +59,19 @@ export default function BookCallModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center">
-      <div className="bg-white text-black rounded-2xl p-8 w-full max-w-5xl shadow-2xl relative flex flex-col md:flex-row gap-10 animate-fadeIn">
-
+    <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+      <div className="bg-white text-black rounded-2xl w-full max-w-5xl shadow-2xl relative flex flex-col md:flex-row gap-8 md:gap-10 animate-fadeIn max-h-[90vh] overflow-y-auto">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 text-2xl hover:text-black transition"
+          className="absolute top-3 right-3 text-gray-500 text-2xl hover:text-black transition"
         >
           &times;
         </button>
 
         {/* Left: Calendar + Time Picker */}
-        <div className="md:w-1/2 space-y-6">
-          <h3 className="text-xl font-semibold text-[#0f0a37]">Select Date & Time</h3>
+        <div className="md:w-1/2 w-full p-6 sm:p-8 space-y-6 flex-shrink-0">
+          <h3 className="text-lg sm:text-xl font-semibold text-[#0f0a37]">Select Date & Time</h3>
 
           <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm">
             <Calendar
@@ -89,8 +90,8 @@ export default function BookCallModal({ isOpen, onClose }) {
         </div>
 
         {/* Right: Contact Form */}
-        <div className="md:w-1/2 space-y-4">
-          <h3 className="text-xl font-semibold text-[#0f0a37]">Your Information</h3>
+        <div className="md:w-1/2 w-full p-6 sm:p-8 space-y-4">
+          <h3 className="text-lg sm:text-xl font-semibold text-[#0f0a37]">Your Information</h3>
 
           <input
             type="text"
@@ -98,7 +99,7 @@ export default function BookCallModal({ isOpen, onClose }) {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Full Name"
-            className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0f0a37]"
+            className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0f0a37] text-sm sm:text-base"
           />
 
           <input
@@ -106,14 +107,14 @@ export default function BookCallModal({ isOpen, onClose }) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email Address"
-            className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0f0a37]"
+            className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0f0a37] text-sm sm:text-base"
           />
 
           <textarea
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Tell us about your project..."
-            className="w-full border border-gray-300 px-4 py-3 rounded-lg h-28 resize-none focus:outline-none focus:ring-2 focus:ring-[#0f0a37]"
+            className="w-full border border-gray-300 px-4 py-3 rounded-lg h-28 resize-none focus:outline-none focus:ring-2 focus:ring-[#0f0a37] text-sm sm:text-base"
           />
 
           <button

@@ -8,17 +8,17 @@ import { ChevronLeft, ChevronRight, X, Volume2, VolumeX } from "lucide-react";
 const ALL_ITEMS = [
   {
     id: 1,
-    title: "Canadian Film Collection",
+    title: "Art Collection",
     src: "https://res.cloudinary.com/duwtym7w7/video/upload/v1757341700/Event_Fashion-TCC_yl6gkk.mov",
     poster:
       "https://res.cloudinary.com/duwtym7w7/video/upload/w_600,f_auto,q_auto,so_2/v1757341700/Event_Fashion-TCC_yl6gkk.jpg",
   },
   {
     id: 2,
-    title: "Wheelhouse 3D",
-    src: "https://res.cloudinary.com/duwtym7w7/video/upload/v1757616116/Wheelhouse_3D_pdjdss.mp4",
+    title: "Fitness Dr.Kwadwo",
+    src: "https://res.cloudinary.com/duwtym7w7/video/upload/v1757964382/Tabata_Day_01_hqvguu.mp4",
     poster:
-      "https://res.cloudinary.com/duwtym7w7/video/upload/w_600,f_auto,q_auto,so_2/v1757616116/Wheelhouse_3D_pdjdss.jpg",
+      "https://res.cloudinary.com/duwtym7w7/video/upload/w_600,f_auto,q_auto,so_2/v1757964382/Tabata_Day_01_hqvguu.jpg",
   },
   {
     id: 3,

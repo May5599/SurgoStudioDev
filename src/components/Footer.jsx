@@ -5,26 +5,24 @@ import Image from "next/image";
 import { FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
-  return (
-    <footer className="relative bg-gradient-to-b from-black via-[#0a0a0a] to-black text-gray-300 pt-16 pb-8 px-6 sm:px-12 md:px-20 overflow-hidden">
+  return ( <footer className="relative bg-gradient-to-b from-black via-[#0a0a0a] to-black text-gray-300 pt-16 pb-8 px-6 sm:px-12 md:px-20 overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 border-b border-white/10 pb-12 relative z-10">
         {/* Logo & Tagline */}
-        <div>
+        <div className="text-center sm:text-left">
           <Link href="/" className="inline-block">
             <Image
               src="https://res.cloudinary.com/dvqibrc9d/image/upload/v1757081567/white-logo_w6xinb.png"
               alt="Surgo Studios Logo"
-              width={150}
-              height={50}
-              className="mb-4"
+              width={240}   // 🔥 increased logo size
+              height={80}
+              className="mb-4 w-[240px] sm:w-[280px] md:w-[300px] h-auto mx-auto sm:mx-0"
               priority={false}
             />
           </Link>
-          <p className="text-sm text-gray-400 max-w-xs">
+          <p className="text-sm sm:text-base text-gray-400 max-w-xs mx-auto sm:mx-0">
             Crafting cinematic visual experiences that move, inspire, and leave a lasting impact.
           </p>
         </div>
-
         {/* Quick Links */}
         <div>
           <h2 className="text-white font-mozilla font-bold mb-4 text-lg">
@@ -63,19 +61,10 @@ export default function Footer() {
             <li>
               Email:{" "}
               <a
-                href="mailto:hello@surgostudios.com"
+                href="mailto:Raha@surgomedia.com"
                 className="hover:text-yellow-400 transition"
               >
-                hello@surgostudios.com
-              </a>
-            </li>
-            <li>
-              Phone:{" "}
-              <a
-                href="tel:+11234567890"
-                className="hover:text-yellow-400 transition"
-              >
-                +1 (123) 456-7890
+                Raha@surgomedia.com
               </a>
             </li>
             <li>Ottawa, Canada</li>

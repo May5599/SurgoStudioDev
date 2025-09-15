@@ -17,7 +17,7 @@ const services = [
   {
     title: "Pre-Production",
     icon: ClapperboardIcon,
-    desc: "We handle everything before the camera rolls — concepting, scripting, casting, and planning for impact.",
+    desc: "We handle everything before the camera rolls: concepting, scripting, casting, and planning for impact.",
   },
   {
     title: "Filming & Direction",
@@ -47,7 +47,7 @@ const services = [
   {
     title: "Campaign Launch",
     icon: RocketIcon,
-    desc: "We don’t stop at delivery — we help strategize, schedule, and execute your video rollout across platforms.",
+    desc: "We don’t stop at delivery. We help strategize, schedule, and execute your video rollout across platforms.",
   },
   {
     title: "Cinematic Edits",
@@ -85,7 +85,7 @@ export default function ServicesSnapshotClient() {
         </div>
 
         {/* Grid of Cards */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-2 sm:px-4">
+        <div className="grid gap-6 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 px-2 sm:px-4">
           {services.map((service, i) => {
             const Icon = service.icon;
             const isHovered = hoveredIndex === i;
@@ -113,13 +113,13 @@ export default function ServicesSnapshotClient() {
                 )}
 
                 <div className="mb-4 flex justify-center">
-                  <Icon className="w-10 h-10 text-yellow-400 transition-transform group-hover:rotate-2 group-hover:scale-110" />
+                  <Icon className="w-8 h-8 sm:w-10 sm:h-10 text-yellow-400 transition-transform group-hover:rotate-2 group-hover:scale-110" />
                 </div>
 
-                <h3 className="text-lg font-mozilla font-semibold mb-2">
+                <h3 className="text-base sm:text-lg font-mozilla font-semibold mb-2">
                   {service.title}
                 </h3>
-                <p className="text-sm text-gray-300">{service.desc}</p>
+                <p className="text-xs sm:text-sm text-gray-300">{service.desc}</p>
               </motion.div>
             );
           })}

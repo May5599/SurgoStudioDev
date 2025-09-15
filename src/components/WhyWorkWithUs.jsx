@@ -36,9 +36,7 @@ export default function WhyWorkWithUs() {
           </h2>
 
           <p className="text-gray-300 text-lg max-w-prose">
-            We&apos;re not just editors and shooters. We&apos;re visual
-            strategists who shape emotion, narrative, and brand identity —
-            frame by frame.
+            We’re more than editors and shooters. We’re visual storytellers who craft emotion, narrative, and brand identity, frame by frame.
           </p>
 
           <ul className="space-y-3 mt-6 list-none">

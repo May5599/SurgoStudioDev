@@ -29,9 +29,9 @@ export default function AboutPage() {
   const leadership = [
     {
       name: "Raha",
-      role: "Creative Director",
+      role: "Creative Director and Manager",
       img: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757094295/IMG_7875_copy_zpkjoh.jpg",
-      bio: "Raha leads Surgo’s storytelling approach, ensuring every project reflects clarity, creativity, and emotional impact.",
+      bio: "Raha serves as Surgo’s Creative Director and Manager, leading projects with clarity, creativity, and emotional impact.",
     },
     {
       name: "Vahid",
@@ -57,9 +57,9 @@ export default function AboutPage() {
         </motion.h1>
 
         <p className="max-w-4xl mx-auto text-center text-xl text-gray-600 mb-20 relative z-10">
-          Surgo Studios is a Canadian <strong>video production company</strong>{" "}
-          based in <strong>Ottawa</strong>, trusted by brands across{" "}
-          <strong>Ontario</strong>, <strong>Montreal</strong>, and nationwide.{" "}
+          Surgo Studios is a Canadian video production company{" "}
+          based in Ottawa, trusted by brands across{" "}
+          Ontario, and Canada.{" "}
           We create cinematic stories that inspire trust and captivate
           audiences across Canada.
         </p>
@@ -184,7 +184,7 @@ export default function AboutPage() {
       <section className="px-8 md:px-20">
         <h2 className="text-5xl font-mozilla text-center mb-12">Our Expertise</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center mb-32">
-          {["Technology", "Fashion", "Music", "E-commerce"].map((field, i) => (
+          {["Confrences & Events ", "Fashion", "Music", "E-commerce"].map((field, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -197,9 +197,6 @@ export default function AboutPage() {
               <p className="text-sm text-gray-600 mt-2">
                 Surgo has created memorable campaigns in {field}, partnering
                 with brands across Ottawa, Montreal, and Ontario.{" "}
-                <a href="/portfolio" className="underline">
-                  See our work in {field} →
-                </a>
               </p>
             </motion.div>
           ))}
