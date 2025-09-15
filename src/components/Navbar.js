@@ -22,10 +22,8 @@ export default function Navbar() {
 
   const menuItems = [
     { label: "Services", href: "/services" },
-    // { label: "Industries", href: "#industries" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Podcast", href: "/podcast" },
-    // { label: "Blog", href: "#blog" },
     { label: "Contact", href: "/contact" },
     { label: "About Us", href: "/about" },
   ];
@@ -49,59 +47,60 @@ export default function Navbar() {
       >
         <div className="flex items-center justify-between">
           {/* Logo */}
-         {/* Logo */}
-<Link href="/" className="flex items-center">
-  <div
-    className={`
-      relative h-8 sm:h-10 md:h-12 lg:h-14 
-      ${isScrolled ? "w-28 sm:w-32 md:w-36" : "w-32 sm:w-40 md:w-44 lg:w-48"}
-    `}
-  >
-    <Image
-      src="/white-logo.png"
-      alt="Surgo Studios Logo"
-      fill
-      className="object-contain"
-      priority
-      sizes="(max-width: 768px) 120px, (max-width: 1024px) 160px, 200px"
-    />
-  </div>
-</Link>
+          <Link href="/" className="flex items-center">
+            <div
+              className={`
+                relative h-12 sm:h-14 md:h-16 lg:h-20  // 🔥 larger heights
+                ${
+                  isScrolled
+                    ? "w-36 sm:w-44 md:w-52"
+                    : "w-44 sm:w-56 md:w-64 lg:w-72" // 🔥 larger widths
+                }
+              `}
+            >
+              <Image
+                src={isAboutPage ? "/Dark-Logo.png" : "/white-logo.png"} // 🔥 swap logo on About page
+                alt="Surgo Studios Logo"
+                fill
+                className="object-contain"
+                priority
+                sizes="(max-width: 768px) 200px, (max-width: 1024px) 280px, 340px"
+              />
+            </div>
+          </Link>
 
-{/* Desktop Menu */}
-{/* Desktop Menu */}
-<div className="hidden md:flex items-center space-x-6">
-  <ul
-    className={`flex items-center space-x-6 ${textColor} font-medium tracking-wide uppercase transition-all duration-300
-      ${isScrolled ? "text-sm lg:text-sm" : "text-base lg:text-base"}
-    `}
-  >
-    {menuItems.map(({ label, href }) => (
-      <li key={label} className="relative group cursor-pointer">
-        <a href={href} className="transition hover:text-yellow-400">
-          {label}
-        </a>
-        <span className="absolute bottom-[-5px] left-0 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full" />
-      </li>
-    ))}
-  </ul>
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-6">
+            <ul
+              className={`flex items-center space-x-6 ${textColor} font-medium tracking-wide uppercase transition-all duration-300
+                ${isScrolled ? "text-sm lg:text-sm" : "text-base lg:text-base"}
+              `}
+            >
+              {menuItems.map(({ label, href }) => (
+                <li key={label} className="relative group cursor-pointer">
+                  <a href={href} className="transition hover:text-yellow-400">
+                    {label}
+                  </a>
+                  <span className="absolute bottom-[-5px] left-0 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full" />
+                </li>
+              ))}
+            </ul>
 
-  {/* Book a Call Button */}
-  <button
-    onClick={() => setIsModalOpen(true)}
-    className={`ml-6 bg-yellow-400 text-black font-semibold rounded-full shadow hover:bg-yellow-300 transition-all duration-300
-      flex items-center justify-center
-      ${isScrolled 
-        ? "text-sm px-4 py-1.5" 
-        : "text-base px-5 py-2"
-      }
-    `}
-  >
-    Book a Call
-  </button>
-</div>
-
-
+            {/* Book a Call Button */}
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className={`ml-6 bg-yellow-400 text-black font-semibold rounded-full shadow hover:bg-yellow-300 transition-all duration-300
+                flex items-center justify-center
+                ${
+                  isScrolled
+                    ? "text-sm px-4 py-1.5"
+                    : "text-base px-5 py-2"
+                }
+              `}
+            >
+              Book a Call
+            </button>
+          </div>
 
           {/* Mobile Hamburger */}
           <button
@@ -110,12 +109,32 @@ export default function Navbar() {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             ) : (
-              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 8h16M4 16h16" />
+              <svg
+                className="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 8h16M4 16h16"
+                />
               </svg>
             )}
           </button>
@@ -153,7 +172,10 @@ export default function Navbar() {
       </nav>
 
       {/* Modal */}
-      <BookCallModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <BookCallModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </>
   );
 }

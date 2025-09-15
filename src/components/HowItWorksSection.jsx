@@ -11,17 +11,18 @@ const steps = [
   },
   {
     title: "Step 2: The Script",
-    desc: "Our team builds hooks, voice, moodboards, and storyboards — shaping your idea into a powerful visual script.",
+    desc: "Our team builds hooks, voice, moodboards, and storyboards, shaping your idea into a powerful visual script.",
   },
   {
     title: "Step 3: Lights, Camera, Action",
-    desc: "From camera rigs to set design — we direct and shoot with precision, style, and cinematic flair.",
+    desc: "We capture your story with expert direction, dynamic shots, and world-class cinematography",
   },
   {
     title: "Step 4: Post & Polish",
-    desc: "We edit, grade, design sound, and finalize every frame until it feels *just right*. Then we deliver for all platforms.",
+    desc: "We edit, color-grade, design sound, and refine every frame until it feels perfect,ready to shine across all platforms.",
   },
 ];
+
 
 export default function HowItWorksSection() {
   const [openIndex, setOpenIndex] = useState(null);

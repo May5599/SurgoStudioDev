@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
-import TrustedBySection from "../components/TrustedBySection";
+// import TrustedBySection from "../components/TrustedBySection";
 import ServicesSnapshot from "../components/ServicesSnapshot";
 import PortfolioPreview from "../components/PortfolioPreview";
 import ClientTestimonials from "../components/ClientTestimonials";
@@ -117,7 +117,7 @@ export default function Home() {
       {/* Page Sections */}
       <Navbar />
       <HeroSection />
-      <TrustedBySection />
+      {/* <TrustedBySection /> */}
       <ServicesSnapshot />
       <PortfolioPreview />
       <HowItWorksSection />

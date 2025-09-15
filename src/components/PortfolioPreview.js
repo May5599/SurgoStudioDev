@@ -79,7 +79,7 @@ export default function PortfolioPreview() {
   whileInView={{ y: 0, opacity: 1 }}
   transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
   viewport={{ once: true }}
-  className="grid grid-cols-1 md:grid-cols-2 gap-6 px-2 sm:px-4"
+  className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 sm:gap-6 px-2 sm:px-4"
 >
   {portfolioItems.map((item, i) => (
     <motion.div
@@ -107,7 +107,7 @@ export default function PortfolioPreview() {
         <div className="absolute inset-0 bg-black/20 opacity-20" />
 
         {/* Title */}
-        <div className="absolute top-3 left-3 bg-black/70 text-xs sm:text-sm text-white px-3 py-1 
+        <div className="absolute top-3 left-3 bg-black/70 text-[10px] sm:text-sm text-white px-2 sm:px-3 py-0.5 sm:py-1 
                         rounded-full font-semibold tracking-wide shadow-lg backdrop-blur-sm">
           {item.title}
         </div>
@@ -116,10 +116,10 @@ export default function PortfolioPreview() {
         <div className="absolute inset-0 flex items-center justify-center">
           <button
             onClick={() => setActiveVideo(item)}
-            className="relative z-10 p-3 rounded-full border-2 border-white/30 
+            className="relative z-10 p-2 sm:p-3 rounded-full border-2 border-white/30 
                        hover:border-white/70 bg-white/10 backdrop-blur-md transition"
           >
-            <PlayCircle className="w-10 h-10 text-white drop-shadow-md" />
+            <PlayCircle className="w-8 h-8 sm:w-10 sm:h-10 text-white drop-shadow-md" />
             <div className="absolute inset-0 rounded-full border border-white/20 animate-ping" />
           </button>
         </div>
