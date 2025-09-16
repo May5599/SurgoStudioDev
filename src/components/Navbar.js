@@ -24,8 +24,9 @@ export default function Navbar() {
     { label: "Services", href: "/services" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Podcast", href: "/podcast" },
-    { label: "Contact", href: "/contact" },
+    
     { label: "About Us", href: "/about" },
+    { label: "Contact", href: "/contact" },
   ];
 
   const textColor = isAboutPage
