@@ -156,23 +156,28 @@ useEffect(() => {
 
           {/* Info Overlay */}
           <div className="absolute inset-0 flex items-end pointer-events-none">
-            <div className="w-full p-5 md:p-8 flex items-center justify-between gap-3">
-              <div className="backdrop-blur bg-black/40 rounded-xl px-4 py-3 max-w-[70%]">
-                <p className="text-xs md:text-sm uppercase tracking-widest text-white/70">
-                  {videos[current].title}
-                </p>
-                <p className="text-base md:text-xl lg:text-2xl font-semibold leading-snug">
-                  {videos[current].quote}
-                </p>
-              </div>
-              <div className="backdrop-blur bg-white/10 rounded-xl px-4 py-3 text-right">
-                <p className="text-[10px] md:text-xs text-white/80">Result</p>
-                <p className="text-lg md:text-2xl lg:text-3xl font-bold">
-                  {videos[current].stat}
-                </p>
-              </div>
-            </div>
-          </div>
+  <div className="w-full p-3 sm:p-5 md:p-8 flex items-center justify-between gap-2">
+    
+    {/* Quote Box */}
+    <div className="backdrop-blur bg-black/40 rounded-lg px-3 py-2 w-[70%] sm:w-[75%] md:max-w-[70%]">
+      <p className="text-[10px] sm:text-xs md:text-sm uppercase tracking-widest text-white/70 truncate">
+        {videos[current].title}
+      </p>
+      <p className="text-xs sm:text-sm md:text-lg lg:text-2xl font-semibold leading-snug line-clamp-2">
+        {videos[current].quote}
+      </p>
+    </div>
+
+    {/* Stat Box */}
+    <div className="backdrop-blur bg-white/10 rounded-lg px-3 py-2 text-right shrink-0">
+      <p className="text-[9px] sm:text-[10px] md:text-xs text-white/80">Result</p>
+      <p className="text-base sm:text-lg md:text-2xl lg:text-3xl font-bold">
+        {videos[current].stat}
+      </p>
+    </div>
+  </div>
+</div>
+
 
           {/* Controls */}
           <div className="absolute top-3 right-3 flex gap-2 z-20">
