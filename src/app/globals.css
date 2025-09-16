@@ -93,6 +93,15 @@ html {
   100% { background-position: 300% 50%; }
 }
 
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Optional: brand tint – tweak one or both bright stops for a not‑pure‑white look */
 /*
 .shooting-border {

@@ -31,49 +31,45 @@ export default function AboutPage() {
       name: "Raha",
       role: "Creative Director and Manager",
       img: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757094295/IMG_7875_copy_zpkjoh.jpg",
-      bio: "Raha serves as Surgo’s Creative Director and Manager, leading projects with clarity, creativity, and emotional impact.",
+      bio: " global creative force, she brings tri-lingual expertise and cross-industry experience to every project. Having led campaigns and strategies across continents, she now drives Surgo’s growth—delivering projects with precision and directing videography that defines the company’s creative edge.",
     },
     {
       name: "Vahid",
       role: "Head of Production",
       img: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757094344/VAF03130_B_W_dwq9i1.jpg",
-      bio: "Vahid oversees the production process, bringing Surgo’s creative vision to life with precision and excellence.",
+      bio: "With over a decade of cinematic production experience, Vahid brings creative vision and technical precision to every project. A master of both videography and editing, he has crafted visuals for global brands with a relentless drive for excellence—shaping Surgo’s reputation for world-class video storytelling.",
     },
   ];
 
   return (
     <div className="bg-white text-black">
       {/* HERO */}
-      <section className="relative bg-[#FFFDF6] text-gray-800 px-8 py-32 md:px-20">
-        <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-[#FFFDF6] to-white"></div>
-
+      <section className="relative bg-white text-gray-800 px-8 py-32 md:px-20">
         <motion.h1
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-6xl md:text-8xl font-mozilla text-center mb-12 leading-tight relative z-10"
+          className="text-6xl md:text-8xl font-mozilla text-center mb-12 leading-tight"
         >
           Surgo Studios
         </motion.h1>
 
-        <p className="max-w-4xl mx-auto text-center text-xl text-gray-600 mb-20 relative z-10">
-          Surgo Studios is a Canadian video production company{" "}
-          based in Ottawa, trusted by brands across{" "}
-          Ontario, and Canada.{" "}
-          We create cinematic stories that inspire trust and captivate
-          audiences across Canada.
+        <p className="max-w-4xl mx-auto text-center text-xl text-gray-600 mb-20">
+          Surgo Studios is a Canadian video production company based in Ottawa, 
+          trusted by brands across Ontario and Canada. We create cinematic stories 
+          that inspire trust and captivate audiences nationwide.
         </p>
       </section>
 
       {/* FOUNDERS */}
-      <section className="px-8 py-24 md:px-20">
+      <section className="px-8 py-24 md:px-20 bg-white">
         <h2 className="text-5xl font-mozilla text-center mb-16">
           Founders & Visionaries
         </h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.img
             src="https://res.cloudinary.com/dvqibrc9d/image/upload/v1757010350/VAF02794_copy_fv8vur.jpg"
-            alt="Daniyal Zafar & Sashien Godakandae - Co-Founders of Surgo Studios, Ottawa video production"
+            alt="Daniyal Zafar and Sashien Godakandae, Co-Founders of Surgo Studios in Ottawa"
             loading="lazy"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -89,21 +85,20 @@ export default function AboutPage() {
               Co-Founders
             </p>
             <p className="text-gray-700 text-lg">
-              As co-founders of Surgo Studios, Daniyal Zafar and Sashien
-              Godakandae bring leadership, strategy, and a commitment to
-              building lasting relationships with clients and partners in{" "}
-              <strong>video production across Ottawa and beyond</strong>.
+              As co-founders of Surgo Studios, Daniyal Zafar and Sashien Godakandae 
+              bring leadership, strategy, and a commitment to building lasting 
+              partnerships in <strong>video production across Ottawa and beyond</strong>.
             </p>
           </div>
         </div>
       </section>
 
       {/* LEADERSHIP */}
-      <section className="px-8 md:px-20">
+      <section className="px-8 md:px-20 bg-white">
         <h2 className="text-5xl font-mozilla text-center mb-16">
           Leadership Team
         </h2>
-        <div className="grid sm:grid-cols-2 gap-12 mb-32">
+        <div className="flex md:grid md:grid-cols-2 gap-8 mb-32 overflow-x-auto no-scrollbar">
           {leadership.map((p, i) => (
             <motion.div
               key={i}
@@ -111,11 +106,11 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
-              className="text-center"
+              className="text-center shrink-0 w-[260px] md:w-auto"
             >
               <img
                 src={p.img}
-                alt={`${p.name} - ${p.role} at Surgo Studios, Ottawa video production company`}
+                alt={`${p.name}, ${p.role} at Surgo Studios in Ottawa`}
                 loading="lazy"
                 className="rounded-2xl shadow-lg object-contain w-full aspect-[3/4] mb-6"
               />
@@ -128,19 +123,19 @@ export default function AboutPage() {
       </section>
 
       {/* VALUES */}
-      <section className="px-8 md:px-20">
+      <section className="px-8 md:px-20 bg-white">
         <h2 className="text-5xl font-mozilla text-center mt-32 mb-16">
           Our Values
         </h2>
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10 text-center mb-32">
+        <div className="flex md:grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center mb-32 overflow-x-auto no-scrollbar">
           {[
             {
               title: "Creativity",
-              desc: "Designing cinematic stories that resonate and inspire.",
+              desc: "Crafting cinematic stories that resonate and inspire.",
             },
             {
               title: "Trust",
-              desc: "Collaborating transparently with clients and partners.",
+              desc: "Collaborating openly and building strong partnerships.",
             },
             {
               title: "Innovation",
@@ -148,7 +143,7 @@ export default function AboutPage() {
             },
             {
               title: "Impact",
-              desc: "Crafting content that moves people and builds loyalty.",
+              desc: "Creating content that moves people and builds loyalty.",
             },
           ].map((val, i) => (
             <motion.div
@@ -157,7 +152,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
-              className="space-y-2"
+              className="shrink-0 w-[240px] md:w-auto space-y-2 p-4 border rounded-2xl"
             >
               <h3 className="text-2xl font-bold">{val.title}</h3>
               <p className="text-gray-600">{val.desc}</p>
@@ -167,36 +162,38 @@ export default function AboutPage() {
       </section>
 
       {/* WHY CANADA CHOOSES SURGO */}
-      <section className="px-8 md:px-20">
+      <section className="px-8 md:px-20 bg-white">
         <h2 className="text-5xl font-mozilla text-center mb-12">
           Why Brands Across Canada Choose Surgo
         </h2>
         <p className="max-w-3xl mx-auto text-center text-lg text-gray-700 mb-20">
-          From <strong>Ottawa</strong> to <strong>Montreal</strong>, Surgo
-          Studios has partnered with Canadian businesses to deliver cinematic
-          productions that resonate. Whether it’s a startup in Ontario or an
-          established brand in Quebec, our team understands the cultural and
-          creative pulse of Canada — and we amplify it on screen.
+          Surgo Studios is an Ottawa-based video production company creating cinematic 
+          content that connects with audiences. We work closely with local businesses 
+          in Ottawa while also serving clients nationwide in cities like Montreal, Toronto, 
+          and Vancouver. Our reach also extends into the United States, with projects in 
+          Miami and Los Angeles. Whether you are a small business looking to stand out in 
+          Ottawa or a brand expanding across North America, Surgo Studios delivers 
+          compelling productions designed to inspire, engage, and grow your audience.
         </p>
       </section>
 
       {/* EXPERTISE */}
-      <section className="px-8 md:px-20">
+      <section className="px-8 md:px-20 bg-white">
         <h2 className="text-5xl font-mozilla text-center mb-12">Our Expertise</h2>
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center mb-32">
-          {["Confrences & Events ", "Fashion", "Music", "E-commerce"].map((field, i) => (
+        <div className="flex md:grid md:grid-cols-4 gap-8 text-center mb-32 overflow-x-auto no-scrollbar">
+          {["Conferences & Events", "Fashion", "Music", "E-commerce"].map((field, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
-              className="p-6 border rounded-2xl shadow-sm hover:shadow-lg transition"
+              className="shrink-0 w-[260px] md:w-auto p-6 border rounded-2xl shadow-sm hover:shadow-lg transition"
             >
               <h3 className="text-xl font-bold">{field}</h3>
               <p className="text-sm text-gray-600 mt-2">
-                Surgo has created memorable campaigns in {field}, partnering
-                with brands across Ottawa, Montreal, and Ontario.{" "}
+                Surgo has created memorable campaigns in {field}, partnering 
+                with brands across Ottawa, Montreal, and Ontario.
               </p>
             </motion.div>
           ))}
@@ -204,10 +201,10 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="px-8 md:px-20 text-center mb-50">
+      <section className="px-8 md:px-20 text-center mb-48 bg-white">
         <a
           href="/contact"
-          className="inline-block text-2xl font-bold font-rammetto underline hover:tracking-wider transition mb-30"
+          className="inline-block text-2xl font-bold font-rammetto underline hover:tracking-wider transition"
         >
           Ready to amplify your story? Contact us ➝
         </a>

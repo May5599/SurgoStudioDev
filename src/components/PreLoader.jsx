@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const text = ["SURGO", "STUDIOS"]; // split for stacked look
+const text = ["SURGO", "STUDIOS"];
 
 export default function PreloaderWrapper({ children }) {
   const [loading, setLoading] = useState(true);
@@ -24,25 +24,28 @@ export default function PreloaderWrapper({ children }) {
       <AnimatePresence>
         {loading && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-[#FFFFF0]"
+            className="fixed inset-0 z-50 flex items-center justify-center
+                       bg-neutral-900/90 backdrop-blur-xl border border-white/5"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
           >
+            {/* Big Bold Typography */}
             <div className="text-center leading-none">
               {text.map((word, i) => (
                 <motion.h1
                   key={word}
-                  initial={{ opacity: 0, y: 60 }}
+                  initial={{ opacity: 0, y: 80 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -60 }}
+                  exit={{ opacity: 0, y: -80 }}
                   transition={{
                     duration: 0.9,
                     ease: "easeOut",
-                    delay: i * 0.35, // stagger words
+                    delay: i * 0.35,
                   }}
-                  className="font-mozilla font-extrabold uppercase tracking-tight text-black
-                             text-[16vw] sm:text-[12vw] md:text-[10vw] lg:text-[8vw]"
+                  className="font-extrabold uppercase text-white
+                             text-[20vw] sm:text-[16vw] md:text-[12vw] lg:text-[9vw]
+                             leading-[0.9] tracking-tight"
                 >
                   {word}
                 </motion.h1>

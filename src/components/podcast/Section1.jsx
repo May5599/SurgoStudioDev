@@ -28,7 +28,7 @@ const flyUp    = { hidden: { y:  150, opacity: 0 }, show: { y: 0, opacity: 1, tr
 function HeroCinematic({ onOpenModal }) {
   return (
     <section
-      className="relative min-h-screen w-full flex flex-col items-center justify-center bg-[#0F0E0E] overflow-hidden"
+      className="relative min-h-screen w-full flex flex-col items-center justify-center bg-[#616AEE] overflow-hidden"
       role="region"
       aria-label="Podcast Studio Hero"
     >
@@ -40,8 +40,8 @@ function HeroCinematic({ onOpenModal }) {
         loop
         playsInline
         preload="metadata"
-        poster="https://res.cloudinary.com/duwtym7w7/image/upload/v1757624050/VAF02914_copy_ccdwmd.jpg"
-        src="https://res.cloudinary.com/duwtym7w7/image/upload/v1757624050/VAF02914_copy_ccdwmd.jpg"
+        poster="https://res.cloudinary.com/duwtym7w7/image/upload/v1757622720/VAF03240_fzour5.jpg"
+        src="https://res.cloudinary.com/duwtym7w7/image/upload/v1757622720/VAF03240_fzour5.jpg"
       />
 
       {/* Gradient overlay */}
@@ -292,9 +292,9 @@ function PackagesCTA({ onOpenModal }) {
   ];
 
   const showcaseImages = [
-    "https://res.cloudinary.com/duwtym7w7/image/upload/v1757622720/VAF03240_fzour5.jpg",
+    "https://res.cloudinary.com/duwtym7w7/image/upload/v1758043388/IMG_8219_ysmzfi.heic",
     
-    "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757094340/VAF03010_copy_uxkwrn.jpg",
+    "https://res.cloudinary.com/duwtym7w7/image/upload/v1758043551/IMG_8223_niakkv.jpg",
     "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757103107/IMG_6606_siaca8.jpg",
 
     "https://res.cloudinary.com/duwtym7w7/image/upload/v1757624050/VAF02914_copy_ccdwmd.jpg",
@@ -365,7 +365,7 @@ function PackagesCTA({ onOpenModal }) {
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="relative flex flex-col justify-between rounded-3xl border border-white/10 bg-gradient-to-b from-zinc-900/60 to-zinc-950/90 p-8 shadow-2xl backdrop-blur-sm"
             >
-              <div className="absolute inset-0 opacity-15 [background:radial-gradient(70%_80%_at_50%_-10%,#fff,transparent)]" />
+              <div className="absolute inset-0 opacity-15 [background:radial-gradient(70%_80%_at_50%_-10%,#320A6B,transparent)]" />
               <div className="relative space-y-4">
                 <h3 className="text-2xl sm:text-3xl font-extrabold uppercase text-white">
                   {tier.name}
@@ -402,7 +402,7 @@ function PackagesCTA({ onOpenModal }) {
 export default function PodcastServicePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
-    <main className="bg-[#0F0E0E] text-white">
+    <main className="bg-[#616AEE] text-white">
       <HeroCinematic onOpenModal={() => setIsModalOpen(true)} />
       <Showcase />
       <ValueShowcase />
