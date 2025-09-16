@@ -20,7 +20,7 @@ export default function Footer() {
             />
           </Link>
           <p className="text-sm sm:text-base text-gray-400 max-w-xs mx-auto sm:mx-0">
-            Crafting cinematic visual experiences that move, inspire, and leave a lasting impact.
+            Turning brainstorms into brain-explosions.
           </p>
         </div>
         {/* Quick Links */}
@@ -67,7 +67,7 @@ export default function Footer() {
                 Raha@surgomedia.com
               </a>
             </li>
-            <li>Ottawa, Canada</li>
+            <li>150-Elgin street, K2P 2P8, Ottawa, Canada</li>
           </ul>
         </div>
 

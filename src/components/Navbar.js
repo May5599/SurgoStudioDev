@@ -37,37 +37,35 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out
-          ${
-            isScrolled
-              ? "top-3 left-1/2 w-[94%] max-w-6xl transform -translate-x-1/2 bg-black/70 backdrop-blur-md shadow-lg rounded-full px-4 py-2"
-              : "bg-transparent px-4 py-4"
-          }
-        `}
-      >
+  className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out
+    ${
+      isScrolled
+        ? "md:top-3 md:left-1/2 md:w-[94%] md:max-w-6xl md:transform md:-translate-x-1/2 md:bg-black/70 md:backdrop-blur-md md:shadow-lg md:rounded-full px-4 py-2"
+        : "bg-transparent px-4 py-4"
+    }
+  `}
+>
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <div
-              className={`
-                relative h-12 sm:h-14 md:h-16 lg:h-20  // 🔥 larger heights
-                ${
-                  isScrolled
-                    ? "w-36 sm:w-44 md:w-52"
-                    : "w-44 sm:w-56 md:w-64 lg:w-72" // 🔥 larger widths
-                }
-              `}
-            >
-              <Image
-                src={isAboutPage ? "/Dark-Logo.png" : "/white-logo.png"} // 🔥 swap logo on About page
-                alt="Surgo Studios Logo"
-                fill
-                className="object-contain"
-                priority
-                sizes="(max-width: 768px) 200px, (max-width: 1024px) 280px, 340px"
-              />
-            </div>
-          </Link>
+<Link href="/" className="flex items-start md:items-center">
+  <div
+    className={`
+      relative
+      h-14 sm:h-16 md:h-20 lg:h-24   // 🔥 taller
+      ${isScrolled ? "w-40 sm:w-48 md:w-60" : "w-48 sm:w-60 md:w-72 lg:w-80"} // 🔥 wider
+    `}
+  >
+    <Image
+      src={isAboutPage ? "/Dark-Logo.png" : "/white-logo.png"}
+      alt="Surgo Studios Logo"
+      fill
+      className="object-contain"
+      priority
+      sizes="(max-width: 768px) 220px, (max-width: 1024px) 300px, 380px"
+    />
+  </div>
+</Link>
+
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">

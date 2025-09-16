@@ -10,28 +10,28 @@ const testimonials = [
     role: "Creative Director",
     quote:
       "Working with Surgo felt effortless. They didn’t just deliver a video, they crafted an experience that moved our audience.",
-    image: "/profile1.png",
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
   },
   {
     name: "Diego Martinez",
     role: "Entrepreneur",
     quote:
-      "Dynamic, bold, and cinematic. Every frame felt alive and true to our story. It was more than production — it was storytelling.",
-    image: "/profile2.png",
+      "Dynamic, bold, and cinematic. Every frame felt alive and true to our story. It was more than production, it was storytelling.",
+    image: "https://randomuser.me/api/portraits/men/32.jpg",
   },
   {
     name: "Sofia Nguyen",
     role: "Content Creator",
     quote:
       "The Surgo team brought so much heart and vision. They made me feel seen as a creator, and the results spoke louder than words.",
-    image: "/profile3.png",
+    image: "https://randomuser.me/api/portraits/women/68.jpg",
   },
   {
     name: "Marcus Johnson",
     role: "Event Producer",
     quote:
       "The process was transparent, collaborative, and inspiring. The final edit captured the energy of the event like nothing else.",
-    image: "/profile4.png",
+    image: "https://randomuser.me/api/portraits/men/85.jpg",
   },
 ];
 

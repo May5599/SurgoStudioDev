@@ -14,10 +14,11 @@ export default function WhyWorkWithUs() {
 
   return (
     <section
-      className="relative bg-black/90 text-white py-28 px-6 overflow-hidden"
+      className="relative bg-black/90 text-white py-20 sm:py-28 overflow-hidden"
       aria-labelledby="why-work-with-us"
     >
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
+      {/* Consistent container wrapper */}
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 grid md:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
         {/* Left Text */}
         <motion.div
           initial={{ opacity: 0, x: -80 }}
@@ -30,13 +31,14 @@ export default function WhyWorkWithUs() {
 
           <h2
             id="why-work-with-us"
-            className="text-4xl sm:text-5xl font-mozilla font-bold leading-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-mozilla font-bold leading-tight"
           >
             Why Work With Us
           </h2>
 
-          <p className="text-gray-300 text-lg max-w-prose">
-            We’re more than editors and shooters. We’re visual storytellers who craft emotion, narrative, and brand identity, frame by frame.
+          <p className="text-gray-300 text-base sm:text-lg max-w-prose">
+            We’re more than editors and shooters. We’re visual storytellers who
+            craft emotion, narrative, and brand identity, frame by frame.
           </p>
 
           <ul className="space-y-3 mt-6 list-none">
@@ -46,7 +48,7 @@ export default function WhyWorkWithUs() {
                   className="w-2 h-2 mt-2 bg-yellow-400 rounded-full shrink-0"
                   aria-hidden="true"
                 />
-                <p className="text-white text-base">{point}</p>
+                <p className="text-white text-sm sm:text-base">{point}</p>
               </li>
             ))}
           </ul>
@@ -60,15 +62,14 @@ export default function WhyWorkWithUs() {
           viewport={{ once: true }}
           className="relative group"
         >
-          <div className="relative aspect-[3/2] rounded-xl overflow-hidden border border-white/10 shadow-xl group-hover:scale-105 transition-transform duration-500">
+          <div className="relative aspect-[4/3] sm:aspect-[3/2] rounded-xl overflow-hidden border border-white/10 shadow-xl group-hover:scale-105 transition-transform duration-500">
             <Image
               src="https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1200/v1757015205/whyworkwithus_gflpod.jpg"
               alt="Surgo team working on creative studio video production setup"
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
               loading="lazy"
-              priority={false}
             />
           </div>
 
@@ -77,18 +78,18 @@ export default function WhyWorkWithUs() {
             className="absolute -z-10 inset-0 flex justify-center items-center"
             aria-hidden="true"
           >
-            <div className="w-72 h-72 bg-yellow-400/10 rounded-full blur-[120px]" />
+            <div className="w-56 sm:w-72 h-56 sm:h-72 bg-yellow-400/10 rounded-full blur-[100px] sm:blur-[120px]" />
           </div>
         </motion.div>
       </div>
 
       {/* Decorative Background Circles */}
       <div
-        className="absolute top-[10%] left-[-10%] w-[300px] h-[300px] bg-purple-500/10 blur-[160px] rounded-full -z-10"
+        className="absolute top-[10%] left-[-15%] w-[250px] sm:w-[300px] h-[250px] sm:h-[300px] bg-purple-500/10 blur-[140px] rounded-full -z-10"
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] bg-yellow-500/10 blur-[140px] rounded-full -z-10"
+        className="absolute bottom-[-15%] right-[-10%] w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-yellow-500/10 blur-[120px] sm:blur-[140px] rounded-full -z-10"
         aria-hidden="true"
       />
     </section>

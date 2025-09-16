@@ -8,7 +8,7 @@ export default function ContactPage() {
   useEffect(() => setAnimKey(Date.now()), []);
 
   return (
-    <section className="relative min-h-screen bg-black/90 text-white flex flex-col justify-between pb-20 sm:pb-32 md:pb-52">
+    <section className="relative min-h-screen bg-[#616AEE]/90 text-white flex flex-col justify-between pb-20 sm:pb-32 md:pb-52">
       {/* Big Poster Typography */}
       <div className="flex justify-end items-start w-full h-[60vh] sm:h-[70vh] pr-4 sm:pr-6 mt-16 sm:mt-20 relative">
         <motion.h1
@@ -98,11 +98,7 @@ export default function ContactPage() {
         </button>
       </motion.form>
 
-      {/* Side contact info */}
-      <div className="absolute bottom-10 left-6 text-sm text-gray-400 space-y-2 hidden md:block">
-        <p>info@surgostudios.com</p>
-        <p>+1 (613) 555-1234</p>
-      </div>
+      
     </section>
   );
 }

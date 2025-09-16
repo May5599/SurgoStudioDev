@@ -84,31 +84,20 @@ export default function PortfolioHero() {
 
         {/* Foreground headline */}
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="relative font-extrabold tracking-tight leading-tight 
-                     text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl"
-        >
-          Our Vision{" "}
-          <span className="text-yellow-400 block sm:inline">
-            Through the Lens
-          </span>
-        </motion.h1>
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1, ease: "easeOut" }}
+  className="font-extrabold uppercase tracking-tight leading-[1.05]
+             text-5xl sm:text-6xl md:text-7xl lg:text-8xl max-w-4xl"
+>
+  We Make{" "}
+  <span className="text-yellow-400">Creativity</span>{" "}
+  Contagious.
+</motion.h1>
+
 
         {/* CTA → Scroll to ProjectsReel */}
-        <motion.a
-          href="#projects-reel"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          className="mt-6 sm:mt-10 flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 
-                     bg-white text-black text-base sm:text-lg font-semibold 
-                     rounded-full hover:bg-yellow-400 transition shadow-lg"
-        >
-          <PlayIcon className="w-5 h-5 sm:w-6 sm:h-6" /> Watch Our Showreel
-        </motion.a>
-
+        
         {/* ↓ Scroll Cue */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
