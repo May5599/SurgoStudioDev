@@ -21,6 +21,7 @@ export default function Navbar() {
   }, []);
 
   const menuItems = [
+    { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Podcast", href: "/podcast" },
