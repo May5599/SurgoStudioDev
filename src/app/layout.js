@@ -10,90 +10,53 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import PreloaderWrapper from "../components/PreLoader";
+import Script from "next/script";
 
-// Geist Sans (general UI)
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// Fonts
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const inter = Inter({ variable: "--font-inter", subsets: ["latin"], weight: ["400", "500", "700"] });
+const audiowide = Audiowide({ variable: "--font-audiowide", subsets: ["latin"], weight: "400" });
+const montserrat = Montserrat({ variable: "--font-montserrat", subsets: ["latin"], weight: ["400", "600", "700"] });
+const outfit = Outfit({ variable: "--font-outfit", subsets: ["latin"], weight: ["400", "500", "700"] });
+const nothingYouCouldDo = Nothing_You_Could_Do({ variable: "--font-nothing-you-could-do", subsets: ["latin"], weight: "400" });
+const specialElite = Special_Elite({ variable: "--font-special-elite", subsets: ["latin"], weight: "400" });
 
-// Geist Mono (code, numbers, techy look)
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-// Inter (primary headings + body)
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-});
-
-// Audiowide (futuristic headings / hero)
-const audiowide = Audiowide({
-  variable: "--font-audiowide",
-  subsets: ["latin"],
-  weight: "400",
-});
-
-// Montserrat (secondary headings)
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-});
-
-// Outfit (alternative subheadings / CTA)
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-});
-
-// Decorative (sparingly used)
-const nothingYouCouldDo = Nothing_You_Could_Do({
-  variable: "--font-nothing-you-could-do",
-  subsets: ["latin"],
-  weight: "400",
-});
-
-const specialElite = Special_Elite({
-  variable: "--font-special-elite",
-  subsets: ["latin"],
-  weight: "400",
-});
-
+// Metadata
 export const metadata = {
   title: "Surgo Studios | Ottawa Video Production & Creative Content Agency",
   description:
     "Surgo Studios is an Ottawa-based video production agency creating cinematic reels, ads, commercials, podcasts, and social media content that inspires and engages.",
   keywords: [
     "video production Ottawa",
-    "cinematic video agency",
+    "cinematic video agency Ottawa",
     "commercial video production",
     "corporate video services Ottawa",
-    "reels and short-form content",
-    "Instagram reels production",
-    "TikTok content creation",
+    "reels and short-form content Ottawa",
+    "Instagram reels production Ottawa",
+    "TikTok content creation Ottawa",
     "social media management Ottawa",
-    "creative storytelling agency",
+    "creative storytelling agency Ottawa",
     "podcast production Ottawa",
-    "brand video marketing",
+    "brand video marketing Ottawa",
     "Ottawa content generation",
     "film and media agency Canada",
   ],
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    apple: "/apple-touch-icon.png",
+    other: [{ rel: "manifest", url: "/site.webmanifest" }],
+  },
   openGraph: {
     title: "Surgo Studios | Ottawa Video Production & Content Creation",
     description:
       "From reels to commercials to podcasts, Surgo Studios helps Ottawa brands tell cinematic stories and manage social content that connects.",
     url: "https://surgostudios.com",
     siteName: "Surgo Studios",
-    icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
-  },
     images: [
       {
         url: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757081567/white-logo_w6xinb.png",
@@ -114,27 +77,49 @@ export const metadata = {
       "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757081567/white-logo_w6xinb.png",
     ],
   },
+  alternates: {
+    canonical: "https://surgostudios.com",
+  },
 };
 
+// Layout
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${audiowide.variable} ${montserrat.variable} ${outfit.variable} ${nothingYouCouldDo.variable} ${specialElite.variable} antialiased`}
       >
-        {/* Organization Schema */}
-        <script
+        {/* Organization + LocalBusiness Schema */}
+        <Script
+          id="ld-org-localbusiness"
           type="application/ld+json"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
+              "@type": ["Organization", "LocalBusiness"],
               name: "Surgo Studios",
               url: "https://surgostudios.com",
               logo: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757081567/white-logo_w6xinb.png",
+              image: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757081567/white-logo_w6xinb.png",
+              email: "raha@surgomedia.com",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "150 Elgin Street",
+                addressLocality: "Ottawa",
+                addressRegion: "ON",
+                postalCode: "K2P 2P8",
+                addressCountry: "CA",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: 45.420449194844615,
+                longitude: -75.69341459232902,
+              },
+              openingHours: ["Mo-Fr 09:00-18:00", "Sa 10:00-16:00"],
               contactPoint: {
                 "@type": "ContactPoint",
-                email: "hello@surgostudios.com",
+                email: "raha@surgomedia.com",
                 contactType: "customer service",
                 areaServed: "CA",
                 availableLanguage: "en",
@@ -147,6 +132,7 @@ export default function RootLayout({ children }) {
             }),
           }}
         />
+
         <PreloaderWrapper>{children}</PreloaderWrapper>
       </body>
     </html>
