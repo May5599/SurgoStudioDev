@@ -12,21 +12,18 @@ import PreloaderWrapper from "../components/PreLoader";
 export const metadata = {
   title: "Surgo Studios | Ottawa Video Production & Creative Content Agency",
   description:
-    "Surgo Studios is an Ottawa-based video production agency crafting cinematic reels, ads, commercials, podcasts, and social media content that inspires and engages.",
+    "Surgo Studios is an Ottawa-based video production agency crafting cinematic reels, commercials, podcasts, and social media content that inspires and engages audiences across Canada and the U.S.",
   keywords: [
     "video production Ottawa",
     "cinematic video agency Ottawa",
-    "ad commercial production Ottawa",
-    "corporate video services Ottawa",
-    "reels and short-form content Ottawa",
-    "Instagram reels production Ottawa",
-    "TikTok content creation Ottawa",
-    "social media management Ottawa",
-    "creative storytelling agency Ottawa",
-    "podcast production services Ottawa",
-    "brand video marketing Ottawa",
-    "Ottawa content generation",
-    "film and media agency Canada",
+    "commercial production Ottawa",
+    "corporate video Ottawa",
+    "podcast studio Ottawa",
+    "video podcast Ottawa",
+    "social media reels Ottawa",
+    "TikTok video production Ottawa",
+    "brand storytelling agency Ottawa",
+    "content marketing Ottawa"
   ],
   openGraph: {
     title: "Surgo Studios | Ottawa Video Production & Content Creation",
@@ -49,12 +46,16 @@ export const metadata = {
     card: "summary_large_image",
     title: "Surgo Studios | Ottawa Video Production Agency",
     description:
-      "Ottawa-based creative video agency for reels, ads, commercials, social media, and podcasts.",
+      "Ottawa-based creative video agency for reels, commercials, social media, and podcasts.",
     images: [
       "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1200/v1757081567/white-logo_w6xinb.png",
     ],
   },
+  alternates: {
+    canonical: "https://surgostudios.com",
+  },
 };
+
 
 export default function Home() {
   return (

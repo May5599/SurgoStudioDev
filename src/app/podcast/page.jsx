@@ -1,4 +1,3 @@
-// app/podcast/page.jsx
 import Navbar from "../../components/Navbar";
 import Section1 from "../../components/podcast/Section1";
 import Footer from "../../components/Footer";
@@ -6,34 +5,34 @@ import Script from "next/script";
 
 // ---------- SEO: App Router Metadata ----------
 export const metadata = {
-  title: "Surgo Studio | Ottawa Podcast Recording Studio",
+  title: "Surgo Studios | Ottawa Podcast Recording & Video Podcast Studio",
   description:
-    "Book a professional podcast studio in Ottawa. Surgo Studio provides microphones, cameras, an engineer, editing, and distribution so you can focus on the conversation.",
+    "Record your podcast in Ottawa with Surgo Studios. Our professional podcast recording studio includes microphones, cameras, an engineer, editing, and distribution so you can focus on your conversation.",
   alternates: { canonical: "https://www.surgo.ca/podcast" },
   openGraph: {
-    title: "Surgo Studio | Ottawa Podcast Recording Studio",
+    title: "Surgo Studios | Ottawa Podcast Recording & Video Podcast Studio",
     description:
-      "Book a professional podcast studio in Ottawa with everything included. No gear required. Reserve your session at Surgo Studio.",
+      "Book a professional podcast studio in Ottawa with everything included—microphones, cameras, engineer, editing, and distribution. Reserve your session at Surgo Studios.",
     url: "https://www.surgo.ca/podcast",
-    type: "website",
-    locale: "en_CA",
-    siteName: "Surgo Studio",
+    siteName: "Surgo Studios",
     images: [
       {
-        url: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757103107/IMG_6606_siaca8.jpg", // ✅ new podcast room photo
+        url: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757103107/IMG_6606_siaca8.jpg",
         width: 1200,
         height: 630,
-        alt: "Surgo Studio - Ottawa Podcast Recording Room",
+        alt: "Ottawa Podcast Studio - Surgo Studios Recording Room",
       },
     ],
+    locale: "en_CA",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Surgo Studio | Ottawa Podcast Recording Studio",
+    title: "Surgo Studios | Ottawa Podcast Recording & Video Podcast Studio",
     description:
-      "Book a professional podcast studio in Ottawa with everything included.",
+      "Record your podcast in Ottawa at Surgo Studios. Full service with engineer, editing, and distribution.",
     images: [
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757103107/IMG_6606_siaca8.jpg", // ✅ same real photo for Twitter
+      "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757103107/IMG_6606_siaca8.jpg",
     ],
   },
 };
@@ -51,19 +50,28 @@ export default function PodcastPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            name: "Surgo Studio",
+            name: "Surgo Studios",
             url: "https://www.surgo.ca/podcast",
             image:
               "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757103107/IMG_6606_siaca8.jpg",
-            telephone: "+1-xxx-xxx-xxxx",
+            telephone: "+1-XXX-XXX-XXXX", // add phone later if you want Google Maps ranking
+            email: "raha@surgomedia.com",
             address: {
               "@type": "PostalAddress",
-              streetAddress: "Your street address",
+              streetAddress: "150 Elgin Street",
               addressLocality: "Ottawa",
               addressRegion: "ON",
-              postalCode: "K1X XXX",
-              addressCountry: "CA",
+              postalCode: "K2P 1L4", // official postal for 150 Elgin
+              addressCountry: "Canada",
             },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: "45.4205",
+              longitude: "-75.6920",
+            },
+            hasMap:
+              "https://www.google.com/maps/place/150+Elgin+St,+Ottawa,+ON+K2P+1L4",
+            openingHours: ["Mo-Fr 09:00-18:00", "Sa 10:00-16:00"],
             priceRange: "$$",
             description:
               "Ottawa podcast recording studio with microphones, cameras, an engineer, editing, and distribution.",
@@ -81,7 +89,7 @@ export default function PodcastPage() {
             "@context": "https://schema.org",
             "@type": "Service",
             name: "Podcast recording and production",
-            provider: { "@type": "LocalBusiness", name: "Surgo Studio" },
+            provider: { "@type": "LocalBusiness", name: "Surgo Studios" },
             areaServed: { "@type": "City", name: "Ottawa" },
             serviceType: "Podcast studio rental and production",
             description:
@@ -102,10 +110,10 @@ export default function PodcastPage() {
             mainEntity: [
               {
                 "@type": "Question",
-                name: "Do I need to bring microphones or cameras?",
+                name: "Where can I record a podcast in Ottawa?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "No. Surgo Studio provides microphones, cameras, lighting, and an engineer.",
+                  text: "You can record your podcast at Surgo Studios, located at 150 Elgin Street in downtown Ottawa. We provide microphones, cameras, lighting, and an engineer.",
                 },
               },
               {
@@ -113,15 +121,15 @@ export default function PodcastPage() {
                 name: "Do you handle editing and distribution?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "Yes. We edit, master, and deliver your podcast with optional artwork and distribution to major platforms.",
+                  text: "Yes. We edit, master, and deliver your podcast with optional artwork and distribution to Spotify, Apple Podcasts, and other major platforms.",
                 },
               },
               {
                 "@type": "Question",
-                name: "Can I book a custom length session?",
+                name: "Can I book a video podcast session?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "Yes. Sessions and pricing are tailored to your length and overall needs.",
+                  text: "Absolutely. Surgo Studios offers full video podcast production with multi-camera setups, editing, and short-form clips for social media.",
                 },
               },
             ],
@@ -129,33 +137,6 @@ export default function PodcastPage() {
         }}
       />
 
-      {/* PodcastSeries JSON-LD (optional if you produce your own episodes) */}
-      <Script
-        id="ld-podcast-series"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "PodcastSeries",
-            name: "Surgo Studios Podcast",
-            description:
-              "Conversations with creators, entrepreneurs, and storytellers from Ottawa and beyond.",
-            url: "https://www.surgo.ca/podcast",
-            publisher: {
-              "@type": "Organization",
-              name: "Surgo Studio",
-              logo: {
-                "@type": "ImageObject",
-                url: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757103107/IMG_6606_siaca8.jpg",
-              },
-            },
-            inLanguage: "en-CA",
-          }),
-        }}
-      />
-
-      {/* Page UI */}
       <Navbar />
       <Section1 />
       <Footer />

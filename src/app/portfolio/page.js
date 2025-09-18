@@ -14,26 +14,37 @@ import SurgoLogo from "../../components/portfolio/SurgoLogo";
 export const metadata = {
   title: "Portfolio | Surgo Studios - Ottawa Video Production Company",
   description:
-    "Explore Surgo Studios’ portfolio of cinematic video productions. Based in Ottawa, we create storytelling that inspires audiences and builds trust across Canada.",
+    "Explore Surgo Studios’ portfolio of cinematic video productions. Based in Ottawa, we specialize in brand films, reels, campaigns, and video podcasts for businesses across Canada and the U.S.",
   openGraph: {
     title: "Portfolio | Surgo Studios - Ottawa Video Production Company",
     description:
-      "See Surgo Studios' creative portfolio: reels, brand films, campaigns, and testimonials. Trusted by Canadian businesses for cinematic storytelling.",
-    url: "https://yoursite.com/portfolio",
+      "See Surgo Studios' creative portfolio: brand films, corporate campaigns, reels, and testimonials. Trusted by businesses in Ottawa, Toronto, Montreal, Vancouver, and beyond for cinematic storytelling.",
+    url: "https://www.surgostudios.com/portfolio",
     siteName: "Surgo Studios",
     images: [
       {
-        url: "https://res.cloudinary.com/duwtym7w7/image/upload/v1757345952/Dark-Logo_o0u2xj.png",
+        url: "https://res.cloudinary.com/duwtym7w7/image/upload/f_auto,q_auto/v1757345952/Dark-Logo_o0u2xj.png",
         width: 1200,
         height: 630,
-        alt: "Surgo Studios Logo - Ottawa Video Production Company",
+        alt: "Surgo Studios Portfolio - Ottawa Video Production Company",
       },
     ],
     locale: "en_CA",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Portfolio | Surgo Studios - Ottawa Video Production Company",
+    description:
+      "Explore the Surgo Studios portfolio: cinematic brand films, reels, campaigns, and video podcasts for Canadian and U.S. businesses.",
+    images: [
+      "https://res.cloudinary.com/duwtym7w7/image/upload/f_auto,q_auto/v1757345952/Dark-Logo_o0u2xj.png",
+    ],
+  },
+  alternates: {
+    canonical: "https://www.surgostudios.com/portfolio",
+  },
 };
-
 
 export default function PortfolioPage() {
   return (
@@ -45,7 +56,7 @@ export default function PortfolioPage() {
       <ShowcaseGrid />
       {/* <TrustedBySection /> */}
       <SurgoReelsShowcase />
-      <ImpactSection/>
+      <ImpactSection />
       <SurgoLogo />
       {/* <TestimonialsSection /> */}
       <CallToActionSection />
