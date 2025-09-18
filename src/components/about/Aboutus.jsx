@@ -28,13 +28,13 @@ export const metadata = {
 export default function AboutPage() {
   const leadership = [
     {
-      name: "Raha, MBA",
+      name: "Raha Javidi, MBA",
       role: "Growth Operations Manager",
       img: "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto/v1757094295/IMG_7875_copy_zpkjoh.jpg",
       bio: "A global creative force, Raha brings tri-lingual expertise and cross-industry experience to every project. Having led campaigns across continents, she now drives Surgo’s creative edge, ensuring projects are delivered with clarity, precision, and impact.",
     },
     {
-      name: "Vahid",
+      name: "Vahid Ansari",
       role: "Head of Production",
       img: "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto/v1757094344/VAF03130_B_W_dwq9i1.jpg",
       bio: "With over a decade of cinematic production experience, Vahid combines vision with technical mastery. From global brands to local campaigns, he ensures Surgo delivers world-class visuals and storytelling on every project.",
@@ -75,12 +75,12 @@ export default function AboutPage() {
       transition={{ duration: 0.6 }}
       className="grid md:grid-cols-2 gap-12 items-center"
     >
-      <img
-        src="https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto/v1757010350/VAF02794_copy_fv8vur.jpg"
-        alt="Daniyal Zafar and Sashien Godakandae, Partners of Surgo Studios in Ottawa"
-        loading="lazy"
-        className="rounded-2xl shadow-xl object-cover object-top w-full h-[500px]"
-      />
+   <img
+  src="https://res.cloudinary.com/dvqibrc9d/image/upload/v1757010350/VAF02794_copy_fv8vur.jpg"
+  alt="Daniyal Zafar & Sashien Godakandae - Partners at Surgo Studios"
+  loading="lazy"
+  className="rounded-2xl shadow-xl object-cover object-center w-full aspect-[4/5]"
+/>
       <div className="text-center md:text-left">
         <h3 className="text-3xl font-mozilla mb-2">
           Daniyal Zafar & Sashien Godakandae
@@ -104,19 +104,20 @@ export default function AboutPage() {
       transition={{ duration: 0.6, delay: 0.2 }}
       className="grid md:grid-cols-2 gap-12 items-center"
     >
-      <img
-        src="https://res.cloudinary.com/duwtym7w7/image/upload/f_auto,q_auto/v1758205208/VAF03346_copy-2_a0rq2b.jpg"
-        alt="Carl Anthony, Strategic Advisor at Surgo Studios"
-        loading="lazy"
-        className="rounded-2xl shadow-lg object-cover w-full h-[500px]"
-      />
+<img
+  src="https://res.cloudinary.com/duwtym7w7/image/upload/v1758205208/VAF03346_copy-2_a0rq2b.jpg"
+  alt="Carl Anthony - Strategic Advisor at Surgo Studios"
+  loading="lazy"
+  className="rounded-2xl shadow-xl object-cover object-center w-full aspect-[4/5]"
+/>
+
+
+
       <div className="text-center md:text-left">
         <h3 className="text-3xl font-mozilla mb-2">Carl Anthony</h3>
-        <p className="text-xl font-rammetto text-gray-600 mb-6">Strategic Advisor</p>
+        <p className="text-xl font-rammetto text-gray-600 mb-6">Strategic Advisor, Production & Content</p>
         <p className="text-gray-700 text-lg">
-          Carl provides strategic guidance to Surgo Studios, shaping long-term growth 
-          and partnerships. With deep experience in scaling creative businesses, he 
-          ensures Surgo’s strategies align with both creative ambition and market opportunity.
+          An Emmy Award–winning media professional, Carl has shaped productions for NBCUniversal, CNBC, and NBC Olympics. At Surgo Studios, he brings global broadcast expertise and strategic insight, ensuring the company’s creative vision is supported with excellence and long-term growth.
         </p>
       </div>
     </motion.div>
@@ -193,20 +194,51 @@ export default function AboutPage() {
       </section>
 
       {/* WHY CANADA CHOOSES SURGO */}
-      <section className="px-8 md:px-20 bg-white">
-        <h2 className="text-5xl font-mozilla text-center mb-12">
-          Why Brands Across Canada Choose Surgo
-        </h2>
-        <p className="max-w-3xl mx-auto text-center text-lg text-gray-700 mb-20">
-          Surgo Studios is an Ottawa-based video production company creating cinematic 
-          content that connects with audiences. We work closely with local businesses 
-          in Ottawa while also serving clients nationwide in cities like Montreal, Toronto, 
-          and Vancouver. Our reach also extends into the United States, with projects in 
-          Miami and Los Angeles. Whether you are a small business looking to stand out in 
-          Ottawa or a brand expanding across North America, Surgo Studios delivers 
-          compelling productions designed to inspire, engage, and grow your audience.
-        </p>
-      </section>
+<section className="px-8 md:px-20 py-24 grid md:grid-cols-2 gap-12 items-center bg-gray-50">
+  {/* Text Content */}
+  <div>
+    <h2 className="text-5xl font-mozilla mb-8">
+      Why Brands Across Canada Choose Surgo
+    </h2>
+    <p className="text-lg text-gray-700 leading-relaxed mb-6">
+      Surgo Studios is an Ottawa-based video production company creating cinematic 
+      content that connects with audiences. We work closely with local businesses in 
+      Ottawa while also serving clients nationwide in cities like Montreal, Toronto, 
+      and Vancouver. Our reach also extends into the United States, with projects in 
+      Miami and Los Angeles. Whether you are a small business looking to stand out 
+      or a brand expanding across North America, Surgo Studios delivers compelling 
+      productions designed to inspire, engage, and grow your audience.
+    </p>
+
+    {/* Trust Stats */}
+    <div className="grid grid-cols-3 gap-6 text-center md:text-left">
+      <div>
+        <h3 className="text-3xl font-bold text-black">100+</h3>
+        <p className="text-gray-600">Productions</p>
+      </div>
+      <div>
+        <h3 className="text-3xl font-bold text-black">30+</h3>
+        <p className="text-gray-600">Brands</p>
+      </div>
+      <div>
+        <h3 className="text-3xl font-bold text-black">7+</h3>
+        <p className="text-gray-600">Cities</p>
+      </div>
+    </div>
+  </div>
+
+  {/* Visual */}
+  <div className="flex justify-center items-center">
+    <img
+      src="https://res.cloudinary.com/duwtym7w7/image/upload/v1757345952/Dark-Logo_o0u2xj.png"
+      alt="Surgo Studios team recording a podcast in Ottawa"
+      className="w-full max-w-[500px] rounded-2xl shadow-xl object-cover"
+      loading="lazy"
+    />
+  </div>
+</section>
+
+
 
       {/* EXPERTISE */}
       <section className="px-8 md:px-20 bg-white">
