@@ -83,9 +83,9 @@ export default function AboutPage() {
 />
       <div className="text-center md:text-left">
         <h3 className="text-3xl font-mozilla mb-2">
-          Daniyal Zafar & Sashien Godakumbura, MBA
+          Daniyal Zafar & Sashien Godakandae, MBA
         </h3>
-        <p className="text-xl font-rammetto text-gray-600 mb-6">Partners</p>
+        <p className="text-xl font-rammetto text-gray-600 mb-6">Managing Partners</p>
         <p className="text-gray-700 text-lg">
           Surgo Studios is guided by vision and leadership that balance creativity with strategy. Daniyal brings entrepreneurial drive from scaling businesses across North America, blending technology, marketing, and storytelling. Sashien adds 15+ years of global media and marketing experience, helping startups and Fortune 500 companies build lasting strategies and partnerships. Together, they anchor Surgo with the imagination and discipline that define its identity.
         </p>
@@ -111,9 +111,9 @@ export default function AboutPage() {
 
       <div className="text-center md:text-left">
         <h3 className="text-3xl font-mozilla mb-2">Carl Anthony</h3>
-        <p className="text-xl font-rammetto text-gray-600 mb-6">Strategic Advisor, Production & Content</p>
+        <p className="text-xl font-rammetto text-gray-600 mb-6">Production Advisor</p>
         <p className="text-gray-700 text-lg">
-          An Emmy Award–winning media professional, Carl has shaped productions for NBCUniversal, CNBC, and NBC Olympics. At Surgo Studios, he brings global broadcast expertise and strategic insight, ensuring the company’s creative vision is supported with excellence and long-term growth.
+          An Emmy Award–winning media professional, Carl has shaped productions for NBC Universal, CNBC, and NBC Olympics. At Surgo Studios, he brings global broadcast expertise and strategic insight, ensuring the company’s creative vision is supported with excellence and long-term growth.
         </p>
       </div>
     </motion.div>
