@@ -83,15 +83,11 @@ export default function AboutPage() {
 />
       <div className="text-center md:text-left">
         <h3 className="text-3xl font-mozilla mb-2">
-          Daniyal Zafar & Sashien Godakandae
+          Daniyal Zafar & Sashien Godakumbura, MBA
         </h3>
         <p className="text-xl font-rammetto text-gray-600 mb-6">Partners</p>
         <p className="text-gray-700 text-lg">
-          Daniyal Zafar and Sashien Godakandae are the partners behind Surgo Studios, 
-          an Ottawa video production company trusted for cinematic storytelling. 
-          They work with businesses in Ottawa, Toronto, Montreal, and Vancouver, 
-          while expanding into the U.S. with projects in Miami and Los Angeles—helping 
-          brands create powerful content that inspires and drives growth.
+          Surgo Studios is guided by vision and leadership that balance creativity with strategy. Daniyal brings entrepreneurial drive from scaling businesses across North America, blending technology, marketing, and storytelling. Sashien adds 15+ years of global media and marketing experience, helping startups and Fortune 500 companies build lasting strategies and partnerships. Together, they anchor Surgo with the imagination and discipline that define its identity.
         </p>
       </div>
     </motion.div>
