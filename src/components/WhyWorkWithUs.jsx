@@ -64,7 +64,7 @@ export default function WhyWorkWithUs() {
         >
           <div className="relative aspect-[4/3] sm:aspect-[3/2] rounded-xl overflow-hidden border border-white/10 shadow-xl group-hover:scale-105 transition-transform duration-500">
             <Image
-              src="https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1200/v1757015205/whyworkwithus_gflpod.jpg"
+              src="https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1758309720/whyworkwithus_gflpod_oklwvx.jpg"
               alt="Surgo team working on creative studio video production setup"
               fill
               className="object-cover"

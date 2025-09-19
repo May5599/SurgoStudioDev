@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import { useState, useEffect } from "react";
 import { FaHeart, FaUserFriends, FaVideo } from "react-icons/fa";
+import { MEDIA_BASE } from "../../lib/config";
 
 const stats = [
   {
@@ -61,7 +62,7 @@ export default function ImpactSection() {
             Storytelling that moves. Metrics that matter.
           </p>
 
-          {/* Animated Metric Strips */}
+          {/* ✅ Original stacked metric strips */}
           <div className="mt-6 space-y-3">
             {stats.map(({ icon, label, value, suffix, delay }) => (
               <AnimatedStrip
@@ -76,14 +77,14 @@ export default function ImpactSection() {
           </div>
 
           <a
-            href="#project-reel"
+            href="#projects-reel"
             className="inline-block mt-10 bg-green-400 text-black px-6 py-3 rounded-full text-sm font-semibold hover:scale-105 transition"
           >
             View Our Work
           </a>
         </div>
 
-        {/* Right: Single Phone Mockup */}
+        {/* Right: Phone Mockup */}
         <div className="lg:w-1/2 w-full flex justify-center relative">
           <PhoneMockup />
         </div>
@@ -92,8 +93,7 @@ export default function ImpactSection() {
   );
 }
 
-/* 📱 Single Phone Mockup Component */
-/* 📱 Single Phone Mockup Component */
+/* 📱 Phone Mockup */
 function PhoneMockup() {
   return (
     <motion.div
@@ -106,13 +106,13 @@ function PhoneMockup() {
                  relative border-4 border-gray-800"
     >
       <video
-        src="https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto,w_720/v1757620080/final_05-_25_8_Architecture_bsjtsz.mp4"
+        src={`${MEDIA_BASE}/final_05-_25_8_Architecture_bsjtsz_compressed.mp4`}
         autoPlay
         loop
         muted
         playsInline
         preload="metadata"
-        poster="https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto,w_600,so_1/v1757620080/final_05-_25_8_Architecture_bsjtsz.jpg"
+        poster={`${MEDIA_BASE}/final_05-_25_8_Architecture_bsjtsz_poster.jpg`}
         className="w-full h-full object-cover object-top"
       />
     </motion.div>
@@ -138,7 +138,7 @@ function AnimatedStrip({ icon, label, value, suffix, delay }) {
       transition={{ duration: 0.8, delay }}
       viewport={{ once: true }}
       onViewportEnter={() => setStartCount(true)}
-      className={`flex items-center w-full border-l-4 border-green-400 pl-4 pr-6 py-3 bg-[#1c1b3d] ${
+      className={`flex items-center w-full border-2 border-green-400 rounded-md pl-4 pr-6 py-4 bg-[#0c0c1f] ${
         animatePulse ? "ring-2 ring-green-400 ring-opacity-30" : ""
       }`}
     >

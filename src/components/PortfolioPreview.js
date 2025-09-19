@@ -4,29 +4,30 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PlayCircle, X } from "lucide-react";
 
+import { MEDIA_BASE } from "../lib/config";
+
 const portfolioItems = [
   {
     title: "DRYP",
-    video: "https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto/v1757613934/DRYP_30_4K_H265_Final_zwxg2r.mp4",
-    poster: "https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto,w_960/v1757613934/DRYP_30_4K_H265_Final_zwxg2r.jpg",
+    video: `${MEDIA_BASE}/DRYP_30_4K_H265_Final_zwxg2r_compressed.mp4`,
+    poster: `${MEDIA_BASE}/DRYP_30_4K_H265_Final_zwxg2r_poster.jpg`,
   },
   {
     title: "Westmount Capital",
-    video: "https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto/v1757613934/New_Logo_1_e8hhzs.mp4",
-    poster: "https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto,w_960/v1757613934/New_Logo_1_e8hhzs.jpg",
+    video: `${MEDIA_BASE}/New_Logo_1_e8hhzs_compressed.mp4`,
+    poster: `${MEDIA_BASE}/New_Logo_1_e8hhzs_poster.jpg`,
   },
   {
     title: "The Green Knight",
-    video: "https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto/v1757613937/THE_GREEN_KNIGHT_-__PROMO_5__HERO_16x9_gsscrh.mov",
-    poster: "https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto,w_960/v1757613937/THE_GREEN_KNIGHT_-__PROMO_5__HERO_16x9_gsscrh.jpg",
+    video: `${MEDIA_BASE}/Storytelling_Example_3_zawxk1_compressed.mp4`,
+    poster: `${MEDIA_BASE}/Storytelling_Example_3_zawxk1_poster.jpg`,
   },
   {
     title: "Event Conference",
-    video: "https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto/v1757613934/cut_v1s354.mp4",
-    poster: "https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto,w_960/v1757613934/cut_v1s354.jpg",
+    video: `${MEDIA_BASE}/cut_v1s354_compressed.mp4`,
+    poster: `${MEDIA_BASE}/cut_v1s354_poster.jpg`,
   },
 ];
-
 export default function PortfolioPreview() {
   const [activeVideo, setActiveVideo] = useState(null);
   const videoRefs = useRef([]);
@@ -99,6 +100,7 @@ export default function PortfolioPreview() {
           muted
           playsInline
           loop
+          loading="lazy"
           className="w-full h-full object-cover transition-transform duration-500 
                      group-hover:scale-105 group-hover:rotate-[0.5deg]"
         />

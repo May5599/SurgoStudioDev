@@ -312,7 +312,7 @@ const DEFAULT_SERVICES = [
     title: "Pre-Production",
     icon: ClapperboardIcon,
     image:
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1200/v1757082735/serv1_jexilu.jpg",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1758309720/serv1_jexilu_mwdkwc.jpg",
     desc: "Concepting, scripting, casting, and a plan built for impact.",
     help: "We turn loose ideas into a production-ready blueprint—script, boards, schedule, crew.",
     outcome:
@@ -324,7 +324,7 @@ const DEFAULT_SERVICES = [
     title: "Filming & Direction",
     icon: CameraIcon,
     image:
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1200/v1757082736/serv3_x41bmj.jpg",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1758309720/serv3_x41bmj_ufnzc9.jpg",
     desc: "Directors, crew, and light working as one.",
     help: "We design coverage, block talent, and shape performance so every frame serves the edit.",
     outcome: "A tight shoot that captures exactly what post needs—no bloat, no pickups.",
@@ -335,7 +335,7 @@ const DEFAULT_SERVICES = [
     title: "Video Production",
     icon: VideoIcon,
     image:
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1200/v1757082735/serv2_lix5lg.jpg",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1758309720/serv2_lix5lg_uvi2ra.jpg",
     desc: "End-to-end production with studio polish.",
     help: "We run the pipeline: permits, locations, art, wardrobe, HMU, gear, and set operations.",
     outcome: "A master cut plus platform-native versions ready to launch the same week.",
@@ -346,7 +346,7 @@ const DEFAULT_SERVICES = [
     title: "Creative Direction",
     icon: PencilIcon,
     image:
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1200/v1757082736/serv3_x41bmj.jpg",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1758309720/serv4_py1ftl_wv2nv6.jpg",
     desc: "Define the look. Amplify the feeling.",
     help: "We set tone, palette, typography, motion language, and brand rules that travel across assets.",
     outcome: "A living style kit that keeps every deliverable on-brand and unmistakable.",
@@ -357,7 +357,7 @@ const DEFAULT_SERVICES = [
     title: "Post Production",
     icon: ScissorsIcon,
     image:
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1200/v1757082736/serv6_ymc23t.jpg",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1758309720/serv6_ymc23t_i0ezaq.jpg",
     desc: "Editing, graphics, color—rhythm that lands the story.",
     help: "Offline/online edit, motion design, VFX touchups, sound sweetening, and calibrated color.",
     outcome: "A final master with clean OMF/AAF, color-managed exports, and captions on request.",
@@ -368,7 +368,7 @@ const DEFAULT_SERVICES = [
     title: "Sound Design",
     icon: AudioLinesIcon,
     image:
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1200/v1757082944/serv5_j4rxge.jpg",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1758309720/serv5_j4rxge_eiw6wd.jpg",
     desc: "Voice, score, and texture that carry emotion.",
     help: "Casting VO, custom cues, SFX beds, dialogue cleanup, and precise mix for each platform.",
     outcome:
@@ -380,7 +380,7 @@ const DEFAULT_SERVICES = [
     title: "Campaign Launch",
     icon: RocketIcon,
     image:
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1200/v1757082736/serv4_py1ftl.jpg",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1758309720/serv7_ohrpdg_ywxcjc.jpg",
     desc: "Release strategy that builds momentum.",
     help: "Rollout calendars, cutdown matrix, copy hooks, paid placements, and posting ops.",
     outcome: "A timed multi-asset drop with measurable lift—CTR, VTR, and retention upticks.",
@@ -391,7 +391,7 @@ const DEFAULT_SERVICES = [
     title: "Cinematic Edits",
     icon: FilmIcon,
     image:
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1200/v1757082737/serv8_wdh3bd.jpg",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1758309720/serv8_wdh3bd_h9ridj.jpg",
     desc: "Story-driven cuts that hold attention.",
     help: "We restructure footage for tension and payoff; micro-beats tuned for scroll stoppage.",
     outcome:

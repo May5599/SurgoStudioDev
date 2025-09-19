@@ -14,7 +14,7 @@ export const metadata = {
     siteName: "Surgo Studios",
     images: [
       {
-        url: "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto/v1757010350/VAF02794_copy_fv8vur.jpg",
+        url: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto/v1757010350/VAF02794_copy_fv8vur.jpg",
         width: 1200,
         height: 630,
         alt: "Ottawa Podcast Studio - Surgo Studios",
@@ -29,7 +29,7 @@ export const metadata = {
     description:
       "Book your podcast session in Ottawa with Surgo Studios. We offer podcast recording, video podcast production, editing, and distribution for creators and businesses.",
     images: [
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto/v1757010350/VAF02794_copy_fv8vur.jpg",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto/v1757010350/VAF02794_copy_fv8vur.jpg",
     ],
   },
   alternates: {
@@ -43,9 +43,9 @@ export default function Contact() {
     "@type": "LocalBusiness",
     name: "Surgo Studios",
     url: "https://www.surgostudios.com",
-    logo: "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto/v1757010350/VAF02794_copy_fv8vur.jpg",
+    logo: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto/v1757010350/VAF02794_copy_fv8vur.jpg",
     image:
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto/v1757010350/VAF02794_copy_fv8vur.jpg",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto/v1757010350/VAF02794_copy_fv8vur.jpg",
     description:
       "Surgo Studios is Ottawa’s leading podcast studio and video production company. We help creators, entrepreneurs, and businesses record, produce, and launch professional podcasts with cinematic quality.",
     address: {
