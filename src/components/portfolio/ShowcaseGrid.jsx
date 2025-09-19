@@ -10,42 +10,42 @@ const showcaseItems = [
     description:
       "Long-form storytelling that captures your brand’s vision, crafted to inspire and build emotional resonance.",
     image:
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1600/v1757093756/pexels-ekam-juneja-61080223-28867101_vqd4ew.jpg",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1600/v1757093756/pexels-ekam-juneja-61080223-28867101_vqd4ew_e9ez84.jpg",
   },
   {
     title: "Podcasts & Talk Shows",
     description:
       "End-to-end podcast production with pro audio, multi-cam video, editing, and distribution-ready assets.",
     image:
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1600/v1757094339/VAF02914_copy_lshzoq.jpg",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1600/v1758309720/VAF03225_wwpzws_odm81l.jpg",
   },
   {
     title: "Launch & Promo Videos",
     description:
       "High-energy promos and launch videos designed to grab attention, build hype, and fuel conversions.",
     image:
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1600/v1757086218/pexels-kyleloftusstudios-11745675_p3zmhz.jpg",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1600/v1758309717/pexels-kyleloftusstudios-11745675_p3zmhz_m3d6vd.jpg",
   },
   {
     title: "Social Media Edits",
     description:
       "Short-form vertical content engineered for TikTok, Instagram Reels, and YouTube Shorts that stops the scroll.",
     image:
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1600/v1757094337/pexels-rccbtn-15406294_iqapsc.jpg",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1600/v1758309717//pexels-rccbtn-15406294_iqapsc_kqootr.jpg",
   },
   {
     title: "Ad Spots & Commercials",
     description:
       "Performance-focused ads for TV and digital platforms. Crisp visuals and hooks tailored to convert.",
     image:
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1600/v1757094295/pexels-anntarazevich-7466999_ym5yr3.jpg",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1600/v1758309718/pexels-anntarazevich-7466999_ym5yr3_rxu9mn.jpg",
   },
   {
     title: "Event Highlights",
     description:
       "Immersive recap videos for conferences, festivals, and brand activations—capturing energy and moments that matter.",
     image:
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1600/v1757094298/pexels-bertellifotografia-2608513_juejb0.jpg",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1600/v1758309718/pexels-bertellifotografia-2608513_juejb0_mw3lty.jpg",
   },
 ];
 

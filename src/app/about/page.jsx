@@ -14,7 +14,7 @@ export const metadata = {
     siteName: "Surgo Studios",
     images: [
       {
-        url: "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto/v1757010350/VAF02794_copy_fv8vur.jpg",
+        url: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto/v1757010350/VAF02794_copy_fv8vur.jpg",
         width: 1200,
         height: 630,
         alt: "Surgo Studios Partners and Leadership Team",
@@ -29,7 +29,7 @@ export const metadata = {
     description:
       "Meet the partners and leadership team of Surgo Studios, Ottawa’s trusted video production company for cinematic storytelling across Canada and the U.S.",
     images: [
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto/v1757010350/VAF02794_copy_fv8vur.jpg",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto/v1757010350/VAF02794_copy_fv8vur.jpg",
     ],
   },
   alternates: {
@@ -43,7 +43,7 @@ export default function AboutPage() {
     "@type": "Organization",
     name: "Surgo Studios",
     url: "https://www.surgostudios.com",
-    logo: "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto/v1757010350/VAF02794_copy_fv8vur.jpg",
+    logo: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto/v1757010350/VAF02794_copy_fv8vur.jpg",
     description:
       "Surgo Studios is an Ottawa-based video production company specializing in cinematic storytelling for brands across Canada and the U.S.",
     foundingLocation: {

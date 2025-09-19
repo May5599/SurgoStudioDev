@@ -33,7 +33,7 @@ export const metadata = {
     siteName: "Surgo Studios",
     images: [
       {
-        url: "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1200/v1757081567/white-logo_w6xinb.png",
+        url: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757081567/white-logo_w6xinb.png",
         width: 1200,
         height: 630,
         alt: "Surgo Studios - Video Production Agency Ottawa",
@@ -48,7 +48,7 @@ export const metadata = {
     description:
       "Ottawa-based creative video agency for reels, commercials, social media, and podcasts.",
     images: [
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1200/v1757081567/white-logo_w6xinb.png",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757081567/white-logo_w6xinb.png",
     ],
   },
   alternates: {
@@ -69,7 +69,7 @@ export default function Home() {
             "@type": "Organization",
             name: "Surgo Studios",
             url: "https://surgostudios.com",
-            logo: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757081567/white-logo_w6xinb.png",
+            logo: "https://res.cloudinary.com/drt92o4ye/image/upload/v1757081567/white-logo_w6xinb.png",
             contactPoint: {
               "@type": "ContactPoint",
               email: "hello@surgostudios.com",
@@ -96,18 +96,18 @@ export default function Home() {
       description:
         "Cinematic brand stories, ad commercials, social media reels, and podcasts by Surgo Studios in Ottawa, Canada.",
       thumbnailUrl: [
-        "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1200/v1757081567/white-logo_w6xinb.png"
+        "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757081567/white-logo_w6xinb.png"
       ], // ideally replace with an actual still frame from your video
       uploadDate: "2025-09-05",
       contentUrl:
-        "https://res.cloudinary.com/dvqibrc9d/video/upload/v1757080238/demo_hero_ymacfx.mp4", // ✅ your real Cloudinary video
+        "https://res.cloudinary.com/drt92o4ye/video/upload/v1757080238/demo_hero_ymacfx.mp4", // ✅ your real Cloudinary video
       embedUrl: "https://surgostudios.com#reel",
       publisher: {
         "@type": "Organization",
         name: "Surgo Studios",
         logo: {
           "@type": "ImageObject",
-          url: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757081567/white-logo_w6xinb.png"
+          url: "https://res.cloudinary.com/drt92o4ye/image/upload/v1757081567/white-logo_w6xinb.png"
         }
       }
     })

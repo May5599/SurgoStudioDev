@@ -17,7 +17,7 @@ export const metadata = {
     siteName: "Surgo Studios",
     images: [
       {
-        url: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757103107/IMG_6606_siaca8.jpg",
+        url: "https://res.cloudinary.com/drt92o4ye/image/upload/v1757103107/IMG_6606_siaca8.jpg",
         width: 1200,
         height: 630,
         alt: "Ottawa Podcast Studio - Surgo Studios Recording Room",
@@ -32,7 +32,7 @@ export const metadata = {
     description:
       "Record your podcast in Ottawa at Surgo Studios. Full service with engineer, editing, and distribution.",
     images: [
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757103107/IMG_6606_siaca8.jpg",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/v1757103107/IMG_6606_siaca8.jpg",
     ],
   },
 };
@@ -53,7 +53,7 @@ export default function PodcastPage() {
             name: "Surgo Studios",
             url: "https://www.surgo.ca/podcast",
             image:
-              "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757103107/IMG_6606_siaca8.jpg",
+              "https://res.cloudinary.com/drt92o4ye/image/upload/v1757103107/IMG_6606_siaca8.jpg",
             telephone: "+1-XXX-XXX-XXXX", // add phone later if you want Google Maps ranking
             email: "raha@surgomedia.com",
             address: {

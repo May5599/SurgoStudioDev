@@ -14,6 +14,7 @@ import {
 
 import BookCallModal from "../../components/BookCallModal";            // you already have this
 import BookCallSection from "../../components/podcast/BookCallSection"; // from earlier message
+import { MEDIA_BASE } from "../../lib/config";
 
 // ---------- Shared animation helpers ----------
 const fadeUp = {
@@ -83,9 +84,8 @@ function Showcase() {
   const cards = [
     {
       type: "video",
-      src: "https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto,w_1920/v1757622421/trim_podcast_mx0fqh.mp4",
-      poster:
-        "https://res.cloudinary.com/duwtym7w7/video/upload/f_auto,q_auto,w_1200,so_1/v1757622421/trim_podcast_mx0fqh.jpg",
+      src: `${MEDIA_BASE}/trim_podcast_mx0fqh_compressed.mp4`,
+      poster: `${MEDIA_BASE}/trim_podcast_mx0fqh_poster.jpg`,
     },
     {
       type: "image",
@@ -93,11 +93,11 @@ function Showcase() {
     },
     {
       type: "image",
-      src: "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1200/v1757103107/IMG_6606_siaca8.jpg",
+      src: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757103107/IMG_6606_siaca8.jpg",
     },
     {
       type: "image",
-      src: "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1200/v1757094340/VAF03010_copy_uxkwrn.jpg",
+      src: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757094340/VAF03010_copy_uxkwrn.jpg",
     },
   ];
 
@@ -295,7 +295,7 @@ function PackagesCTA({ onOpenModal }) {
     "https://res.cloudinary.com/duwtym7w7/image/upload/v1758043388/IMG_8219_ysmzfi.heic",
     
     "https://res.cloudinary.com/duwtym7w7/image/upload/v1758043551/IMG_8223_niakkv.jpg",
-    "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757103107/IMG_6606_siaca8.jpg",
+    "https://res.cloudinary.com/drt92o4ye/image/upload/v1758309719/IMG_6606_siaca8_gtj6vx.jpg",
 
     "https://res.cloudinary.com/duwtym7w7/image/upload/v1757624050/VAF02914_copy_ccdwmd.jpg",
   ];

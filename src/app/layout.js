@@ -59,7 +59,7 @@ export const metadata = {
     siteName: "Surgo Studios",
     images: [
       {
-        url: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757081567/white-logo_w6xinb.png",
+        url: "https://res.cloudinary.com/drt92o4ye/image/upload/v1758309720/white-logo_w6xinb_yz8p9u.png",
         width: 1200,
         height: 630,
         alt: "Surgo Studios - Video Production Agency Ottawa",
@@ -74,7 +74,7 @@ export const metadata = {
     description:
       "Ottawa-based creative video agency for reels, ads, commercials, social media, and podcasts.",
     images: [
-      "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757081567/white-logo_w6xinb.png",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/v1758309720/white-logo_w6xinb_yz8p9u.png",
     ],
   },
   alternates: {
@@ -100,8 +100,8 @@ export default function RootLayout({ children }) {
               "@type": ["Organization", "LocalBusiness"],
               name: "Surgo Studios",
               url: "https://surgostudios.com",
-              logo: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757081567/white-logo_w6xinb.png",
-              image: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757081567/white-logo_w6xinb.png",
+              logo: "https://res.cloudinary.com/drt92o4ye/image/upload/v1758309720/white-logo_w6xinb_yz8p9u.png",
+              image: "https://res.cloudinary.com/drt92o4ye/image/upload/v1758309720/white-logo_w6xinb_yz8p9u.png",
               email: "raha@surgomedia.com",
               address: {
                 "@type": "PostalAddress",

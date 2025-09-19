@@ -3,11 +3,12 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import { MEDIA_BASE } from "../../lib/config";
 
 export default function ServicesHero({
   title = "Services",
-  bgVideoSrc = "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto/v1756914498/reel1_ghfwq2.mp4",
-  bgPoster = "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_1600/v1756913780/cld-sample-2.jpg",
+  bgVideoSrc = `${MEDIA_BASE}/reel1_ghfwq2_compressed.mp4`,
+  bgPoster = `${MEDIA_BASE}/reel1_ghfwq2_poster.jpg`,
   cta = { label: "Book a Call", href: "/contact" },
   height = "h-[80vh] md:h-[90vh]",
   useImageFallback = false,
@@ -61,16 +62,16 @@ export default function ServicesHero({
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center">
         {/* Oversized Full-Width Title */}
         <motion.h1
-  initial={{ opacity: 0, scale: 0.95 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.8 }}
-  className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2
-             font-extrabold uppercase tracking-[-0.05em] leading-none
-             text-yellow-400 whitespace-nowrap
-             text-[24vw] sm:text-[20vw] md:text-[18vw]"
->
-  {title}
-</motion.h1>
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2
+                     font-extrabold uppercase tracking-[-0.05em] leading-none
+                     text-yellow-400 whitespace-nowrap
+                     text-[24vw] sm:text-[20vw] md:text-[18vw]"
+        >
+          {title}
+        </motion.h1>
 
         {/* CTA */}
         {cta?.href && cta?.label && (
@@ -119,7 +120,7 @@ export default function ServicesHero({
               name: "Surgo Studios",
               logo: {
                 "@type": "ImageObject",
-                url: "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto,w_600/v1757081567/white-logo_w6xinb.png",
+                url: `${MEDIA_BASE}/white-logo.png`, // upload your logo to S3 for consistency
               },
             },
           }),

@@ -14,7 +14,7 @@ export const metadata = {
     siteName: "Surgo Studios",
     images: [
       {
-        url: "https://res.cloudinary.com/dvqibrc9d/image/upload/v1757010350/VAF02794_copy_fv8vur.jpg",
+        url: "https://res.cloudinary.com/drt92o4ye/image/upload/v1757010350/VAF02794_copy_fv8vur.jpg",
         width: 1200,
         height: 630,
         alt: "Surgo Studios Partners and Advisor",
@@ -30,13 +30,13 @@ export default function AboutPage() {
     {
       name: "Raha Javidi, MBA",
       role: "Growth Operations Manager",
-      img: "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto/v1757094295/IMG_7875_copy_zpkjoh.jpg",
+      img: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto/v1758309719/IMG_7875_copy_zpkjoh_otffmj.jpg",
       bio: "A global creative force, Raha brings tri-lingual expertise and cross-industry experience to every project. Having led campaigns across continents, she now drives Surgo’s creative edge, ensuring projects are delivered with clarity, precision, and impact.",
     },
     {
       name: "Vahid Ansari",
       role: "Head of Production",
-      img: "https://res.cloudinary.com/dvqibrc9d/image/upload/f_auto,q_auto/v1757094344/VAF03130_B_W_dwq9i1.jpg",
+      img: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto/v1758309719/VAF03130_B_W_dwq9i1_om7mdf.jpg",
       bio: "With over a decade of cinematic production experience, Vahid combines vision with technical mastery. From global brands to local campaigns, he ensures Surgo delivers world-class visuals and storytelling on every project.",
     },
   ];
@@ -76,7 +76,7 @@ export default function AboutPage() {
       className="grid md:grid-cols-2 gap-12 items-center"
     >
    <img
-  src="https://res.cloudinary.com/dvqibrc9d/image/upload/v1757010350/VAF02794_copy_fv8vur.jpg"
+  src="https://res.cloudinary.com/drt92o4ye/image/upload/v1758309719/VAF02794_copy_fv8vur_lhrnyv.jpg"
   alt="Daniyal Zafar & Sashien Godakandae - Partners at Surgo Studios"
   loading="lazy"
   className="rounded-2xl shadow-xl object-cover object-center w-full aspect-[4/5]"

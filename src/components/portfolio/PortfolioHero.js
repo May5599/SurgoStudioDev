@@ -2,32 +2,20 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { PlayIcon } from "@heroicons/react/24/solid";
+import { MEDIA_BASE } from "../../lib/config";
 
 const videoSources = [
   {
-    srcWebm:
-      "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1920/v1756914492/port2_wqwih5.webm",
-    srcMp4:
-      "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1920/v1756914492/port2_wqwih5.mp4",
-    poster:
-      "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1200,so_0/v1756914492/port2_wqwih5.jpg",
+    srcMp4: `${MEDIA_BASE}/port2_wqwih5_compressed.mp4`,
+    poster: `${MEDIA_BASE}/port2_wqwih5_poster.jpg`,
   },
   {
-    srcWebm:
-      "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1920/v1756914496/port3_knysnd.webm",
-    srcMp4:
-      "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1920/v1756914496/port3_knysnd.mp4",
-    poster:
-      "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1200,so_0/v1756914496/port3_knysnd.jpg",
+    srcMp4: `${MEDIA_BASE}/port3_knysnd_compressed.mp4`,
+    poster: `${MEDIA_BASE}/port3_knysnd_poster.jpg`,
   },
   {
-    srcWebm:
-      "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1920/v1756914491/port4_bi7uzw.webm",
-    srcMp4:
-      "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1920/v1756914491/port4_bi7uzw.mp4",
-    poster:
-      "https://res.cloudinary.com/dvqibrc9d/video/upload/f_auto,q_auto,w_1200,so_0/v1756914491/port4_bi7uzw.jpg",
+    srcMp4: `${MEDIA_BASE}/port4_bi7uzw_compressed.mp4`,
+    poster: `${MEDIA_BASE}/port4_bi7uzw_poster.jpg`,
   },
 ];
 
@@ -62,7 +50,6 @@ export default function PortfolioHero() {
             preload={isActive || isNext ? "auto" : "none"}
             poster={video.poster}
           >
-            <source src={video.srcWebm} type="video/webm" />
             <source src={video.srcMp4} type="video/mp4" />
           </video>
         );
@@ -84,20 +71,15 @@ export default function PortfolioHero() {
 
         {/* Foreground headline */}
         <motion.h1
-  initial={{ opacity: 0, y: 40 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1, ease: "easeOut" }}
-  className="font-extrabold uppercase tracking-tight leading-[1.05]
-             text-5xl sm:text-6xl md:text-7xl lg:text-8xl max-w-4xl"
->
-  We Make{" "}
-  <span className="text-yellow-400">Creativity</span>{" "}
-  Contagious.
-</motion.h1>
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="font-extrabold uppercase tracking-tight leading-[1.05]
+                     text-5xl sm:text-6xl md:text-7xl lg:text-8xl max-w-4xl"
+        >
+          We Make <span className="text-yellow-400">Creativity</span> Contagious.
+        </motion.h1>
 
-
-        {/* CTA → Scroll to ProjectsReel */}
-        
         {/* ↓ Scroll Cue */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}

@@ -3,38 +3,37 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, X, Volume2, VolumeX } from "lucide-react";
+import { MEDIA_BASE } from "../../lib/config";
+
 
 // ----- Optimized Data -----
 const ALL_ITEMS = [
   {
     id: 1,
-    title: "Art Collection",
-    src: "https://res.cloudinary.com/duwtym7w7/video/upload/v1757341700/Event_Fashion-TCC_yl6gkk.mov",
-    poster:
-      "https://res.cloudinary.com/duwtym7w7/video/upload/w_600,f_auto,q_auto,so_2/v1757341700/Event_Fashion-TCC_yl6gkk.jpg",
+    title: "Art and Fashion Show",
+    src: `${MEDIA_BASE}/Event_Fashion-TCC_yl6gkk_compressed.mp4`,
+    poster: `${MEDIA_BASE}/Event_Fashion-TCC_yl6gkk_poster.jpg`,
   },
   {
     id: 2,
     title: "Fitness Dr.Kwadwo",
-    src: "https://res.cloudinary.com/duwtym7w7/video/upload/v1757964382/Tabata_Day_01_hqvguu.mp4",
-    poster:
-      "https://res.cloudinary.com/duwtym7w7/video/upload/w_600,f_auto,q_auto,so_2/v1757964382/Tabata_Day_01_hqvguu.jpg",
+    src: `${MEDIA_BASE}/Tabata_Day_01_hqvguu_compressed.mp4`,
+    poster: `${MEDIA_BASE}/Tabata_Day_01_hqvguu_poster.jpg`,
   },
   {
     id: 3,
     title: "Financial Education",
-    src: "https://res.cloudinary.com/duwtym7w7/video/upload/v1757616375/CHRIS01-02_lq5uvb.mp4",
-    poster:
-      "https://res.cloudinary.com/duwtym7w7/video/upload/w_600,f_auto,q_auto,so_2/v1757616375/CHRIS01-02_lq5uvb.jpg",
+    src: `${MEDIA_BASE}/CHRIS01-02_lq5uvb_compressed.mp4`,
+    poster: `${MEDIA_BASE}/CHRIS01-02_lq5uvb_poster.jpg`,
   },
   {
     id: 4,
     title: "Storytelling Example",
-    src: "https://res.cloudinary.com/duwtym7w7/video/upload/v1757616526/Storytelling_Example_3_zawxk1.mp4",
-    poster:
-      "https://res.cloudinary.com/duwtym7w7/video/upload/w_600,f_auto,q_auto,so_2/v1757616526/Storytelling_Example_3_zawxk1.jpg",
+    src: `${MEDIA_BASE}/Storytelling_Example_3_zawxk1_compressed.mp4`,
+    poster: `${MEDIA_BASE}/Storytelling_Example_3_zawxk1_poster.jpg`,
   },
 ];
+
 
 // Helpers
 function useVideoControls(active, muted) {
@@ -61,51 +60,67 @@ function useVideoControls(active, muted) {
 
 // Desktop ReelCard
 function ReelCard({ item, active }) {
+  const videoRef = useRef(null);
   const [muted, setMuted] = useState(true);
-  const [playing, setPlaying] = useState(active);
-  const vRef = useVideoControls(active && playing, muted);
+  const [overlay, setOverlay] = useState(false);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      if (active) {
+        videoRef.current.play().catch(() => {});
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  }, [active]);
 
   const togglePlay = () => {
-    if (!vRef.current) return;
-    if (vRef.current.paused) {
-      vRef.current.play();
-      setPlaying(true);
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play();
     } else {
-      vRef.current.pause();
-      setPlaying(false);
+      videoRef.current.pause();
+      setOverlay(true);
+      setTimeout(() => setOverlay(false), 500); // fade overlay
     }
   };
 
   return (
     <div
-      className={`relative aspect-[9/16] h-[80vh] rounded-2xl overflow-hidden shadow-2xl transition
-        ${active ? "scale-100" : "scale-90 opacity-60"}`}
+      className={`relative aspect-[9/16] w-[240px] sm:w-[280px] md:w-[320px] lg:w-[360px] 
+        rounded-2xl overflow-hidden shadow-2xl transition
+        ${active ? "scale-100 opacity-100" : "scale-90 opacity-50"}`}
     >
-      {active ? (
-        <video
-          ref={vRef}
-          src={item.src}
-          poster={item.poster}
-          playsInline
-          loop
-          muted={muted}
-          preload="metadata"
-          onClick={togglePlay}
-          className="absolute inset-0 w-full h-full object-cover cursor-pointer"
-        />
-      ) : (
-        <img
-          src={item.poster}
-          alt={item.title}
-          loading="lazy"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-      )}
+      <video
+        ref={videoRef}
+        src={item.src}
+        poster={item.poster}
+        playsInline
+        loop
+        muted={muted}
+        preload="auto"
+        onClick={togglePlay}
+        className="absolute inset-0 w-full h-full object-cover cursor-pointer"
+      />
 
-      {/* Overlay info */}
-      <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-        <h3 className="text-lg md:text-2xl font-bold text-white">{item.title}</h3>
-      </div>
+      {/* Quick overlay on pause */}
+      <AnimatePresence>
+        {overlay && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.3 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 bg-black"
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Title */}
+      {active && (
+        <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+          <h3 className="text-lg md:text-2xl font-bold text-white">{item.title}</h3>
+        </div>
+      )}
 
       {/* Sound Toggle */}
       {active && (
@@ -123,6 +138,7 @@ function ReelCard({ item, active }) {
     </div>
   );
 }
+
 
 // Mobile Grid Thumbnail
 function GridCard({ item, onClick }) {
@@ -200,6 +216,14 @@ function VideoModal({ item, onClose }) {
 export default function CinematicReelHub() {
   const [activeIdx, setActiveIdx] = useState(0);
   const [modalItem, setModalItem] = useState(null);
+  
+  // autoplay every 8s
+useEffect(() => {
+  const interval = setInterval(() => {
+    setActiveIdx((i) => (i + 1) % ALL_ITEMS.length);
+  }, 8000);
+  return () => clearInterval(interval);
+}, []);
 
   const goto = (dir) => {
     setActiveIdx((i) => (i + dir + ALL_ITEMS.length) % ALL_ITEMS.length);
@@ -224,38 +248,52 @@ export default function CinematicReelHub() {
         </div>
 
         {/* Desktop Viewer */}
-        <div className="hidden md:flex items-center justify-center gap-6">
-          <button
-            onClick={() => goto(-1)}
-            className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition"
-          >
-            <ChevronLeft />
-          </button>
-          <div className="flex items-center gap-4 w-full justify-center">
-            {ALL_ITEMS.map((item, idx) => (
-              <motion.div
-                key={item.id}
-                animate={{
-                  scale: idx === activeIdx ? 1 : 0.85,
-                  opacity: idx === activeIdx ? 1 : 0.5,
-                }}
-                transition={{ duration: 0.3 }}
-                className={`w-[240px] lg:w-[300px] flex-shrink-0 ${
-                  idx === activeIdx ? "z-10" : "z-0"
-                }`}
-                onClick={() => setActiveIdx(idx)}
-              >
-                <ReelCard item={item} active={idx === activeIdx} />
-              </motion.div>
-            ))}
-          </div>
-          <button
-            onClick={() => goto(1)}
-            className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition"
-          >
-            <ChevronRight />
-          </button>
-        </div>
+        {/* Desktop Viewer */}
+<div className="hidden md:flex items-center justify-center gap-0 relative">
+  {/* Left Arrow */}
+  <button
+    onClick={() => goto(-1)}
+    className="absolute left-0 top-1/2 -translate-y-1/2 
+               p-3 md:p-4 rounded-full bg-black/40 hover:bg-black/70 
+               transition z-20"
+  >
+    <ChevronLeft size={28} className="text-white" />
+  </button>
+
+  {/* Reel Items */}
+<div className="flex items-center gap-6 w-full justify-center">
+  {ALL_ITEMS.map((item, idx) => (
+    <motion.div
+      key={item.id}
+      animate={{
+        scale: idx === activeIdx ? 1 : 0.85,
+        opacity: idx === activeIdx ? 1 : 0.4,
+      }}
+      transition={{ duration: 0.4 }}
+      className={`transition-all duration-500 ${
+        idx === activeIdx ? "z-10" : "z-0"
+      }`}
+      onClick={() => setActiveIdx(idx)}
+    >
+      {/* 👇 Only the active reel plays as video, others show posters */}
+      <ReelCard item={item} active={idx === activeIdx} />
+    </motion.div>
+  ))}
+</div>
+
+
+
+  {/* Right Arrow */}
+  <button
+    onClick={() => goto(1)}
+    className="absolute right-0 top-1/2 -translate-y-1/2 
+               p-3 md:p-4 rounded-full bg-black/40 hover:bg-black/70 
+               transition z-20"
+  >
+    <ChevronRight size={28} className="text-white" />
+  </button>
+</div>
+
 
         {/* Mobile Grid */}
         <div className="grid grid-cols-2 gap-3 md:hidden">
