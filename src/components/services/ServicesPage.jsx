@@ -31,7 +31,7 @@ export default function ServicesHero({
     <section
       className={`relative ${height} overflow-hidden bg-black text-white`}
       role="banner"
-      aria-label={`Surgo Studios ${title} in Ottawa — cinematic video production services`}
+      aria-label={`Surgo Studios ${title} in Ottawa   cinematic video production services`}
     >
       {/* Background */}
       <div className="absolute inset-0" aria-hidden>

@@ -12,7 +12,7 @@ export const metadata = {
   openGraph: {
     title: "Surgo Studios | Ottawa Podcast Recording & Video Podcast Studio",
     description:
-      "Book a professional podcast studio in Ottawa with everything included—microphones, cameras, engineer, editing, and distribution. Reserve your session at Surgo Studios.",
+      "Book a professional podcast studio in Ottawa with everything included microphones, cameras, engineer, editing, and distribution. Reserve your session at Surgo Studios.",
     url: "https://www.surgo.ca/podcast",
     siteName: "Surgo Studios",
     images: [

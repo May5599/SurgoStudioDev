@@ -39,94 +39,86 @@ export default function AboutPage() {
       img: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto/v1758309719/VAF03130_B_W_dwq9i1_om7mdf.jpg",
       bio: "With over a decade of cinematic production experience, Vahid combines vision with technical mastery. From global brands to local campaigns, he ensures Surgo delivers world-class visuals and storytelling on every project.",
     },
+    {
+      name: "Carl Anthony",
+      role: "Production Advisor",
+      img: "https://res.cloudinary.com/duwtym7w7/image/upload/v1758205208/VAF03346_copy-2_a0rq2b.jpg",
+      bio: "An Emmy Award–winning media professional, Carl has shaped productions for NBC Universal, CNBC, and NBC Olympics. At Surgo Studios, he brings global broadcast expertise and strategic insight, ensuring the company’s creative vision is supported with excellence and long-term growth.",
+    },
   ];
 
   return (
     <div className="bg-white text-black">
       {/* HERO */}
-      <section className="relative bg-white text-gray-800 px-8 py-32 md:px-20">
+      <section className="relative bg-gray-50 text-gray-800 px-8 py-40 md:px-20 text-center">
         <motion.h1
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-6xl md:text-8xl font-mozilla text-center mb-12 leading-tight"
+          className="text-6xl md:text-8xl font-mozilla mb-8 leading-tight"
         >
           Surgo Studios
         </motion.h1>
 
-        <p className="max-w-4xl mx-auto text-center text-xl text-gray-600 mb-20">
-          Surgo Studios is a Canadian video production company based in Ottawa, 
-          trusted by brands across Ontario and Canada. We create cinematic stories 
-          that inspire trust and captivate audiences nationwide.
+        <p className="max-w-4xl mx-auto text-xl text-gray-600">
+          Surgo Studios is a Canadian video production company based in Ottawa,
+          trusted by brands across Ontario and Canada. We create cinematic
+          stories that inspire trust and captivate audiences nationwide.
         </p>
       </section>
 
       {/* PARTNERS & ADVISOR */}
-<section className="px-8 py-24 md:px-20 bg-white">
-  <h2 className="text-5xl font-mozilla text-center mb-16">
-    Partners & Advisor
-  </h2>
-  <div className="grid gap-20">
-    {/* Partners */}
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="grid md:grid-cols-2 gap-12 items-center"
-    >
-   <img
-  src="https://res.cloudinary.com/drt92o4ye/image/upload/v1758309719/VAF02794_copy_fv8vur_lhrnyv.jpg"
-  alt="Daniyal Zafar & Sashien Godakandae - Partners at Surgo Studios"
-  loading="lazy"
-  className="rounded-2xl shadow-xl object-cover object-center w-full aspect-[4/5]"
-/>
-      <div className="text-center md:text-left">
-        <h3 className="text-3xl font-mozilla mb-2">
-          Daniyal Zafar & Sashien Godakandae, MBA
-        </h3>
-        <p className="text-xl font-rammetto text-gray-600 mb-6">Managing Partners</p>
-        <p className="text-gray-700 text-lg">
-          Surgo Studios is guided by vision and leadership that balance creativity with strategy. Daniyal brings entrepreneurial drive from scaling businesses across North America, blending technology, marketing, and storytelling. Sashien adds 15+ years of global media and marketing experience, helping startups and Fortune 500 companies build lasting strategies and partnerships. Together, they anchor Surgo with the imagination and discipline that define its identity.
-        </p>
-      </div>
-    </motion.div>
-
-    {/* Carl */}
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: 0.2 }}
-      className="grid md:grid-cols-2 gap-12 items-center"
-    >
-<img
-  src="https://res.cloudinary.com/duwtym7w7/image/upload/v1758205208/VAF03346_copy-2_a0rq2b.jpg"
-  alt="Carl Anthony - Strategic Advisor at Surgo Studios"
-  loading="lazy"
-  className="rounded-2xl shadow-xl object-cover object-center w-full aspect-[4/5]"
-/>
-
-
-
-      <div className="text-center md:text-left">
-        <h3 className="text-3xl font-mozilla mb-2">Carl Anthony</h3>
-        <p className="text-xl font-rammetto text-gray-600 mb-6">Production Advisor</p>
-        <p className="text-gray-700 text-lg">
-          An Emmy Award–winning media professional, Carl has shaped productions for NBC Universal, CNBC, and NBC Olympics. At Surgo Studios, he brings global broadcast expertise and strategic insight, ensuring the company’s creative vision is supported with excellence and long-term growth.
-        </p>
-      </div>
-    </motion.div>
-  </div>
-</section>
-
-
-      {/* LEADERSHIP */}
-      <section className="px-8 md:px-20 bg-white">
+      <section className="px-8 py-24 md:px-20 bg-white">
         <h2 className="text-5xl font-mozilla text-center mb-16">
-          Leadership Team
+          Our Founders & Strategic Advisor
         </h2>
-        <div className="grid sm:grid-cols-2 gap-12 mb-32">
+        <div className="grid gap-20">
+          {/* Partners */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="grid md:grid-cols-2 gap-12 items-center"
+          >
+            <img
+              src="https://res.cloudinary.com/drt92o4ye/image/upload/v1758309719/VAF02794_copy_fv8vur_lhrnyv.jpg"
+              alt="Daniyal Zafar & Sashien Godakandae - Partners at Surgo Studios"
+              loading="lazy"
+              className="rounded-2xl shadow-xl object-cover object-center w-full aspect-[4/5]"
+            />
+            <div className="text-center md:text-left">
+              <h3 className="text-3xl font-mozilla mb-2">
+                Daniyal Zafar & Sashien Godakandae, MBA
+              </h3>
+              <p className="text-xl font-rammetto text-gray-600 mb-6">
+                Managing Partners
+              </p>
+              <p className="text-gray-700 text-lg">
+                Surgo Studios is guided by vision and leadership that balance
+                creativity with strategy. Daniyal brings entrepreneurial drive
+                from scaling businesses across North America, blending
+                technology, marketing, and storytelling. Sashien adds 15+ years
+                of global media and marketing experience, helping startups and
+                Fortune 500 companies build lasting strategies and partnerships.
+                Together, they anchor Surgo with the imagination and discipline
+                that define its identity.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* TEAM */}
+      <section className="px-8 md:px-20 bg-white">
+        <h2 className="text-5xl font-mozilla text-center mb-4">
+          Meet the Surgo Team
+        </h2>
+        <p className="text-center text-lg text-gray-600 mb-16">
+          We create stories even with our eyes closed.
+        </p>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 mb-32">
           {leadership.map((p, i) => (
             <motion.div
               key={i}
@@ -145,45 +137,6 @@ export default function AboutPage() {
               <h3 className="text-2xl font-mozilla">{p.name}</h3>
               <p className="text-lg font-rammetto text-gray-600">{p.role}</p>
               <p className="mt-3 text-gray-700">{p.bio}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* VALUES */}
-      <section className="px-8 md:px-20 bg-white">
-        <h2 className="text-5xl font-mozilla text-center mt-32 mb-16">
-          Our Values
-        </h2>
-        <div className="flex md:grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center mb-32 overflow-x-auto no-scrollbar">
-          {[
-            {
-              title: "Creativity",
-              desc: "Crafting cinematic stories that resonate and inspire.",
-            },
-            {
-              title: "Trust",
-              desc: "Collaborating openly and building strong partnerships.",
-            },
-            {
-              title: "Innovation",
-              desc: "Exploring bold ideas and redefining possibilities.",
-            },
-            {
-              title: "Impact",
-              desc: "Creating content that moves people and builds loyalty.",
-            },
-          ].map((val, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.2 }}
-              className="shrink-0 w-[240px] md:w-auto space-y-2 p-4 border rounded-2xl"
-            >
-              <h3 className="text-2xl font-bold">{val.title}</h3>
-              <p className="text-gray-600">{val.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -235,39 +188,88 @@ export default function AboutPage() {
 </section>
 
 
+      {/* VALUES & EXPERTISE */}
+      <section className="px-8 md:px-20 bg-white py-24">
+        <h2 className="text-5xl font-mozilla text-center mb-6">
+          Our Values & Expertise
+        </h2>
+        <p className="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-16">
+          At Surgo Studios, our values guide every production. Creativity, trust,
+          and innovation shape the way we deliver cinematic impact. With
+          expertise spanning conferences, fashion, music, and e-commerce, we
+          help brands across Ottawa and Canada tell stories that resonate and
+          inspire.
+        </p>
 
-      {/* EXPERTISE */}
-      <section className="px-8 md:px-20 bg-white">
-        <h2 className="text-5xl font-mozilla text-center mb-12">Our Expertise</h2>
-        <div className="flex md:grid md:grid-cols-4 gap-8 text-center mb-32 overflow-x-auto no-scrollbar">
-          {["Conferences & Events", "Fashion", "Music", "E-commerce"].map((field, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.2 }}
-              className="shrink-0 w-[260px] md:w-auto p-6 border rounded-2xl shadow-sm hover:shadow-lg transition"
-            >
-              <h3 className="text-xl font-bold">{field}</h3>
-              <p className="text-sm text-gray-600 mt-2">
-                Surgo has created memorable campaigns in {field}, partnering 
-                with brands across Ottawa, Montreal, and Ontario.
-              </p>
-            </motion.div>
-          ))}
+        <div className="grid md:grid-cols-2 gap-12">
+          {/* Values */}
+          <div className="grid sm:grid-cols-2 gap-6">
+            {[
+              {
+                title: "Creativity",
+                desc: "Crafting cinematic stories that resonate and inspire.",
+              },
+              {
+                title: "Trust",
+                desc: "Collaborating openly and building strong partnerships.",
+              },
+              {
+                title: "Innovation",
+                desc: "Exploring bold ideas and redefining possibilities.",
+              },
+              {
+                title: "Impact",
+                desc: "Creating content that moves people and builds loyalty.",
+              },
+            ].map((val, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                className="p-6 border rounded-2xl text-center"
+              >
+                <h3 className="text-xl font-bold">{val.title}</h3>
+                <p className="text-gray-600">{val.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Expertise */}
+          <div className="grid sm:grid-cols-2 gap-6">
+            {["Conferences & Events", "Fashion", "Music", "E-commerce"].map(
+              (field, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.2 }}
+                  className="p-6 border rounded-2xl text-center shadow-sm hover:shadow-lg transition"
+                >
+                  <h3 className="text-lg font-bold">{field}</h3>
+                  <p className="text-sm text-gray-600 mt-2">
+                    Surgo has delivered impactful campaigns in {field},
+                    partnering with brands across Ottawa, Montreal, and Ontario.
+                  </p>
+                </motion.div>
+              )
+            )}
+          </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="px-8 md:px-20 text-center mb-48 bg-white">
-        <a
-          href="/contact"
-          className="inline-block text-2xl font-bold font-rammetto underline hover:tracking-wider transition"
-        >
-          Ready to amplify your story? Contact us ➝
-        </a>
-      </section>
+      <section className="px-8 md:px-20 text-center py-16 bg-white">
+  <a
+    href="/contact"
+    className="inline-block text-2xl font-bold font-rammetto underline hover:tracking-wider transition"
+  >
+    Ready to amplify your story? Contact us ➝
+  </a>
+</section>
+
     </div>
   );
 }

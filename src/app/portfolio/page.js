@@ -52,11 +52,13 @@ export default function PortfolioPage() {
       <Navbar />
       <PortfolioHero />
       <SurgoBanner />
+      <SurgoReelsShowcase />
+
+      <ImpactSection />
       <ProjectsReel />
       <ShowcaseGrid />
       {/* <TrustedBySection /> */}
-      <SurgoReelsShowcase />
-      <ImpactSection />
+      
       <SurgoLogo />
       {/* <TestimonialsSection /> */}
       <CallToActionSection />

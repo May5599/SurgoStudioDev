@@ -135,8 +135,8 @@ function Tile({ src, poster, caption }) {
 }
 
 const DEFAULT_ITEMS = [
-  { src: "reel1.mp4", poster: "...", caption: "Brand Films — Studio Light" },
-  { src: "reel2.mp4", poster: "...", caption: "Social Reels — Aerial Energy" },
-  { src: "reel3.mp4", poster: "...", caption: "Campaign Story — Human Focus" },
-  { src: "reel1.mp4", poster: "...", caption: "Launch Film — City Motion" },
+  { src: "reel1.mp4", poster: "...", caption: "Brand Films   Studio Light" },
+  { src: "reel2.mp4", poster: "...", caption: "Social Reels   Aerial Energy" },
+  { src: "reel3.mp4", poster: "...", caption: "Campaign Story   Human Focus" },
+  { src: "reel1.mp4", poster: "...", caption: "Launch Film   City Motion" },
 ];

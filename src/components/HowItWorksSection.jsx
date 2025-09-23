@@ -44,7 +44,7 @@ export default function HowItWorksSection() {
           How We Bring Your Story to Life
         </h2>
         <p className="text-gray-400 max-w-xl mx-auto">
-          It’s not just a process — it’s a journey. Crafted with vision, told
+          It’s not just a process   it’s a journey. Crafted with vision, told
           with emotion, finished with style.
         </p>
 

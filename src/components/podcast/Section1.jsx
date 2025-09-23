@@ -34,16 +34,22 @@ function HeroCinematic({ onOpenModal }) {
       aria-label="Podcast Studio Hero"
     >
       {/* Background video */}
-      <video
-        className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        poster="https://res.cloudinary.com/duwtym7w7/image/upload/v1757622720/VAF03240_fzour5.jpg"
-        src="https://res.cloudinary.com/duwtym7w7/image/upload/v1757622720/VAF03240_fzour5.jpg"
-      />
+     <video
+  className="absolute inset-0 h-full w-full object-cover"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="metadata"
+  poster={`${MEDIA_BASE}/6883837_poster.jpg`}
+>
+  <source
+    src={`${MEDIA_BASE}/6883837_compressed.mp4`}
+    type="video/mp4"
+  />
+  Your browser does not support the video tag.
+</video>
+
 
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-black/40" />
@@ -222,12 +228,15 @@ function Showcase() {
           viewport={{ once: true, amount: 0.35 }}
           className="lg:col-span-4"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70">
-            Why choose Surgo Studio in Ottawa
-          </h2>
-          <p className="mt-4 text-white/85">
-            Book the room. Sit down. Record. We provide the studio, the microphones, the cameras, and the engineer. You focus on the conversation while we manage production and delivery.
-          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70 tracking-tight">
+  Why Choose <span className="text-yellow-400">Surgo Studio</span> in Ottawa
+</h2>
+
+         <p className="mt-4 text-white/85">
+  Book the room. Sit down. Record.  
+  Located in Downtown Ottawa, Surgo Studio gives you instant access to a professional studio with broadcast microphones, cinematic cameras, and an on-site engineer   so you can focus on the conversation while we handle production and delivery.
+</p>
+
         </motion.aside>
 
         {/* Pillars */}
@@ -251,10 +260,11 @@ function Showcase() {
                 <h3 className="text-xl font-bold text-white">{p.title}</h3>
                 <ul className="mt-3 grid gap-2 sm:grid-cols-2">
                   {p.points.map((pt) => (
-                    <li key={pt} className="flex items-start gap-2 text-white/85">
-                      <span className="mt-1 inline-block h-1.5 w-1.5 flex-none rounded-full bg-white" />
-                      <span>{pt}</span>
-                    </li>
+                    <li key={pt} className="flex items-center gap-3 text-white/85">
+  <span className="h-2 w-2 rounded-full bg-yellow-400 flex-none" />
+  <span>{pt}</span>
+</li>
+
                   ))}
                 </ul>
               </div>
@@ -341,7 +351,7 @@ function PackagesCTA({ onOpenModal }) {
           </h2>
           <p className="mt-5 text-pretty text-white/80 sm:text-lg leading-relaxed">
             Every package includes our Ottawa podcast studio, cameras, microphones, and an engineer. 
-            Pricing is tailored to your needs — we’d love to connect and talk about your vision.
+            Pricing is tailored to your needs   we’d love to connect and talk about your vision.
           </p>
 
           <ul className="mt-6 grid gap-3 text-white/90 sm:grid-cols-2">
@@ -389,7 +399,7 @@ function PackagesCTA({ onOpenModal }) {
         {/* Footer */}
         <div className="text-center mt-16">
           <p className="text-sm sm:text-base italic text-white/60">
-            Let’s build your podcast together — your voice, your story, your audience.
+            Let’s build your podcast together   your voice, your story, your audience.
           </p>
         </div>
       </div>
