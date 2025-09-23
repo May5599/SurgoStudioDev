@@ -58,14 +58,12 @@ export default function SurgoServices({ services: input }) {
         className="mb-12 rounded-3xl p-[2px] bg-white/10"
       >
         <div className="relative rounded-3xl overflow-hidden bg-black/60">
-          <div className="relative aspect-[16/9]">
-            <PosterMedia
-              image={active.image}
-              icon={active.icon}
-              title={active.title}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-          </div>
+     <div className="relative aspect-[16/12] sm:aspect-[16/9] min-h-[220px] sm:min-h-[320px]">
+  <PosterMedia image={active.image} icon={active.icon} title={active.title} />
+  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+</div>
+
+
 
           {!expanded && (
             <motion.button
@@ -314,7 +312,7 @@ const DEFAULT_SERVICES = [
     image:
       "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1758309720/serv1_jexilu_mwdkwc.jpg",
     desc: "Concepting, scripting, casting, and a plan built for impact.",
-    help: "We turn loose ideas into a production-ready blueprint—script, boards, schedule, crew.",
+    help: "We turn loose ideas into a production-ready blueprint script, boards, schedule, crew.",
     outcome:
       "Locked narrative, creative references, and a day-by-day plan that saves time on set.",
     ctaLabel: "Plan My Shoot",
@@ -327,7 +325,7 @@ const DEFAULT_SERVICES = [
       "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1758309720/serv3_x41bmj_ufnzc9.jpg",
     desc: "Directors, crew, and light working as one.",
     help: "We design coverage, block talent, and shape performance so every frame serves the edit.",
-    outcome: "A tight shoot that captures exactly what post needs—no bloat, no pickups.",
+    outcome: "A tight shoot that captures exactly what post needs no bloat, no pickups.",
     ctaLabel: "Book a Crew",
     ctaHref: "/contact",
   },
@@ -358,7 +356,7 @@ const DEFAULT_SERVICES = [
     icon: ScissorsIcon,
     image:
       "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1758309720/serv6_ymc23t_i0ezaq.jpg",
-    desc: "Editing, graphics, color—rhythm that lands the story.",
+    desc: "Editing, graphics, color rhythm that lands the story.",
     help: "Offline/online edit, motion design, VFX touchups, sound sweetening, and calibrated color.",
     outcome: "A final master with clean OMF/AAF, color-managed exports, and captions on request.",
     ctaLabel: "Start Post",
@@ -383,7 +381,7 @@ const DEFAULT_SERVICES = [
       "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1758309720/serv7_ohrpdg_ywxcjc.jpg",
     desc: "Release strategy that builds momentum.",
     help: "Rollout calendars, cutdown matrix, copy hooks, paid placements, and posting ops.",
-    outcome: "A timed multi-asset drop with measurable lift—CTR, VTR, and retention upticks.",
+    outcome: "A timed multi-asset drop with measurable lift CTR, VTR, and retention upticks.",
     ctaLabel: "Launch It",
     ctaHref: "/contact",
   },

@@ -61,8 +61,9 @@ function StatCell({ label, value, note, index }) {
 }
 
 const DEFAULT_ITEMS = [
-  { label: "Avg Retention", value: "62%" },
+  { label: "Projects Completed", value: "500+" },
   { label: "Launch Window", value: "21 Days" },
-  { label: "CTR Uplift", value: "+38%" },
-  { label: "Campaigns Shipped", value: "120+" },
+  { label: "Views Generated", value: "1B+" },
+  { label: "Hours of Content Produced", value: "5000+" },
 ];
+

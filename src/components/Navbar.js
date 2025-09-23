@@ -58,13 +58,20 @@ export default function Navbar() {
     `}
   >
     <Image
-      src={isAboutPage ? "/Dark-Logo.png" : "/white-logo.png"}
-      alt="Surgo Studios Logo"
-      fill
-      className="object-contain"
-      priority
-      sizes="(max-width: 768px) 220px, (max-width: 1024px) 300px, 380px"
-    />
+  src={
+    isAboutPage
+      ? isScrolled
+        ? "/white-logo.png" // About page when scrolled
+        : "/Dark-Logo.png"  // About page default
+      : "/white-logo.png"   // All other pages
+  }
+  alt="Surgo Studios Logo"
+  fill
+  className="object-contain transition-opacity duration-300"
+  priority
+  sizes="(max-width: 768px) 220px, (max-width: 1024px) 300px, 380px"
+/>
+
   </div>
 </Link>
 

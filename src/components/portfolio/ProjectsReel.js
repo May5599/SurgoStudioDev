@@ -239,10 +239,10 @@ useEffect(() => {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12">
           <div>
             <h2 className="text-4xl md:text-6xl font-extrabold uppercase tracking-tight">
-              Explore Our Work
+              Step Into the Story
             </h2>
             <p className="mt-3 text-white/70 max-w-2xl">
-              Posters load first. Videos autoplay muted, tap for play/pause, toggle sound anytime.
+              Scroll-stopping content, cinematic storytelling, and projects that fuel culture.
             </p>
           </div>
         </div>

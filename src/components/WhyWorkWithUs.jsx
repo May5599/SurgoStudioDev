@@ -36,7 +36,7 @@ export default function WhyWorkWithUs() {
             Why Work With Us
           </h2>
 
-          <p className="text-gray-300 text-base sm:text-lg max-w-prose">
+          <p className="text-white text-base sm:text-lg max-w-prose">
             We’re more than editors and shooters. We’re visual storytellers who
             craft emotion, narrative, and brand identity, frame by frame.
           </p>

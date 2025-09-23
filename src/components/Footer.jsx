@@ -19,9 +19,6 @@ export default function Footer() {
               priority={false}
             />
           </Link>
-          <p className="text-sm sm:text-base text-gray-400 max-w-xs mx-auto sm:mx-0">
-            Turning brainstorms into brain-explosions.
-          </p>
         </div>
         {/* Quick Links */}
         <div>
@@ -39,9 +36,19 @@ export default function Footer() {
                 Portfolio
               </Link>
             </li>
+             <li>
+              <Link href="/podcast" className="hover:text-yellow-400 transition">
+                Contact
+              </Link>
+            </li>
             <li>
               <Link href="/blog" className="hover:text-yellow-400 transition">
                 Blog
+              </Link>
+            </li>
+             <li>
+              <Link href="/about" className="hover:text-yellow-400 transition">
+                Contact
               </Link>
             </li>
             <li>
@@ -67,7 +74,7 @@ export default function Footer() {
                 Raha@surgomedia.com
               </a>
             </li>
-            <li>150-Elgin street, K2P 2P8, Ottawa, Canada</li>
+            <li>150 Elgin St, Ottawa,ON,Canada K2P 1L4</li>
           </ul>
         </div>
 

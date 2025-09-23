@@ -20,7 +20,7 @@ export default function CallToActionSection() {
 
       <div className="relative z-10 max-w-3xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold mb-6 font-[var(--font-mozilla-headline)] ">
-          Let’s Make Something Memorable
+Turning Ideas Into Iconic Moments
         </h2>
 
         <p className="text-lg text-white/80 mb-10 leading-relaxed">
@@ -39,7 +39,7 @@ export default function CallToActionSection() {
         <p className="mt-6 text-sm text-white/50">
           Prefer email? Drop us a note at{" "}
           <a href="mailto:hello@surgostudios.com" className="underline">
-            hello@surgostudios.com
+            raha@surgomedia.com
           </a>
         </p>
       </div>

@@ -8,7 +8,7 @@ const TrustedBySection = () => {
         {/* Section Title */}
         <div className="relative inline-block">
           <h3 className="text-[0.5rem] sm:text-[1rem] md:text-2xl tracking-widest uppercase text-yellow font-mono z-10 relative">
-            — TRUSTED BY —
+              TRUSTED BY  
           </h3>
           <div className="absolute inset-x-0 -bottom-1 h-[1px] bg-gradient-to-r from-transparent via-yellow-400 to-transparent blur-sm" />
         </div>

@@ -43,7 +43,7 @@ const showcaseItems = [
   {
     title: "Event Highlights",
     description:
-      "Immersive recap videos for conferences, festivals, and brand activations—capturing energy and moments that matter.",
+      "Immersive recap videos for conferences, festivals, and brand activations capturing energy and moments that matter.",
     image:
       "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1600/v1758309718/pexels-bertellifotografia-2608513_juejb0_mw3lty.jpg",
   },
@@ -147,6 +147,29 @@ export default function CardShowcase() {
               );
             })}
           </div>
+            {/* Scroll Hint Overlay */}
+<div className="absolute right-4 bottom-16 z-20 pointer-events-none">
+  <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-black/80 shadow-lg">
+    <motion.svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-6 w-6 text-yellow-400 drop-shadow-[0_0_6px_rgba(0,0,0,0.8)]"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+      animate={{ x: [0, 6, 0] }}
+      transition={{ repeat: Infinity, duration: 1.2 }}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+    </motion.svg>
+    <span className="hidden sm:block text-sm text-white font-semibold">
+      Scroll
+    </span>
+  </div>
+</div>
+
+
+
         </div>
       </div>
     </section>

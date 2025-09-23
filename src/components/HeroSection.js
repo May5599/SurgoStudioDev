@@ -92,10 +92,7 @@ export default function HeroSection() {
           </h1>
 
           {/* Subheading with SEO keywords */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-rammetto font-semibold tracking-tight leading-snug drop-shadow-xl">
-            Creative Video Production Studio in Ottawa
-          </h2>
-
+        
           {/* Stats (optional for social proof) */}
           {/*
           <p className="mt-8 tracking-wide font-mozilla text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold drop-shadow-lg text-[#37fa82]">

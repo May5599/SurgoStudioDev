@@ -34,7 +34,7 @@ export default function SurgoEditorialLogo() {
           className="font-medium tracking-wider uppercase 
                      text-base sm:text-lg md:text-xl mb-6"
         >
-          Crafting Motion. <span className="italic">Shaping Vision.</span>
+        <span className="italic">Turning brainstorms into brain-explosions.</span>
         </motion.p>
 
         <motion.div
