@@ -1,28 +1,22 @@
-import {
-  Geist,
-  Geist_Mono,
-  Inter,
-  Audiowide,
-  Montserrat,
-  Outfit,
-  Nothing_You_Could_Do,
-  Special_Elite,
-} from "next/font/google";
+import { Merriweather_Sans, Martel } from "next/font/google";
 import "./globals.css";
 import PreloaderWrapper from "../components/PreLoader";
 import Script from "next/script";
 
-// Fonts
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"], weight: ["400", "500", "700"] });
-const audiowide = Audiowide({ variable: "--font-audiowide", subsets: ["latin"], weight: "400" });
-const montserrat = Montserrat({ variable: "--font-montserrat", subsets: ["latin"], weight: ["400", "600", "700"] });
-const outfit = Outfit({ variable: "--font-outfit", subsets: ["latin"], weight: ["400", "500", "700"] });
-const nothingYouCouldDo = Nothing_You_Could_Do({ variable: "--font-nothing-you-could-do", subsets: ["latin"], weight: "400" });
-const specialElite = Special_Elite({ variable: "--font-special-elite", subsets: ["latin"], weight: "400" });
+// Merriweather Sans (headings)
+const merriweatherSans = Merriweather_Sans({
+  variable: "--font-merriweather-sans",
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
+});
 
-// Metadata
+// Martel (paragraph text)
+const martel = Martel({
+  variable: "--font-martel",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"], // ✅ valid weights
+});
+
 export const metadata = {
   title: "Surgo Studios | Ottawa Video Production & Creative Content Agency",
   description:
@@ -82,12 +76,11 @@ export const metadata = {
   },
 };
 
-// Layout
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${audiowide.variable} ${montserrat.variable} ${outfit.variable} ${nothingYouCouldDo.variable} ${specialElite.variable} antialiased`}
+        className={`${merriweatherSans.variable} ${martel.variable} antialiased`}
       >
         {/* Organization + LocalBusiness Schema */}
         <Script
