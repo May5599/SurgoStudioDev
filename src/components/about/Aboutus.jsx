@@ -50,7 +50,7 @@ export default function AboutPage() {
   return (
     <div className="bg-white text-black">
       {/* HERO */}
-      <section className="relative bg-gray-50 text-gray-800 px-8 py-40 md:px-20 text-center">
+      <section className="relative bg-gray-50 text-gray-800 px-8 py-80 md:px-20 text-center">
         <motion.h1
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -69,9 +69,12 @@ export default function AboutPage() {
 
       {/* PARTNERS & ADVISOR */}
       <section className="px-8 py-24 md:px-20 bg-white">
-        <h2 className="text-5xl font-mozilla text-center mb-16">
-          Our Founders & Strategic Advisor
+        <h2 className="text-5xl font-mozilla text-center mb-4">
+          Meet the Surgo Team
         </h2>
+        <p className="text-center text-xl text-gray-600 mb-16">
+          We create stories even with our eyes closed.
+        </p>
         <div className="grid gap-20">
           {/* Partners */}
           <motion.div
@@ -94,7 +97,7 @@ export default function AboutPage() {
               <p className="text-xl font-rammetto text-gray-600 mb-6">
                 Managing Partners
               </p>
-              <p className="text-gray-700 text-lg">
+              <p className="text-gray-700 text-lg text-justify">
                 Surgo Studios is guided by vision and leadership that balance
                 creativity with strategy. Daniyal brings entrepreneurial drive
                 from scaling businesses across North America, blending
@@ -111,12 +114,7 @@ export default function AboutPage() {
 
       {/* TEAM */}
       <section className="px-8 md:px-20 bg-white">
-        <h2 className="text-5xl font-mozilla text-center mb-4">
-          Meet the Surgo Team
-        </h2>
-        <p className="text-center text-lg text-gray-600 mb-16">
-          We create stories even with our eyes closed.
-        </p>
+        
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 mb-32">
           {leadership.map((p, i) => (
@@ -136,7 +134,7 @@ export default function AboutPage() {
               />
               <h3 className="text-2xl font-mozilla">{p.name}</h3>
               <p className="text-lg font-rammetto text-gray-600">{p.role}</p>
-              <p className="mt-3 text-gray-700">{p.bio}</p>
+              <p className="mt-3 text-gray-700 text-justify">{p.bio}</p>
             </motion.div>
           ))}
         </div>
