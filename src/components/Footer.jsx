@@ -38,7 +38,7 @@ export default function Footer() {
             </li>
              <li>
               <Link href="/podcast" className="hover:text-yellow-400 transition">
-                Contact
+                Podcast
               </Link>
             </li>
             <li>
@@ -48,7 +48,7 @@ export default function Footer() {
             </li>
              <li>
               <Link href="/about" className="hover:text-yellow-400 transition">
-                Contact
+                About
               </Link>
             </li>
             <li>
