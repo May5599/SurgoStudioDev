@@ -9,83 +9,101 @@ const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 const parser = new Parser();
 
 export async function POST(req) {
-  const { topic } = await req.json();
-
-  // 📰 Step 1 — Pull 5 trending Ottawa media keywords
-  let trendingKeywords = "";
   try {
-    const feed = await parser.parseURL(
-      "https://news.google.com/rss/search?q=ottawa+media+OR+video+production+OR+marketing+OR+podcast+OR+creative&hl=en-CA&gl=CA&ceid=CA:en"
-    );
-    const headlines = feed.items.slice(0, 5).map((i) => i.title).join(", ");
-    trendingKeywords = headlines;
-  } catch (err) {
-    trendingKeywords =
-      "Ottawa video production, podcast studios, conference filming, media storytelling, creative marketing";
-  }
+    const { topic } = await req.json();
+    if (!topic) {
+      return NextResponse.json({ success: false, error: "No topic provided." });
+    }
 
-  // 🧠 Step 2 — Main prompt
-  const prompt = `
-You are a skilled SEO blog writer for Surgo Studios — an Ottawa-based video production and media agency.
-Write a cinematic, SEO-optimized blog post for the title: "${topic}"
+    // 📰 Step 1 — Pull trending Ottawa creative keywords
+    let trendingKeywords = "";
+    try {
+      const feed = await parser.parseURL(
+        "https://news.google.com/rss/search?q=ottawa+video+production+OR+media+agency+OR+creative+marketing+OR+podcast+studio&hl=en-CA&gl=CA&ceid=CA:en"
+      );
+      const headlines = feed.items.slice(0, 5).map((i) => i.title).join(", ");
+      trendingKeywords = headlines;
+    } catch {
+      trendingKeywords =
+        "Ottawa video production, podcast studios, creative marketing, cinematic storytelling, brand content creation";
+    }
 
-Guidelines:
-- Use natural, editorial, human language (no AI phrases, no em dashes).
-- Focus on Ottawa’s creative and business community.
-- Include trending local keywords:
-  ${trendingKeywords}
-- Mention video production, podcast services, event coverage, and social media content.
-- Mention Surgo Studios and Surgo Media as authorities.
-- Include an introduction, clear H2 sections, and a CTA to work with Surgo Studios.
-- Keep it creative, relevant, and 100% unique.
-Return only Markdown.
+    // 🧠 Step 2 — AI prompt (natural, cinematic, no SEO wording)
+    const prompt = `
+You are a professional copywriter for Surgo Studios, a cinematic video production and creative media agency based in Ottawa.
+
+Write a full-length blog article (minimum 900 words) on the topic: "${topic}".
+
+Tone: cinematic, confident, and human. 
+Audience: Ottawa creators, brands, and businesses seeking creative storytelling.
+Avoid: the words "SEO", "AI", "local blog", or em-dashes. 
+Use commas or short sentences instead.
+
+Include trending local references or ideas from these keywords:
+${trendingKeywords}
+
+Structure:
+1. A creative intro paragraph that hooks readers — this will serve as the description.
+2. Strong H2 sections that flow naturally.
+3. A closing paragraph that ties the story back to Surgo Studios’ mission.
+Return only Markdown (no explanations).
 `;
 
-  // ✍️ Step 3 — Generate blog content
-  const completion = await openai.chat.completions.create({
-    model: "gpt-4o-mini",
-    messages: [{ role: "user", content: prompt }],
-  });
+    // ✍️ Step 3 — Generate blog
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [{ role: "user", content: prompt }],
+    });
 
-  let blogContent = completion.choices[0].message.content || "";
+    let blogContent = completion.choices[0]?.message?.content?.trim() || "";
 
-  // 🧹 Step 4 — Auto format and clean up
-  blogContent = blogContent
-    .replace(/\s{2,}/g, " ") // remove double spaces
-    .replace(/\n{3,}/g, "\n\n") // remove triple line breaks
-    .replace(/^##\s*(.*)$/gm, (match, p1) => `## ${p1.trim().replace(/\b\w/g, (c) => c.toUpperCase())}`) // capitalize H2
-    .replace(/^###\s*(.*)$/gm, (match, p1) => `### ${p1.trim().replace(/\b\w/g, (c) => c.toUpperCase())}`); // capitalize H3
+    // 🧹 Step 4 — Clean formatting
+    blogContent = blogContent
+      .replace(/\s{2,}/g, " ")
+      .replace(/\n{3,}/g, "\n\n")
+      .replace(/—/g, "-"); // remove em-dashes just in case
 
-  // 🪶 Step 5 — Add front matter
-  const frontMatter = matter.stringify(blogContent, {
-    title: topic,
-    date: new Date().toISOString(),
-    description: `Local Ottawa SEO blog on ${topic} — insights from Surgo Studios.`,
-    tags: [
-      "Ottawa",
-      "video production",
-      "Surgo Studios",
-      "media marketing",
-      "podcast production",
-      "creative storytelling",
-    ],
-  });
+    // ✍️ Step 5 — Extract first paragraph as description
+    const firstParagraphMatch = blogContent.match(/^(.*?)(\r?\n\r?\n|$)/);
+    const firstParagraph =
+      firstParagraphMatch?.[1]?.trim() ||
+      `A creative exploration of ${topic} by Surgo Studios in Ottawa.`;
 
-  const filename = `${topic.toLowerCase().replace(/\s+/g, "-")}-${Date.now()}.mdx`;
+    // 🪶 Step 6 — Add front matter
+    const frontMatter = matter.stringify(blogContent, {
+      title: topic,
+      date: new Date().toISOString(),
+      description: firstParagraph,
+      tags: [
+        "Surgo Studios",
+        "Ottawa",
+        "video production",
+        "creative media",
+        "podcast production",
+        "brand storytelling",
+      ],
+    });
 
-  // 💾 Step 6 — Commit to GitHub
-  await octokit.repos.createOrUpdateFileContents({
-    owner: "May5599", // your GitHub username
-    repo: "SurgoStudioDev", // your repo name
-    path: `content/blogs/${filename}`,
-    message: `🤖 Added blog: ${topic}`,
-    content: Buffer.from(frontMatter).toString("base64"),
-    branch: "main",
-  });
+    // 🗂 Step 7 — Commit to GitHub
+    const safeTopic = topic.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    const filename = `${safeTopic}-${Date.now()}.mdx`;
 
-  return NextResponse.json({
-    success: true,
-    filename,
-    trendingKeywords,
-  });
+    await octokit.repos.createOrUpdateFileContents({
+      owner: "May5599",
+      repo: "SurgoStudioDev",
+      path: `content/blogs/${filename}`,
+      message: `🎬 Added blog: ${topic}`,
+      content: Buffer.from(frontMatter).toString("base64"),
+      branch: "main",
+    });
+
+    return NextResponse.json({
+      success: true,
+      filename,
+      message: `Blog created successfully: ${filename}`,
+    });
+  } catch (error) {
+    console.error("Blog generation failed:", error);
+    return NextResponse.json({ success: false, error: error.message });
+  }
 }
