@@ -27,6 +27,7 @@ export default function Navbar() {
     { label: "Podcast", href: "/podcast" },
     
     { label: "About Us", href: "/about" },
+        { label: "Blogs", href: "/blog" },
     { label: "Contact", href: "/contact" },
   ];
 
