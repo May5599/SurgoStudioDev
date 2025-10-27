@@ -3,18 +3,17 @@ import "./globals.css";
 import PreloaderWrapper from "../components/PreLoader";
 import Script from "next/script";
 
-// Merriweather Sans (headings)
+// Fonts
 const merriweatherSans = Merriweather_Sans({
   variable: "--font-merriweather-sans",
   subsets: ["latin"],
   weight: ["400", "600", "700", "800"],
 });
 
-// Martel (paragraph text)
 const martel = Martel({
   variable: "--font-martel",
   subsets: ["latin"],
-  weight: ["400", "600", "700"], // ✅ valid weights
+  weight: ["400", "600", "700"],
 });
 
 export const metadata = {
@@ -82,7 +81,25 @@ export default function RootLayout({ children }) {
       <body
         className={`${merriweatherSans.variable} ${martel.variable} antialiased`}
       >
-        {/* Organization + LocalBusiness Schema */}
+        {/* ✅ Google Tag (Analytics) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-6S8XCDSFMS"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-6S8XCDSFMS');
+            `,
+          }}
+        />
+
+        {/* ✅ Organization + LocalBusiness Schema */}
         <Script
           id="ld-org-localbusiness"
           type="application/ld+json"
