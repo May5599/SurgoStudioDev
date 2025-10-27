@@ -7,28 +7,28 @@ import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { motion, AnimatePresence } from "framer-motion";
 
-export const metadata = {
-  title: "Surgo Studios Blog | Ottawa Video Production & Creative Insights",
-  description:
-    "A cinematic editorial from Surgo Studios — exploring video production, podcasting, and storytelling shaping Ottawa’s creative culture.",
-  openGraph: {
-    title: "Surgo Studios Blog | Ottawa Video Production & Creative Insights",
-    description:
-      "From brand storytelling to cinematic production — explore Surgo Studios’ perspective on creativity in Ottawa’s media scene.",
-    url: "https://surgostudios.com/blog",
-    siteName: "Surgo Studios",
-    images: [
-      {
-        url: "https://res.cloudinary.com/drt92o4ye/image/upload/v1758309720/white-logo_w6xinb_yz8p9u.png",
-        width: 1200,
-        height: 630,
-        alt: "Surgo Studios - Ottawa Video Production Blog",
-      },
-    ],
-    locale: "en_CA",
-    type: "website",
-  },
-};
+// export const metadata = {
+//   title: "Surgo Studios Blog | Ottawa Video Production & Creative Insights",
+//   description:
+//     "A cinematic editorial from Surgo Studios — exploring video production, podcasting, and storytelling shaping Ottawa’s creative culture.",
+//   openGraph: {
+//     title: "Surgo Studios Blog | Ottawa Video Production & Creative Insights",
+//     description:
+//       "From brand storytelling to cinematic production — explore Surgo Studios’ perspective on creativity in Ottawa’s media scene.",
+//     url: "https://surgostudios.com/blog",
+//     siteName: "Surgo Studios",
+//     images: [
+//       {
+//         url: "https://res.cloudinary.com/drt92o4ye/image/upload/v1758309720/white-logo_w6xinb_yz8p9u.png",
+//         width: 1200,
+//         height: 630,
+//         alt: "Surgo Studios - Ottawa Video Production Blog",
+//       },
+//     ],
+//     locale: "en_CA",
+//     type: "website",
+//   },
+// };
 
 export default function BlogPage() {
   // Load blogs
