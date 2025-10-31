@@ -58,7 +58,7 @@ export default function AboutPage() {
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Service",
-      email: "info@surgostudios.com",
+      email: "raha@surgomedia.com",
     },
   };
 

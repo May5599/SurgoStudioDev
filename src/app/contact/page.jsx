@@ -60,7 +60,7 @@ export default function Contact() {
       "@type": "ContactPoint",
       telephone: "+1-XXX-XXX-XXXX", // replace with real number
       contactType: "Customer Service",
-      email: "info@surgostudios.com", // replace with real email
+      email: "raha@surgomedia.com", // replace with real email
       areaServed: "Ottawa, Ontario, Canada",
       availableLanguage: ["English", "French"],
     },
