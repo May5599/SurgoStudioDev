@@ -15,7 +15,28 @@ export async function POST(req) {
       return NextResponse.json({ success: false, error: "No topic provided." });
     }
 
-    // 📰 Step 1 — Pull trending Ottawa creative keywords
+    const owner = "May5599";
+    const repo = "SurgoStudioDev";
+    const branch = "main";
+    const contentPath = "content/blogs";
+
+    // 🧱 Step 1 — Get the latest commit SHA of main
+    const refData = await octokit.git.getRef({
+      owner,
+      repo,
+      ref: `heads/${branch}`,
+    });
+    const latestCommitSha = refData.data.object.sha;
+
+    // 📁 Step 2 — Get the tree SHA (to pull latest files)
+    const commitData = await octokit.git.getCommit({
+      owner,
+      repo,
+      commit_sha: latestCommitSha,
+    });
+    const treeSha = commitData.data.tree.sha;
+
+    // 📰 Step 3 — Fetch trending Ottawa keywords
     let trendingKeywords = "";
     try {
       const feed = await parser.parseURL(
@@ -25,51 +46,56 @@ export async function POST(req) {
       trendingKeywords = headlines;
     } catch {
       trendingKeywords =
-        "Ottawa video production, podcast studios, creative marketing, cinematic storytelling, brand content creation";
+        "Ottawa video production, Toronto creative studios, Ontario branding agencies, cinematic storytelling, content marketing, podcast production";
     }
 
-    // 🧠 Step 2 — AI prompt (natural, cinematic, no SEO wording)
+    // ✍️ Step 4 — Build improved creative prompt
     const prompt = `
-You are a professional copywriter for Surgo Studios, a cinematic video production and creative media agency based in Ottawa.
+You are a professional creative copywriter at Surgo Studios — a cinematic video production and podcast agency in Ottawa.
 
-Write a full-length blog article (minimum 900 words) on the topic: "${topic}".
+Write a complete 900–1200 word blog post about:
+"${topic}"
 
-Tone: cinematic, confident, and human. 
-Audience: Ottawa creators, brands, and businesses seeking creative storytelling.
-Avoid: the words "SEO", "AI", "local blog", or em-dashes. 
-Use commas or short sentences instead.
+Tone: cinematic, inspiring, and human — like a filmmaker telling a story.
+Audience: creative brands, entrepreneurs, and storytellers across Ottawa, Toronto, and Ontario.
 
-Include trending local references or ideas from these keywords:
+✅ Rules:
+- DO NOT mention SEO, AI, automation, or "generated" content.
+- No phrases like "this article will discuss".
+- Use <h1>, <h2>, <h3>, <p> tags only.
+- Keep paragraphs short and readable.
+- End with a short call-to-action that invites readers to connect with Surgo Studios.
+
+Inspiration keywords:
 ${trendingKeywords}
 
-Structure:
-1. A creative intro paragraph that hooks readers — this will serve as the description.
-2. Strong H2 sections that flow naturally.
-3. A closing paragraph that ties the story back to Surgo Studios’ mission.
-Return only Markdown (no explanations).
+Return only HTML (no markdown or code fences).
 `;
 
-    // ✍️ Step 3 — Generate blog
+    // 🧠 Step 5 — Generate blog content
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [{ role: "user", content: prompt }],
+      temperature: 0.8,
     });
 
     let blogContent = completion.choices[0]?.message?.content?.trim() || "";
 
-    // 🧹 Step 4 — Clean formatting
+    // 🧹 Step 6 — Clean the HTML
     blogContent = blogContent
-      .replace(/\s{2,}/g, " ")
-      .replace(/\n{3,}/g, "\n\n")
-      .replace(/—/g, "-"); // remove em-dashes just in case
+      .replace(/[\u2014\u2013]/g, "-")
+      .replace(/\*\*|__|[*_]/g, "")
+      .replace(/<\/?br\s*\/?>/gi, "<br/>")
+      .replace(/\n{2,}/g, "\n")
+      .trim();
 
-    // ✍️ Step 5 — Extract first paragraph as description
-    const firstParagraphMatch = blogContent.match(/^(.*?)(\r?\n\r?\n|$)/);
+    // 🪶 Step 7 — Extract first paragraph
+    const firstParagraphMatch = blogContent.match(/<p>(.*?)<\/p>/i);
     const firstParagraph =
       firstParagraphMatch?.[1]?.trim() ||
-      `A creative exploration of ${topic} by Surgo Studios in Ottawa.`;
+      `Creative storytelling and production insights from Surgo Studios in Ottawa.`;
 
-    // 🪶 Step 6 — Add front matter
+    // 🏷 Step 8 — Add YAML frontmatter
     const frontMatter = matter.stringify(blogContent, {
       title: topic,
       date: new Date().toISOString(),
@@ -77,33 +103,38 @@ Return only Markdown (no explanations).
       tags: [
         "Surgo Studios",
         "Ottawa",
-        "video production",
-        "creative media",
-        "podcast production",
-        "brand storytelling",
+        "Toronto",
+        "Ontario",
+        "Video Production",
+        "Creative Agency",
+        "Podcast Studio",
       ],
     });
 
-    // 🗂 Step 7 — Commit to GitHub
+    // 🗂 Step 9 — Prepare file name
     const safeTopic = topic.toLowerCase().replace(/[^a-z0-9]+/g, "-");
     const filename = `${safeTopic}-${Date.now()}.mdx`;
 
+    // 💾 Step 10 — Commit the new blog safely on top of the latest commit
     await octokit.repos.createOrUpdateFileContents({
-      owner: "May5599",
-      repo: "SurgoStudioDev",
-      path: `content/blogs/${filename}`,
-      message: `🎬 Added blog: ${topic}`,
+      owner,
+      repo,
+      path: `${contentPath}/${filename}`,
+      message: `📰 Add new blog: ${topic}`,
       content: Buffer.from(frontMatter).toString("base64"),
-      branch: "main",
+      branch,
     });
 
     return NextResponse.json({
       success: true,
       filename,
-      message: `Blog created successfully: ${filename}`,
+      message: `✅ Blog pushed successfully to GitHub: ${filename}`,
     });
   } catch (error) {
-    console.error("Blog generation failed:", error);
-    return NextResponse.json({ success: false, error: error.message });
+    console.error("❌ Blog generation failed:", error);
+    return NextResponse.json({
+      success: false,
+      error: error.message || "Internal Server Error",
+    });
   }
 }

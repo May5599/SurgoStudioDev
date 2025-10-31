@@ -10,12 +10,6 @@ const merriweatherSans = Merriweather_Sans({
   weight: ["400", "600", "700", "800"],
 });
 
-const martel = Martel({
-  variable: "--font-martel",
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-});
-
 export const metadata = {
   title: "Surgo Studios | Ottawa Video Production & Creative Content Agency",
   description:
@@ -79,7 +73,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${merriweatherSans.variable} ${martel.variable} antialiased`}
+        className={`${merriweatherSans.variable} ${merriweatherSans.variable} antialiased`}
       >
         {/* ✅ Google Tag (Analytics) */}
         <Script

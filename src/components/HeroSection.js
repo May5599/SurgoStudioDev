@@ -67,12 +67,12 @@ export default function HeroSection() {
             loop
             playsInline
             preload="metadata"
-            poster={`${MEDIA_BASE}/demo_hero_ymacfx_poster.jpg`}
+            poster={`${MEDIA_BASE}/DRYP_30_4K_H265_Final_zwxg2r_poster.jpg`}
             className="absolute top-0 left-0 w-full h-full object-cover"
             aria-hidden="true"
           >
             <source
-              src={`${MEDIA_BASE}/demo_hero_ymacfx_compressed.mp4`}
+              src={`${MEDIA_BASE}/DRYP_30_4K_H265_Final_zwxg2r_compressed.mp4`}
               type="video/mp4"
             />
             Your browser does not support the video tag.
@@ -80,37 +80,37 @@ export default function HeroSection() {
         )}
 
         {/* 🔒 Overlay for contrast */}
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-black/10" />
 
         {/* 📢 Content */}
-        <div className="relative z-10 max-w-screen-lg w-full px-4 text-center">
-          {/* Main Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-mozilla font-bold tracking-tight leading-snug drop-shadow-xl break-words mb-2">
-            <span className="glitch inline-block overflow-hidden">
-              LIGHTS • CAMERA • SURGO
-            </span>
-          </h1>
+       <div className="relative z-10 max-w-screen-xl w-full px-6 text-center font-mozilla">
+  {/* Big Editorial Heading */}
+  <h1
+    className="text-[20vw] sm:text-[8vw] md:text-[6.5vw] lg:text-[5.5vw] xl:text-[5vw]
+               font-black uppercase tracking-tighter leading-[0.95] text-white
+               drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)] mb-20"
+  >
+    <span className="glitch inline-block overflow-hidden">
+      LIGHTS • CAMERA • <span className="text-yellow-400">SURGO</span>
+    </span>
+  </h1>
 
-          {/* Subheading with SEO keywords */}
-        
-          {/* Stats (optional for social proof) */}
-          {/*
-          <p className="mt-8 tracking-wide font-mozilla text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold drop-shadow-lg text-[#37fa82]">
-            {formatNumber(views)}+ Views · {formatNumber(likes)}+ Likes · {formatNumber(projects)}+ Projects
-          </p>
-          */}
+  {/* Button / CTA */}
+  <div className="flex justify-center mt-8 mb-32">
+    <a
+      href="/portfolio"
+      className="inline-flex items-center px-8 py-4 text-lg tracking-wide 
+                 bg-white/10 border border-white/20 text-white font-medium rounded-full
+                 hover:bg-yellow-400 hover:text-black hover:border-yellow-400
+                 transition-all duration-300 backdrop-blur-md shadow-lg"
+      aria-label="Explore Surgo Studios video production portfolio"
+    >
+      Watch Our Reel
+    </a>
+  </div>
+</div>
 
-          {/* CTA */}
-          <div className="flex justify-center mt-6">
-            <a
-              href="/portfolio"
-              className="inline-flex items-center px-6 py-3 bg-white/10 border border-white/20 text-white font-mozilla font-medium rounded-full hover:bg-yellow-400 hover:text-black hover:border-yellow-400 transition backdrop-blur-md"
-              aria-label="Explore Surgo Studios video production portfolio"
-            >
-              Watch Our Reel
-            </a>
-          </div>
-        </div>
+
       </section>
     </>
   );
