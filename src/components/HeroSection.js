@@ -67,12 +67,12 @@ export default function HeroSection() {
             loop
             playsInline
             preload="metadata"
-            poster={`${MEDIA_BASE}/DRYP_30_4K_H265_Final_zwxg2r_poster.jpg`}
+            poster={`${MEDIA_BASE}/EP003_poster.jpg`}
             className="absolute top-0 left-0 w-full h-full object-cover"
             aria-hidden="true"
           >
             <source
-              src={`${MEDIA_BASE}/DRYP_30_4K_H265_Final_zwxg2r_compressed.mp4`}
+              src={`${MEDIA_BASE}/hero.mp4`}
               type="video/mp4"
             />
             Your browser does not support the video tag.
@@ -80,7 +80,7 @@ export default function HeroSection() {
         )}
 
         {/* 🔒 Overlay for contrast */}
-        <div className="absolute inset-0 bg-black/10" />
+        <div className="absolute inset-0 bg-yellow-800/20" />
 
         {/* 📢 Content */}
        <div className="relative z-10 max-w-screen-xl w-full px-6 text-center font-mozilla">

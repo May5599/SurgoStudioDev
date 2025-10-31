@@ -8,9 +8,9 @@ import { MEDIA_BASE } from "../lib/config";
 
 const portfolioItems = [
   {
-    title: "DRYP",
-    video: `${MEDIA_BASE}/DRYP_30_4K_H265_Final_zwxg2r_compressed.mp4`,
-    poster: `${MEDIA_BASE}/DRYP_30_4K_H265_Final_zwxg2r_poster.jpg`,
+    title: "Kevin Pearce",
+    video: `${MEDIA_BASE}/hero.mp4`,
+    poster: `${MEDIA_BASE}/EP003_poster.jpg`,
   },
   {
     title: "Westmount Capital",

@@ -31,11 +31,19 @@ export const metadata = {
   ],
   icons: {
     icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.ico" },
+      {
+        url: "https://d1y0fmcrb9qnj1.cloudfront.net/Dark-Logo.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "https://d1y0fmcrb9qnj1.cloudfront.net/Dark-Logo.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
     ],
-    apple: "/apple-touch-icon.png",
+    apple: "https://d1y0fmcrb9qnj1.cloudfront.net/Dark-Logo.png",
+    shortcut: "https://d1y0fmcrb9qnj1.cloudfront.net/Dark-Logo.png",
     other: [{ rel: "manifest", url: "/site.webmanifest" }],
   },
   openGraph: {
@@ -46,7 +54,7 @@ export const metadata = {
     siteName: "Surgo Studios",
     images: [
       {
-        url: "https://res.cloudinary.com/drt92o4ye/image/upload/v1758309720/white-logo_w6xinb_yz8p9u.png",
+        url: "https://d1y0fmcrb9qnj1.cloudfront.net/Dark-Logo.png",
         width: 1200,
         height: 630,
         alt: "Surgo Studios - Video Production Agency Ottawa",
@@ -60,9 +68,7 @@ export const metadata = {
     title: "Surgo Studios | Ottawa Video Production Agency",
     description:
       "Ottawa-based creative video agency for reels, ads, commercials, social media, and podcasts.",
-    images: [
-      "https://res.cloudinary.com/drt92o4ye/image/upload/v1758309720/white-logo_w6xinb_yz8p9u.png",
-    ],
+    images: ["https://d1y0fmcrb9qnj1.cloudfront.net/Dark-Logo.png"],
   },
   alternates: {
     canonical: "https://surgostudios.com",
@@ -75,7 +81,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${merriweatherSans.variable} ${merriweatherSans.variable} antialiased`}
       >
-        {/* ✅ Google Tag (Analytics) */}
+        {/* ✅ Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-6S8XCDSFMS"
           strategy="afterInteractive"
@@ -104,8 +110,8 @@ export default function RootLayout({ children }) {
               "@type": ["Organization", "LocalBusiness"],
               name: "Surgo Studios",
               url: "https://surgostudios.com",
-              logo: "https://res.cloudinary.com/drt92o4ye/image/upload/v1758309720/white-logo_w6xinb_yz8p9u.png",
-              image: "https://res.cloudinary.com/drt92o4ye/image/upload/v1758309720/white-logo_w6xinb_yz8p9u.png",
+              logo: "https://d1y0fmcrb9qnj1.cloudfront.net/Dark-Logo.png",
+              image: "https://d1y0fmcrb9qnj1.cloudfront.net/Dark-Logo.png",
               email: "raha@surgomedia.com",
               address: {
                 "@type": "PostalAddress",
