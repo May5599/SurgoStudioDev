@@ -15,6 +15,7 @@
     "@octokit/rest": "^22.0.0",
     "clsx": "^2.1.1",
     "critters": "^0.0.23",
+    "dotenv": "^17.2.3",
     "framer-motion": "^12.23.12",
     "googleapis": "^155.0.0",
     "gray-matter": "^4.0.3",

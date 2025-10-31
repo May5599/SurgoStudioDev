@@ -1,130 +1,114 @@
 "use client";
 
-import { useState } from "react";
-
 import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 export default function BlogClient({ posts }) {
   const [selectedPost, setSelectedPost] = useState(null);
 
   return (
-    <main className="relative min-h-screen bg-black text-white px-6 sm:px-12 py-20 font-[--font-merriweather-sans]">
-      <div className="max-w-6xl mx-auto">
-        {/* 🏷️ Hero */}
-        <motion.section
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-center mb-20"
-        >
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
-            Surgo Studios Journal
-          </h1>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
-            Capturing the art of motion, voice, and story — where Ottawa’s
-            creative pulse meets cinematic expression.
-          </p>
-        </motion.section>
+    <section className="bg-black text-white px-6 sm:px-12 py-28 max-w-7xl mx-auto">
+      {/* Blog Grid */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-16">
+        {posts.map((post, i) => (
+          <motion.div
+            key={post.slug}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1 }}
+            onClick={() => setSelectedPost(post)}
+            className="group cursor-pointer flex flex-col overflow-hidden rounded-3xl bg-zinc-950 border border-gray-800 hover:border-purple-400 hover:shadow-[0_0_40px_-10px_rgba(168,85,247,0.4)] transition-all duration-500"
+          >
+            {/* 📸 Image */}
+            <div className="overflow-hidden rounded-t-3xl">
+              <img
+                src={post.coverImage}
+                alt={post.title}
+                className="w-full h-72 object-cover transform group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
 
-        {/* 📰 Blog grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {posts.length > 0 ? (
-            posts.map((post, i) => (
-              <motion.div
-                key={post.slug}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                className="group relative border border-gray-800 hover:border-blue-500 transition-all rounded-2xl p-8 bg-zinc-950/60 hover:bg-zinc-900 cursor-pointer overflow-hidden"
-                onClick={() => setSelectedPost(post)}
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent opacity-0 group-hover:opacity-100 transition-all"></div>
-                <h2 className="text-2xl font-semibold mb-3 text-white group-hover:text-blue-400 transition-all leading-snug">
+            {/* 📝 Text content */}
+            <div className="p-8 flex flex-col justify-between flex-grow">
+              <div>
+                <h2 className="text-2xl font-bold leading-snug mb-3 group-hover:text-purple-400 transition-all">
                   {post.title}
                 </h2>
-                <p className="text-gray-500 text-sm mb-4">{post.date}</p>
-                <p className="text-gray-300 line-clamp-3">
+                <p className="text-gray-400 text-sm mb-4">{post.date}</p>
+                <p className="text-gray-300 text-base line-clamp-3">
                   {post.description}
                 </p>
-                <span className="inline-block mt-4 text-blue-400 text-sm font-semibold group-hover:underline">
-                  Read more →
-                </span>
-              </motion.div>
-            ))
-          ) : (
-            <p className="text-gray-400 text-center col-span-full">
-              No posts yet — the AI blog agent will publish soon.
-            </p>
-          )}
-        </div>
+              </div>
+
+              <span className="inline-block mt-6 text-purple-400 font-semibold group-hover:underline">
+                Read More →
+              </span>
+            </div>
+          </motion.div>
+        ))}
       </div>
 
       {/* 🎬 Popup Reader */}
-      <AnimatePresence>
-        {selectedPost && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/95 backdrop-blur-lg z-50 overflow-y-auto"
-          >
-            <motion.div
-              initial={{ y: 60, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 40, opacity: 0 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              className="relative max-w-5xl mx-auto mt-20 mb-20 bg-neutral-900 rounded-2xl p-10 border border-gray-800 shadow-2xl"
-            >
-              <button
-                onClick={() => setSelectedPost(null)}
-                className="absolute top-4 right-6 text-gray-400 hover:text-white text-3xl font-bold"
-                aria-label="Close"
-              >
-                ×
-              </button>
+      {/* 🎬 Popup Reader */}
+<AnimatePresence>
+  {selectedPost && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 bg-black/95 z-50 flex items-start justify-center overflow-y-auto pt-20 px-4 sm:px-6"
+    >
+      <motion.div
+        initial={{ y: 60, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 40, opacity: 0 }}
+        className="relative bg-[#0d0d0d] border border-gray-800 max-w-3xl w-full mx-auto rounded-3xl p-10 shadow-2xl leading-relaxed"
+      >
+        <button
+          onClick={() => setSelectedPost(null)}
+          className="absolute top-5 right-6 text-gray-500 hover:text-white text-3xl font-light"
+        >
+          ×
+        </button>
 
-              <article className="prose prose-invert prose-lg max-w-none">
-                <h1 className="text-4xl font-extrabold mb-3 text-blue-400 leading-snug">
-                  {selectedPost.title}
-                </h1>
-                <p className="text-gray-500 text-sm mb-8">
-                  {selectedPost.date}
-                </p>
+        <article className="max-w-none prose prose-invert prose-lg">
+          {/* 🏷 Title */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-purple-400 leading-tight tracking-tight">
+            {selectedPost.title}
+          </h1>
 
-                <div
-  className="prose prose-invert prose-lg max-w-none"
-  dangerouslySetInnerHTML={{ __html: selectedPost.content }}
+          {/* 📅 Date */}
+          <p className="text-gray-500 text-sm mb-10">{selectedPost.date}</p>
+
+          {/* 🧾 Cleaned Blog Content */}
+          {/* 🧾 Cleaned Blog Content */}
+<div
+  className="text-gray-200 text-[1.05rem] leading-[1.9] space-y-5"
+  dangerouslySetInnerHTML={{
+    __html: selectedPost.content
+      // ✅ Step 1: remove markdown tokens but keep real HTML tags
+      .replace(/(^|\s)([#*_`>-]+)(?=\s|$)/g, "")
+      // ✅ Step 2: remove double hashes or weird leftover markdown headings
+      .replace(/#+\s?/g, "")
+      // ✅ Step 3: ensure paragraphs have spacing
+      .replace(/<\/p><p>/g, "</p><br/><p>")
+      // ✅ Step 4: trim excessive <br/>s
+      .replace(/(<br\s*\/?>\s*){3,}/g, "<br/><br/>"),
+  }}
 />
 
 
-                <div className="mt-12 border-t border-gray-800 pt-8 text-gray-400 text-sm">
-                  Written by{" "}
-                  <span className="text-blue-400">Surgo Studios</span> — your
-                  creative media partner in Ottawa.
-                </div>
-              </article>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          {/* 🖊 Footer */}
+          <div className="mt-14 border-t border-gray-800 pt-6 text-gray-400 text-sm italic">
+            Written by <span className="text-purple-400 not-italic">Surgo Studios</span> —  
+            Crafting stories that move Ottawa, Toronto, and beyond.
+          </div>
+        </article>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
 
-      {/* ✨ Footer */}
-      <footer className="mt-32 text-center text-gray-500 text-sm">
-        <p>
-          © {new Date().getFullYear()}{" "}
-          <a
-            href="https://surgostudios.com"
-            target="_blank"
-            className="text-blue-400 hover:text-blue-300 underline"
-          >
-            Surgo Studios
-          </a>{" "}
-          — Cinematic Video Production & Creative Media Agency in Ottawa.
-        </p>
-        <p className="mt-1">
-          Follow our journey in creative storytelling and visual innovation.
-        </p>
-      </footer>
-    </main>
+    </section>
   );
 }
