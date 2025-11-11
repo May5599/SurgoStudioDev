@@ -1,0 +1,15 @@
+{
+  "name": "Surgo Studios",
+  "short_name": "Surgo",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "https://d1y0fmcrb9qnj1.cloudfront.net/Dark-Logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

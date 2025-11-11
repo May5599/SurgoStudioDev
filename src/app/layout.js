@@ -1,7 +1,8 @@
-import { Merriweather_Sans, Martel } from "next/font/google";
+import { Merriweather_Sans } from "next/font/google";
 import "./globals.css";
 import PreloaderWrapper from "../components/PreLoader";
 import Script from "next/script";
+import Head from "next/head";
 
 // Fonts
 const merriweatherSans = Merriweather_Sans({
@@ -14,21 +15,6 @@ export const metadata = {
   title: "Surgo Studios | Ottawa Video Production & Creative Content Agency",
   description:
     "Surgo Studios is an Ottawa-based video production agency creating cinematic reels, ads, commercials, podcasts, and social media content that inspires and engages.",
-  keywords: [
-    "video production Ottawa",
-    "cinematic video agency Ottawa",
-    "commercial video production",
-    "corporate video services Ottawa",
-    "reels and short-form content Ottawa",
-    "Instagram reels production Ottawa",
-    "TikTok content creation Ottawa",
-    "social media management Ottawa",
-    "creative storytelling agency Ottawa",
-    "podcast production Ottawa",
-    "brand video marketing Ottawa",
-    "Ottawa content generation",
-    "film and media agency Canada",
-  ],
   icons: {
     icon: [
       {
@@ -44,31 +30,6 @@ export const metadata = {
     ],
     apple: "https://d1y0fmcrb9qnj1.cloudfront.net/Dark-Logo.png",
     shortcut: "https://d1y0fmcrb9qnj1.cloudfront.net/Dark-Logo.png",
-    other: [{ rel: "manifest", url: "/site.webmanifest" }],
-  },
-  openGraph: {
-    title: "Surgo Studios | Ottawa Video Production & Content Creation",
-    description:
-      "From reels to commercials to podcasts, Surgo Studios helps Ottawa brands tell cinematic stories and manage social content that connects.",
-    url: "https://surgostudios.com",
-    siteName: "Surgo Studios",
-    images: [
-      {
-        url: "https://d1y0fmcrb9qnj1.cloudfront.net/Dark-Logo.png",
-        width: 1200,
-        height: 630,
-        alt: "Surgo Studios - Video Production Agency Ottawa",
-      },
-    ],
-    locale: "en_CA",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Surgo Studios | Ottawa Video Production Agency",
-    description:
-      "Ottawa-based creative video agency for reels, ads, commercials, social media, and podcasts.",
-    images: ["https://d1y0fmcrb9qnj1.cloudfront.net/Dark-Logo.png"],
   },
   alternates: {
     canonical: "https://surgostudios.com",
@@ -78,8 +39,24 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head>
+        {/* ✅ Makes it behave like an iOS web app */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
+        <meta name="apple-mobile-web-app-title" content="Surgo" />
+        <link
+          rel="apple-touch-icon"
+          href="https://d1y0fmcrb9qnj1.cloudfront.net/Dark-Logo.png"
+        />
+        <link rel="manifest" href="/manifest.json" />
+      </Head>
+
       <body
-        className={`${merriweatherSans.variable} ${merriweatherSans.variable} antialiased`}
+        className={`${merriweatherSans.variable} antialiased`}
+        style={{ backgroundColor: "#000" }}
       >
         {/* ✅ Google Analytics */}
         <Script
@@ -99,7 +76,7 @@ export default function RootLayout({ children }) {
           }}
         />
 
-        {/* ✅ Organization + LocalBusiness Schema */}
+        {/* ✅ Structured Data */}
         <Script
           id="ld-org-localbusiness"
           type="application/ld+json"
@@ -111,7 +88,6 @@ export default function RootLayout({ children }) {
               name: "Surgo Studios",
               url: "https://surgostudios.com",
               logo: "https://d1y0fmcrb9qnj1.cloudfront.net/Dark-Logo.png",
-              image: "https://d1y0fmcrb9qnj1.cloudfront.net/Dark-Logo.png",
               email: "raha@surgomedia.com",
               address: {
                 "@type": "PostalAddress",
