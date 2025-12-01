@@ -10,6 +10,10 @@ export default function Footer() {
         {/* Logo & Tagline */}
         <div className="text-center sm:text-left">
           <Link href="/" className="inline-block">
+
+
+
+          
             <Image
               src="https://res.cloudinary.com/drt92o4ye/image/upload/v1758309720/white-logo_w6xinb_yz8p9u.png"
               alt="Surgo Studios Logo"
