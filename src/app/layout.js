@@ -119,6 +119,14 @@ export default function RootLayout({ children }) {
           }}
         />
 
+        <Script
+  id="clever-search-tracker"
+  src="https://backend.cleversearch.ai/tracker/v1/tracker.js"
+  data-config={JSON.stringify({ SITE_ID: "be0d550e-a732-455f-a7a8-d041a9ca2efd" })}
+  async
+  strategy="beforeInteractive"
+/>
+
         <PreloaderWrapper>{children}</PreloaderWrapper>
       </body>
     </html>
