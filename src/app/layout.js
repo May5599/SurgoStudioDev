@@ -40,6 +40,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <Head>
+
+        <link
+          href="https://fonts.cdnfonts.com/css/mozilla-headline"
+          rel="stylesheet"
+        />
         {/* ✅ Makes it behave like an iOS web app */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta
