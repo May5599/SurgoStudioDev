@@ -6,6 +6,21 @@ import { ChevronLeft, ChevronRight, Volume2, VolumeX } from "lucide-react";
 import { MEDIA_BASE } from "../../lib/config"; // e.g. https://d1y0fmcrb9qnj1.cloudfront.net
 
 const showcaseData = [
+
+  {
+  title: "NGY Yachting",
+  stat: "Elevated luxury presence",
+  quote: "Sailing beyond expectations.",
+  srcMp4: `${MEDIA_BASE}/FINAL_12_01_2026.webm`,
+  poster: `${MEDIA_BASE}/poster.jpg`,
+},
+{
+  title: "Branch AV music video",
+  stat: "Modernized digital identity",
+  quote: "Clarity. Precision. Impact.",
+  srcMp4: `${MEDIA_BASE}/projector.webm`,
+  poster: `${MEDIA_BASE}/projector-poster.jpg`,
+},
   {
     title: "Kevin Pearce",
     stat: "Built audience trust",
@@ -14,7 +29,7 @@ const showcaseData = [
     poster: `${MEDIA_BASE}/EP003_poster.jpg`,
   },
   {
-    title: "Branch Office Trailer",
+    title: "Branch AV Trailer ",
     stat: "Elevated brand presence",
     quote: "A glimpse into the story.",
     srcMp4: `${MEDIA_BASE}/BranchOfficeTrailerv3_f5ejqb_compressed.mp4`,
@@ -35,7 +50,7 @@ const showcaseData = [
     poster: `${MEDIA_BASE}/website01_bwovoe_poster.jpg`,
   },
   {
-    title: "Cut Showcase",
+    title: "Event Showcase",
     stat: "Enhanced corporate identity",
     quote: "Stories that scale.",
     srcMp4: `${MEDIA_BASE}/cut_v1s354_compressed.mp4`,

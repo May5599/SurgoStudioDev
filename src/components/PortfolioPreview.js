@@ -18,9 +18,9 @@ const portfolioItems = [
     poster: `${MEDIA_BASE}/New_Logo_1_e8hhzs_poster.jpg`,
   },
   {
-    title: "The Green Knight",
-    video: `${MEDIA_BASE}/Storytelling_Example_3_zawxk1_compressed.mp4`,
-    poster: `${MEDIA_BASE}/Storytelling_Example_3_zawxk1_poster.jpg`,
+    title: "Next Generation Yachting",
+    video: `${MEDIA_BASE}/FINAL_12_01_2026.webm`,
+    poster: `${MEDIA_BASE}/poster.jpg`,
   },
   {
     title: "Event Conference",
@@ -109,7 +109,7 @@ export default function PortfolioPreview() {
         <div className="absolute inset-0 bg-black/20 opacity-20" />
 
         {/* Title */}
-        <div className="absolute top-3 left-3 bg-black/70 text-[10px] sm:text-sm text-white px-2 sm:px-3 py-0.5 sm:py-1 
+        <div className="absolute top-6 left-9 bg-black/70 text-[10px] sm:text-sm text-white px-2 sm:px-3 py-0.5 sm:py-1 
                         rounded-full font-semibold tracking-wide shadow-lg backdrop-blur-sm">
           {item.title}
         </div>
