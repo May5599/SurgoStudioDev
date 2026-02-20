@@ -14,7 +14,9 @@ export default function HeroSection() {
 
   // Animate counters once video loads
   useEffect(() => {
+    const timeout = setTimeout(() => {
     setShowVideo(true);
+  }, 600); // small delay so poster paints first
 
     function animate(timestamp) {
       if (!startTime.current) startTime.current = timestamp;
@@ -66,13 +68,13 @@ export default function HeroSection() {
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="none"
             poster={`${MEDIA_BASE}/poster.jpg`}
             className="absolute top-0 left-0 w-full h-full object-cover"
             aria-hidden="true"
           >
             <source
-              src={`${MEDIA_BASE}/FINAL_12_01_2026.webm`}
+              src={`${MEDIA_BASE}/hero-optimized.mp4`}
               type="video/mp4"
             />
             Your browser does not support the video tag.
@@ -88,7 +90,7 @@ export default function HeroSection() {
   <h1
     className="text-[20vw] sm:text-[8vw] md:text-[6.5vw] lg:text-[5.5vw] xl:text-[5vw]
                font-black uppercase tracking-tighter leading-[0.95] text-white
-               drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)] mb-20"
+               drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)] mb-5"
   >
     <span className="glitch inline-block overflow-hidden">
       LIGHTS • CAMERA • <span className="text-yellow-400">SURGO</span>
@@ -115,3 +117,4 @@ export default function HeroSection() {
     </>
   );
 }
+
