@@ -69,12 +69,12 @@ export default function HeroSection() {
             loop
             playsInline
             preload="none"
-            poster={`${MEDIA_BASE}/poster.jpg`}
+            poster={`${MEDIA_BASE}/EP003_poster.jpg`}
             className="absolute top-0 left-0 w-full h-full object-cover"
             aria-hidden="true"
           >
             <source
-              src={`${MEDIA_BASE}/hero-optimized.mp4`}
+              src={`${MEDIA_BASE}/hero.mp4`}
               type="video/mp4"
             />
             Your browser does not support the video tag.

@@ -11,14 +11,14 @@ const showcaseData = [
   title: "NGY Yachting",
   stat: "Elevated luxury presence",
   quote: "Sailing beyond expectations.",
-  srcMp4: `${MEDIA_BASE}/FINAL_12_01_2026.webm`,
+  srcMp4: `${MEDIA_BASE}/FINAL_12_01_2026.mp4`,
   poster: `${MEDIA_BASE}/poster.jpg`,
 },
 {
   title: "Branch AV music video",
   stat: "Modernized digital identity",
   quote: "Clarity. Precision. Impact.",
-  srcMp4: `${MEDIA_BASE}/projector.webm`,
+  srcMp4: `${MEDIA_BASE}/projector.mp4`,
   poster: `${MEDIA_BASE}/projector-poster.jpg`,
 },
   {
@@ -83,6 +83,13 @@ export default function SurgoShowcase({
     y.set(e.clientY - (rect.top + rect.height / 2));
   };
 
+  const getVideoType = (src) => {
+  if (!src) return "video/mp4";
+  if (src.endsWith(".webm")) return "video/webm";
+  if (src.endsWith(".mp4")) return "video/mp4";
+  return "video/mp4";
+};
+
   const goto = (dir) => {
     setCurrent((c) => (c + dir + videos.length) % videos.length);
     setPlaying(true);
@@ -116,7 +123,10 @@ export default function SurgoShowcase({
           poster={videos[current].poster}
           onClick={() => setPlaying((p) => !p)}
         >
-          <source src={videos[current].srcMp4} type="video/mp4" />
+          <source
+  src={videos[current].srcMp4}
+  type={getVideoType(videos[current].srcMp4)}
+/>
         </video>
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/70" />
 
