@@ -107,9 +107,30 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="mt-8 text-center text-xs text-gray-500 relative z-10">
-        &copy; {new Date().getFullYear()} Surgo Studios. All rights reserved.
-      </div>
+      {/* Bottom Bar */}
+<div className="mt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 relative z-10 gap-3">
+
+  <p>
+    &copy; {new Date().getFullYear()} Surgo Studios. All rights reserved.
+  </p>
+
+  <div className="flex gap-4">
+    <Link
+      href="/privacy-policy"
+      className="hover:text-yellow-400 transition"
+    >
+      Privacy Policy
+    </Link>
+<div className="border-t border-white/10 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-3"></div>
+    <Link
+      href="/terms"
+      className="hover:text-yellow-400 transition"
+    >
+      Terms
+    </Link>
+  </div>
+
+</div>
 
       {/* Ambient Glow Background */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
