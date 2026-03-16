@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 
+import { useState } from "react"
+
 export const metadata = {
   title: "About Surgo Studios | Ottawa Video Production Company",
   description:
@@ -25,8 +27,34 @@ export const metadata = {
   },
 };
 
+
+function Bio({ text }) {
+  const [open, setOpen] = useState(false)
+
+  const short = text.slice(0, 120) + "..."
+
+  return (
+    <p className="mt-2 text-sm text-gray-700 leading-relaxed text-left">
+      {open ? text : short}
+
+      <button
+        onClick={() => setOpen(!open)}
+        className="ml-2 text-black font-medium underline hover:opacity-70"
+      >
+        {open ? "Read less" : "Read more"}
+      </button>
+    </p>
+  )
+}
+
 export default function AboutPage() {
   const leadership = [
+     {
+      name: "Carl Anthony",
+      role: "Production Advisor",
+      img: "https://res.cloudinary.com/duwtym7w7/image/upload/v1758205208/VAF03346_copy-2_a0rq2b.jpg",
+      bio: "An Emmy Award–winning media professional, Carl has shaped productions for NBC Universal, CNBC, and NBC Olympics. At Surgo Studios, he brings global broadcast expertise and strategic insight, ensuring the company’s creative vision is supported with excellence and long-term growth.",
+    },
     {
       name: "Raha Javidi, MBA",
       role: "Growth Operations Manager",
@@ -40,11 +68,12 @@ export default function AboutPage() {
       bio: "With over a decade of cinematic production experience, Vahid combines vision with technical mastery. From global brands to local campaigns, he ensures Surgo delivers world-class visuals and storytelling on every project.",
     },
     {
-      name: "Carl Anthony",
-      role: "Production Advisor",
-      img: "https://res.cloudinary.com/duwtym7w7/image/upload/v1758205208/VAF03346_copy-2_a0rq2b.jpg",
-      bio: "An Emmy Award–winning media professional, Carl has shaped productions for NBC Universal, CNBC, and NBC Olympics. At Surgo Studios, he brings global broadcast expertise and strategic insight, ensuring the company’s creative vision is supported with excellence and long-term growth.",
-    },
+  name: "Brandon Fairhead",
+  role: "Marketing Specialist",
+  img: "/brandon.jpg",
+  bio: "An Honours graduate from Carleton University’s Film & English program, Brandon combines storytelling with strategic marketing insight. With experience in content creation, photography, videography, and directing, he transforms audience insights into compelling creative work that connects clients with the communities they want to reach.",
+},
+   
   ];
 
   return (
@@ -113,32 +142,44 @@ export default function AboutPage() {
       </section>
 
       {/* TEAM */}
-      <section className="px-8 md:px-20 bg-white">
-        
+  <section className="px-6 md:px-20 bg-white">
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 mb-32">
-          {leadership.map((p, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.2 }}
-              className="text-center"
-            >
-              <img
-                src={p.img}
-                alt={`${p.name}, ${p.role} at Surgo Studios in Ottawa`}
-                loading="lazy"
-                className="rounded-2xl shadow-lg object-cover w-full aspect-[3/4] mb-6"
-              />
-              <h3 className="text-2xl font-mozilla">{p.name}</h3>
-              <p className="text-lg font-rammetto text-gray-600">{p.role}</p>
-              <p className="mt-3 text-gray-700 text-justify">{p.bio}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+  <div className="max-w-[2000px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-28">
+
+    {leadership.map((p, i) => (
+      <motion.div
+        key={i}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: i * 0.15 }}
+        className="text-center"
+      >
+
+        <img
+          src={p.img}
+          alt={`${p.name}, ${p.role} at Surgo Studios in Ottawa`}
+          loading="lazy"
+          className="mx-auto rounded-2xl shadow-lg object-cover w-full max-w-[370px] aspect-[3/4] mb-5 hover:scale-105 transition-transform duration-300"
+        />
+
+        <h3 className="text-xl font-mozilla">
+          {p.name}
+        </h3>
+
+        <p className="text-gray-600 text-sm mb-2">
+          {p.role}
+        </p>
+
+        <Bio text={p.bio} />
+
+      </motion.div>
+    ))}
+
+  </div>
+
+</section>
+
 
       {/* WHY CANADA CHOOSES SURGO */}
 <section className="px-8 md:px-20 py-24 grid md:grid-cols-2 gap-12 items-center bg-gray-50">

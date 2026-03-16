@@ -121,7 +121,7 @@ export default function Footer() {
     >
       Privacy Policy
     </Link>
-<div className="border-t border-white/10 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-3"></div>
+
     <Link
       href="/terms"
       className="hover:text-yellow-400 transition"
