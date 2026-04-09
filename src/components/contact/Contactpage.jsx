@@ -146,7 +146,7 @@ const [captchaToken, setCaptchaToken] = useState(null);
 
         <div className="flex justify-center">
   <ReCAPTCHA
-    sitekey="YOUR_SITE_KEY"
+    sitekey="6Lf9a68sAAAAAGt7aeH5_oKZ67WhPXjdtfHikCwX"
     onChange={(token) => setCaptchaToken(token)}
   />
 </div>
