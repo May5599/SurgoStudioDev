@@ -8,6 +8,7 @@ import HowItWorksSection from "../components/HowItWorksSection";
 import WhyWorkWithUs from "../components/WhyWorkWithUs";
 import Footer from "../components/Footer";
 import PreloaderWrapper from "../components/PreLoader";
+import TestimonialsReel from "../components/TestimonialsReel";
 
 export const metadata = {
   title: "Surgo Studios | Ottawa Video Production & Creative Content Agency",
@@ -123,6 +124,7 @@ export default function Home() {
       <PortfolioPreview />
       <HowItWorksSection />
       <WhyWorkWithUs />
+      <TestimonialsReel />
       <ClientTestimonials />
       <Footer />
     </PreloaderWrapper>

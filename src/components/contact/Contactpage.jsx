@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import ReCAPTCHA from "react-google-recaptcha";
 import { useEffect, useState } from "react";
 
 export default function ContactPage() {
@@ -11,7 +12,7 @@ export default function ContactPage() {
     phone: "",
     message: "",
   });
-
+const [captchaToken, setCaptchaToken] = useState(null);
   const [status, setStatus] = useState({ loading: false, success: null, error: null });
 
   useEffect(() => setAnimKey(Date.now()), []);
@@ -21,26 +22,36 @@ export default function ContactPage() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // ✅ prevent reload
-    setStatus({ loading: true, success: null, error: null });
+  e.preventDefault();
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+  if (!captchaToken) {
+    setStatus({ loading: false, success: null, error: "Please verify captcha" });
+    return;
+  }
 
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Something went wrong.");
+  setStatus({ loading: true, success: null, error: null });
 
-      setStatus({ loading: false, success: "Message sent successfully!", error: null });
-      setFormData({ name: "", email: "", phone: "", message: "" });
-      setTimeout(() => setStatus({ loading: false, success: null, error: null }), 4000);
-    } catch (err) {
-      setStatus({ loading: false, success: null, error: err.message });
-    }
-  };
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ...formData,
+        captchaToken,
+      }),
+    });
+
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Something went wrong.");
+
+    setStatus({ loading: false, success: "Message sent successfully!", error: null });
+    setFormData({ name: "", email: "", phone: "", message: "" });
+    setCaptchaToken(null);
+
+  } catch (err) {
+    setStatus({ loading: false, success: null, error: err.message });
+  }
+};
 
   return (
     <section className="relative min-h-screen bg-[#616AEE]/90 text-white flex flex-col justify-between pb-20 sm:pb-32 md:pb-52">
@@ -132,6 +143,13 @@ export default function ContactPage() {
             ✅ {status.success}
           </motion.p>
         )}
+
+        <div className="flex justify-center">
+  <ReCAPTCHA
+    sitekey="YOUR_SITE_KEY"
+    onChange={(token) => setCaptchaToken(token)}
+  />
+</div>
 
         {/* Submit Button */}
         <button

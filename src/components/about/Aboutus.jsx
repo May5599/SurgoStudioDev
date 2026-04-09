@@ -61,18 +61,19 @@ export default function AboutPage() {
       img: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto/v1758309719/IMG_7875_copy_zpkjoh_otffmj.jpg",
       bio: "A global creative force, Raha brings tri-lingual expertise and cross-industry experience to every project. Having led campaigns across continents, she now drives Surgo’s creative edge, ensuring projects are delivered with clarity, precision, and impact.",
     },
-    {
-      name: "Vahid Ansari",
-      role: "Head of Production",
-      img: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto/v1758309719/VAF03130_B_W_dwq9i1_om7mdf.jpg",
-      bio: "With over a decade of cinematic production experience, Vahid combines vision with technical mastery. From global brands to local campaigns, he ensures Surgo delivers world-class visuals and storytelling on every project.",
-    },
+    
     {
   name: "Brandon Fairhead",
   role: "Marketing Specialist",
   img: "/brandon.jpg",
   bio: "An Honours graduate from Carleton University’s Film & English program, Brandon combines storytelling with strategic marketing insight. With experience in content creation, photography, videography, and directing, he transforms audience insights into compelling creative work that connects clients with the communities they want to reach.",
 },
+{
+      name: "Pietro Ianni",
+      role: "Video Producer & Multimedia Specialist",
+      img: "/pietro.jpg",
+      bio: "An Interactive Media Design graduate from Algonquin College, Pietro has worked with major university athletics programs, including the Carleton Ravens and uOttawa Gee-Gees. He brings a refined blend of multimedia creativity and social media intelligence, with a natural instinct for crafting content that captures attention and consistently performs in fast-moving digital spaces.",
+    },
    
   ];
 
