@@ -1,18 +1,18 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Play, Volume2, VolumeX } from "lucide-react";
+import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 
 const videos = [
-  { src: "/ben.mov", name: "Ben Azadi" },
-  { src: "/hina.mp4", name: "Hina Khan" },
-  { src: "/majeed.mp4", name: "Majeed" },
-  { src: "/neha.mov", name: "Neha" },
-  { src: "/surgo.mov", name: "Client Story" },
+  { src: "/ben.mov", poster: "/posters/ben.jpg", name: "Ben Azadi" },
+  { src: "/hina.mp4", poster: "/posters/hina.jpg", name: "Hina Khan" },
+  { src: "/majeed.mp4", poster: "/posters/majeed.jpg", name: "Majeed" },
+  { src: "/neha.mp4", poster: "/posters/neha.jpg", name: "Neha" },
+  { src: "/surgo.mov", poster: "/posters/surgo.jpg", name: "Client Story" },
 ];
 
 export default function TestimonialsReel() {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [playingMap, setPlayingMap] = useState({});
   const [mutedMap, setMutedMap] = useState({});
   const videoRefs = useRef([]);
 
@@ -20,30 +20,35 @@ export default function TestimonialsReel() {
     videoRefs.current.forEach((video, i) => {
       if (video && i !== index) {
         video.pause();
-        video.muted = true;
+        setPlayingMap((prev) => ({ ...prev, [i]: false }));
       }
     });
 
     const video = videoRefs.current[index];
-
     if (video) {
-      video.muted = false;
+      video.muted = mutedMap[index] ?? false;
       video.play();
-      setActiveIndex(index);
-      setMutedMap((prev) => ({ ...prev, [index]: false }));
+      setPlayingMap((prev) => ({ ...prev, [index]: true }));
     }
   };
 
-  const toggleSound = (index) => {
+  const togglePlay = (index) => {
     const video = videoRefs.current[index];
     if (!video) return;
 
-    video.muted = !video.muted;
+    if (playingMap[index]) {
+      video.pause();
+      setPlayingMap((prev) => ({ ...prev, [index]: false }));
+    } else {
+      handlePlay(index);
+    }
+  };
 
-    setMutedMap((prev) => ({
-      ...prev,
-      [index]: video.muted,
-    }));
+  const toggleMute = (index) => {
+    const video = videoRefs.current[index];
+    if (!video) return;
+    video.muted = !video.muted;
+    setMutedMap((prev) => ({ ...prev, [index]: video.muted }));
   };
 
   return (
@@ -93,16 +98,17 @@ export default function TestimonialsReel() {
                 <video
                   ref={(el) => (videoRefs.current[index] = el)}
                   src={video.src}
+                  poster={video.poster}
                   className="w-full h-full object-cover"
                   playsInline
                   preload="metadata"
                 />
 
-                {/* PLAY BUTTON */}
-                {activeIndex !== index && (
+                {/* BIG PLAY OVERLAY — initial state only */}
+                {playingMap[index] === undefined && (
                   <div
                     onClick={() => handlePlay(index)}
-                    className="absolute inset-0 flex items-center justify-center bg-black/40"
+                    className="absolute inset-0 flex items-center justify-center bg-black/40 cursor-pointer"
                   >
                     <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
                       <Play size={20} />
@@ -110,18 +116,22 @@ export default function TestimonialsReel() {
                   </div>
                 )}
 
-                {/* SOUND BUTTON */}
-                {activeIndex === index && (
-                  <button
-                    onClick={() => toggleSound(index)}
-                    className="absolute top-3 right-3 bg-black/60 p-2 rounded-full"
-                  >
-                    {mutedMap[index] ? (
-                      <VolumeX size={18} />
-                    ) : (
-                      <Volume2 size={18} />
-                    )}
-                  </button>
+                {/* CONTROLS — play/pause + mute, shown after first interaction */}
+                {playingMap[index] !== undefined && (
+                  <div className="absolute bottom-12 right-3 flex flex-col gap-2">
+                    <button
+                      onClick={() => togglePlay(index)}
+                      className="bg-black/60 p-2 rounded-full"
+                    >
+                      {playingMap[index] ? <Pause size={18} /> : <Play size={18} />}
+                    </button>
+                    <button
+                      onClick={() => toggleMute(index)}
+                      className="bg-black/60 p-2 rounded-full"
+                    >
+                      {mutedMap[index] ? <VolumeX size={18} /> : <Volume2 size={18} />}
+                    </button>
+                  </div>
                 )}
 
                 {/* NAME */}
