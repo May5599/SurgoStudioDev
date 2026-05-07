@@ -2,14 +2,16 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { X } from "lucide-react";
 
 export default function BlogClient({ posts }) {
   const [selectedPost, setSelectedPost] = useState(null);
 
   return (
     <section className="bg-black text-white px-6 sm:px-12 py-28 max-w-7xl mx-auto">
+
       {/* Blog Grid */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-16">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {posts.map((post, i) => (
           <motion.div
             key={post.slug}
@@ -19,28 +21,25 @@ export default function BlogClient({ posts }) {
             onClick={() => setSelectedPost(post)}
             className="group cursor-pointer flex flex-col overflow-hidden rounded-3xl bg-zinc-950 border border-gray-800 hover:border-purple-400 hover:shadow-[0_0_40px_-10px_rgba(168,85,247,0.4)] transition-all duration-500"
           >
-            {/* 📸 Image */}
+            {/* Cover image */}
             <div className="overflow-hidden rounded-t-3xl">
               <img
                 src={post.coverImage}
                 alt={post.title}
-                className="w-full h-72 object-cover transform group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-700"
               />
             </div>
 
-            {/* 📝 Text content */}
-            <div className="p-8 flex flex-col justify-between flex-grow">
+            {/* Text */}
+            <div className="p-6 flex flex-col justify-between flex-grow">
               <div>
-                <h2 className="text-2xl font-bold leading-snug mb-3 group-hover:text-purple-400 transition-all">
+                <p className="text-gray-500 text-xs mb-2">{post.date}</p>
+                <h2 className="text-xl font-bold leading-snug mb-3 group-hover:text-purple-400 transition-all">
                   {post.title}
                 </h2>
-                <p className="text-gray-400 text-sm mb-4">{post.date}</p>
-                <p className="text-gray-300 text-base line-clamp-3">
-                  {post.description}
-                </p>
+                <p className="text-gray-400 text-sm line-clamp-3">{post.description}</p>
               </div>
-
-              <span className="inline-block mt-6 text-purple-400 font-semibold group-hover:underline">
+              <span className="inline-block mt-5 text-purple-400 text-sm font-semibold group-hover:underline">
                 Read More →
               </span>
             </div>
@@ -48,67 +47,69 @@ export default function BlogClient({ posts }) {
         ))}
       </div>
 
-      {/* 🎬 Popup Reader */}
-      {/* 🎬 Popup Reader */}
-<AnimatePresence>
-  {selectedPost && (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black/95 z-50 flex items-start justify-center overflow-y-auto pt-20 px-4 sm:px-6"
-    >
-      <motion.div
-        initial={{ y: 60, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: 40, opacity: 0 }}
-        className="relative bg-[#0d0d0d] border border-gray-800 max-w-3xl w-full mx-auto rounded-3xl p-10 shadow-2xl leading-relaxed"
-      >
-        <button
-          onClick={() => setSelectedPost(null)}
-          className="absolute top-5 right-6 text-gray-500 hover:text-white text-3xl font-light"
-        >
-          ×
-        </button>
+      {/* Modal reader */}
+      <AnimatePresence>
+        {selectedPost && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/90 z-50 flex items-end sm:items-center justify-center sm:p-6 overflow-hidden"
+            onClick={() => setSelectedPost(null)}
+          >
+            <motion.div
+              initial={{ y: 80, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 40, opacity: 0 }}
+              transition={{ type: "spring", damping: 28, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative bg-[#0d0d0d] border border-zinc-800 w-full sm:max-w-3xl sm:rounded-3xl rounded-t-3xl overflow-y-auto max-h-[92vh] shadow-2xl"
+            >
+              {/* Close button */}
+              <button
+                onClick={() => setSelectedPost(null)}
+                className="absolute top-4 right-4 z-10 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 rounded-full p-2 transition"
+              >
+                <X size={18} />
+              </button>
 
-        <article className="max-w-none prose prose-invert prose-lg">
-          {/* 🏷 Title */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-purple-400 leading-tight tracking-tight">
-            {selectedPost.title}
-          </h1>
+              {/* Cover image */}
+              {selectedPost.coverImage && selectedPost.coverImage !== "/default-blog-cover.jpg" && (
+                <div className="w-full h-52 sm:h-72 overflow-hidden sm:rounded-t-3xl rounded-t-3xl">
+                  <img
+                    src={selectedPost.coverImage}
+                    alt={selectedPost.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
 
-          {/* 📅 Date */}
-          <p className="text-gray-500 text-sm mb-10">{selectedPost.date}</p>
+              {/* Content */}
+              <article className="px-6 sm:px-10 py-8">
+                <h1 className="text-2xl sm:text-4xl font-extrabold mb-3 text-purple-400 leading-tight">
+                  {selectedPost.title}
+                </h1>
+                <p className="text-gray-500 text-sm mb-8">{selectedPost.date}</p>
 
-          {/* 🧾 Cleaned Blog Content */}
-          {/* 🧾 Cleaned Blog Content */}
-<div
-  className="text-gray-200 text-[1.05rem] leading-[1.9] space-y-5"
-  dangerouslySetInnerHTML={{
-    __html: selectedPost.content
-      // ✅ Step 1: remove markdown tokens but keep real HTML tags
-      .replace(/(^|\s)([#*_`>-]+)(?=\s|$)/g, "")
-      // ✅ Step 2: remove double hashes or weird leftover markdown headings
-      .replace(/#+\s?/g, "")
-      // ✅ Step 3: ensure paragraphs have spacing
-      .replace(/<\/p><p>/g, "</p><br/><p>")
-      // ✅ Step 4: trim excessive <br/>s
-      .replace(/(<br\s*\/?>\s*){3,}/g, "<br/><br/>"),
-  }}
-/>
+                <div
+                  className="text-gray-200 text-[1rem] leading-[1.85] space-y-4
+                    [&_h1]:text-2xl [&_h1]:font-bold [&_h1]:text-white [&_h1]:mt-8 [&_h1]:mb-3
+                    [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-white [&_h2]:mt-6 [&_h2]:mb-2
+                    [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-gray-200 [&_h3]:mt-4
+                    [&_p]:text-gray-300 [&_strong]:text-white
+                    [&_img]:w-full [&_img]:rounded-xl [&_img]:my-6"
+                  dangerouslySetInnerHTML={{ __html: selectedPost.content }}
+                />
 
-
-          {/* 🖊 Footer */}
-          <div className="mt-14 border-t border-gray-800 pt-6 text-gray-400 text-sm italic">
-            Written by <span className="text-purple-400 not-italic">Surgo Studios</span> —  
-            Crafting stories that move Ottawa, Toronto, and beyond.
-          </div>
-        </article>
-      </motion.div>
-    </motion.div>
-  )}
-</AnimatePresence>
-
+                <div className="mt-12 border-t border-zinc-800 pt-6 text-gray-500 text-sm italic">
+                  Written by <span className="text-purple-400 not-italic">Surgo Studios</span> —
+                  Crafting stories that move Ottawa, Toronto, and beyond.
+                </div>
+              </article>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

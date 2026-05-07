@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { X, Upload, ImagePlus, Eye, EyeOff, Send, Loader2, Sparkles } from "lucide-react";
+import { useRef, useState, useEffect, useCallback } from "react";
+import { X, Upload, ImagePlus, Eye, EyeOff, Send, Loader2, Sparkles, Trash2, RefreshCw } from "lucide-react";
 
 const DEFAULT_TAGS = [
   "Ottawa",
@@ -12,6 +12,46 @@ const DEFAULT_TAGS = [
 ];
 
 export default function BlogAdminPage() {
+  const [activeTab, setActiveTab] = useState("create"); // create | manage
+  const [posts, setPosts] = useState([]);
+  const [postsLoading, setPostsLoading] = useState(false);
+  const [deletingId, setDeletingId] = useState(null);
+
+  const loadPosts = useCallback(async () => {
+    setPostsLoading(true);
+    try {
+      const res = await fetch("/api/list-blogs");
+      const data = await res.json();
+      if (data.success) setPosts(data.posts);
+    } catch {
+      // silently fail
+    } finally {
+      setPostsLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (activeTab === "manage") loadPosts();
+  }, [activeTab, loadPosts]);
+
+  const handleDelete = async (id, title) => {
+    if (!confirm(`Delete "${title}"?\n\nThis cannot be undone.`)) return;
+    setDeletingId(id);
+    try {
+      const res = await fetch("/api/delete-blog", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id }),
+      });
+      const data = await res.json();
+      if (data.success) setPosts((p) => p.filter((x) => x.id !== id));
+    } catch {
+      // silently fail
+    } finally {
+      setDeletingId(null);
+    }
+  };
+
   const [topic, setTopic] = useState("");
   const [step, setStep] = useState("idle"); // idle | generating | editing | publishing | done
   const [title, setTitle] = useState("");
@@ -164,11 +204,29 @@ export default function BlogAdminPage() {
 
       {/* Top bar */}
       <div className="border-b border-zinc-800 px-6 py-4 flex items-center justify-between">
-        <div>
-          <h1 className="text-xl font-bold text-white tracking-tight">Surgo Blog Studio</h1>
-          <p className="text-xs text-gray-500 mt-0.5">Publish directly to the site — no deploy needed</p>
+        <div className="flex items-center gap-6">
+          <div>
+            <h1 className="text-xl font-bold text-white tracking-tight">Surgo Blog Studio</h1>
+            <p className="text-xs text-gray-500 mt-0.5">Publish directly to the site — no deploy needed</p>
+          </div>
+          {/* Tabs */}
+          <div className="flex gap-1 bg-zinc-900 border border-zinc-800 rounded-xl p-1">
+            {["create", "manage"].map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`px-4 py-1.5 rounded-lg text-sm font-medium capitalize transition ${
+                  activeTab === tab
+                    ? "bg-zinc-700 text-white"
+                    : "text-gray-500 hover:text-gray-300"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
         </div>
-        {step === "editing" || step === "publishing" ? (
+        {activeTab === "create" && (step === "editing" || step === "publishing") ? (
           <div className="flex gap-3">
             <button
               onClick={() => setPreviewMode((p) => !p)}
@@ -193,6 +251,77 @@ export default function BlogAdminPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-8">
+
+        {/* ── MANAGE TAB ─────────────────────────────────────────────────────── */}
+        {activeTab === "manage" && (
+          <div>
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-lg font-semibold">All Posts</h2>
+              <button
+                onClick={loadPosts}
+                className="flex items-center gap-2 text-xs text-gray-500 hover:text-gray-300 border border-zinc-800 hover:border-zinc-600 px-3 py-1.5 rounded-lg transition"
+              >
+                <RefreshCw size={13} />
+                Refresh
+              </button>
+            </div>
+
+            {postsLoading ? (
+              <div className="flex items-center justify-center py-24">
+                <Loader2 size={28} className="animate-spin text-zinc-600" />
+              </div>
+            ) : posts.length === 0 ? (
+              <div className="text-center py-24 text-gray-600">
+                <p>No posts yet. Go to Create to publish your first one.</p>
+              </div>
+            ) : (
+              <div className="flex flex-col gap-3">
+                {posts.map((post) => (
+                  <div
+                    key={post.id}
+                    className="flex items-center gap-4 bg-zinc-900 border border-zinc-800 rounded-2xl px-5 py-4 hover:border-zinc-700 transition"
+                  >
+                    {/* Cover thumbnail */}
+                    <div className="w-16 h-12 rounded-lg overflow-hidden shrink-0 bg-zinc-800">
+                      <img
+                        src={post.cover_image_url || "/default-blog-cover.jpg"}
+                        alt=""
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+
+                    {/* Info */}
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium text-white truncate">{post.title}</p>
+                      <p className="text-xs text-gray-500 mt-0.5">
+                        {new Date(post.published_at).toLocaleDateString("en-CA", {
+                          year: "numeric", month: "short", day: "numeric",
+                        })}
+                      </p>
+                    </div>
+
+                    {/* Delete */}
+                    <button
+                      onClick={() => handleDelete(post.id, post.title)}
+                      disabled={deletingId === post.id}
+                      className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-red-400 hover:text-red-300 border border-red-400/20 hover:border-red-400/40 rounded-lg transition disabled:opacity-40"
+                    >
+                      {deletingId === post.id ? (
+                        <Loader2 size={13} className="animate-spin" />
+                      ) : (
+                        <Trash2 size={13} />
+                      )}
+                      Delete
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* ── CREATE TAB ─────────────────────────────────────────────────────── */}
+        {activeTab === "create" && <>
 
         {/* Status banner */}
         {statusMsg && (
@@ -437,6 +566,8 @@ export default function BlogAdminPage() {
             </div>
           </div>
         )}
+        </> }
+
       </div>
     </div>
   );
