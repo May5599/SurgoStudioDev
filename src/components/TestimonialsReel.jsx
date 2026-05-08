@@ -4,11 +4,11 @@ import { useRef, useState } from "react";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 
 const videos = [
-  { src: "/ben.mov", poster: "/posters/ben.jpg", name: "Ben Azadi" },
+  { src: "/ben.mp4", poster: "/posters/ben.jpg", name: "Ben Azadi" },
   { src: "/hina.mp4", poster: "/posters/hina.jpg", name: "Hina Khan" },
   { src: "/majeed.mp4", poster: "/posters/majeed.jpg", name: "Majeed" },
   { src: "/neha.mp4", poster: "/posters/neha.jpg", name: "Neha" },
-  { src: "/surgo.mov", poster: "/posters/surgo.jpg", name: "Client Story" },
+  { src: "/surgo.mp4", poster: "/posters/surgo.jpg", name: "Client Story" },
 ];
 
 export default function TestimonialsReel() {
