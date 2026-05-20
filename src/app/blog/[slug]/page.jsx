@@ -13,10 +13,11 @@ function calcReadingTime(html) {
 }
 
 export async function generateMetadata({ params }) {
+  const { slug } = await params;
   const { data } = await supabase
     .from("blogs")
     .select("title, meta_title, description, cover_image_url, published_at, slug, tags, focus_keyphrase")
-    .eq("slug", params.slug)
+    .eq("slug", slug)
     .single();
 
   if (!data) return { title: "Post Not Found" };
@@ -59,10 +60,11 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function BlogPostPage({ params }) {
+  const { slug } = await params;
   const { data: post, error } = await supabase
     .from("blogs")
     .select("*")
-    .eq("slug", params.slug)
+    .eq("slug", slug)
     .single();
 
   if (error || !post) notFound();
