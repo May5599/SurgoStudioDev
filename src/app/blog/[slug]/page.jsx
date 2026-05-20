@@ -29,7 +29,7 @@ export async function generateMetadata({ params }) {
 
   return {
     title: seoTitle,
-    description: data.description || `${data.title} — Surgo Studios Ottawa`,
+    description: data.description || `${data.title}   Surgo Studios Ottawa`,
     keywords: [
       ...(data.focus_keyphrase ? [data.focus_keyphrase] : []),
       ...(data.tags || []),
@@ -121,7 +121,7 @@ export default async function BlogPostPage({ params }) {
     ],
   };
 
-  // FAQPage schema — powered by AI-generated faq_items stored in Supabase
+  // FAQPage schema   powered by AI-generated faq_items stored in Supabase
   const faqItems = Array.isArray(post.faq_items) ? post.faq_items : [];
   const faqSchema =
     faqItems.length > 0
@@ -234,7 +234,7 @@ export default async function BlogPostPage({ params }) {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <p className="text-sm text-gray-500">
-                Written by <span className="text-yellow-400 font-medium">Surgo Studios</span> — Ottawa&apos;s cinematic video production agency
+                Written by <span className="text-yellow-400 font-medium">Surgo Studios</span>   Ottawa&apos;s cinematic video production agency
               </p>
               {post.focus_keyphrase && (
                 <p className="text-xs text-gray-700 mt-1">Tagged: {post.focus_keyphrase}</p>

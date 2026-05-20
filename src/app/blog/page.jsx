@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Surgo Studios Journal | Ottawa & Toronto Video Production Insights",
   description:
-    "Creative insights, stories, and cinematic breakdowns from Surgo Studios — the leading video and podcast production agency in Ottawa and Toronto.",
+    "Creative insights, stories, and cinematic breakdowns from Surgo Studios   the leading video and podcast production agency in Ottawa and Toronto.",
   keywords: [
     "Ottawa video production",
     "Toronto video agency",
@@ -77,7 +77,7 @@ export default async function BlogPage() {
 
       {posts.length === 0 ? (
         <section className="bg-black text-white text-center py-32">
-          <p className="text-gray-500 text-lg">No posts yet — check back soon.</p>
+          <p className="text-gray-500 text-lg">No posts yet   check back soon.</p>
         </section>
       ) : (
         <BlogClient posts={posts} />

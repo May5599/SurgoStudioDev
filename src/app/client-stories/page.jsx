@@ -36,7 +36,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Client Stories | Ottawa Video Production | Surgo Studios",
     description:
-      "Real video testimonials from Ottawa businesses. Surgo Studios — cinematic video production at 150 Elgin Street.",
+      "Real video testimonials from Ottawa businesses. Surgo Studios   cinematic video production at 150 Elgin Street.",
     images: [
       "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757081567/white-logo_w6xinb.png",
     ],
@@ -71,11 +71,11 @@ const areas = [
 const faqs = [
   {
     q: "What types of video content does Surgo Studios produce?",
-    a: "We produce brand films, corporate videos, product launch films, documentary-style campaigns, video podcasts, social media reels, event coverage, and investor pitch videos. Every project is built around your specific goals and audience — we don't do templates.",
+    a: "We produce brand films, corporate videos, product launch films, documentary-style campaigns, video podcasts, social media reels, event coverage, and investor pitch videos. Every project is built around your specific goals and audience   we don't do templates.",
   },
   {
     q: "How does the production process work from start to finish?",
-    a: "We start with a free discovery call to understand your brand, audience, and goals. From there we handle creative strategy, scripting, location scouting, filming, and post-production — all under one roof. You're involved at every stage, but we take care of the heavy lifting.",
+    a: "We start with a free discovery call to understand your brand, audience, and goals. From there we handle creative strategy, scripting, location scouting, filming, and post-production   all under one roof. You're involved at every stage, but we take care of the heavy lifting.",
   },
   {
     q: "Does Surgo Studios travel for shoots outside of Ottawa?",
@@ -83,11 +83,11 @@ const faqs = [
   },
   {
     q: "What makes Surgo Studios different from other video agencies?",
-    a: "We approach every project with a cinematic, storytelling-first mindset — not just a camera and a checklist. We're a full-service creative agency, which means strategy, production, and post are handled by the same team. The result is a final product that's visually consistent, brand-accurate, and built to perform.",
+    a: "We approach every project with a cinematic, storytelling-first mindset   not just a camera and a checklist. We're a full-service creative agency, which means strategy, production, and post are handled by the same team. The result is a final product that's visually consistent, brand-accurate, and built to perform.",
   },
   {
     q: "How do I get started with a project?",
-    a: "Book a free 30-minute discovery call through our contact page. We'll talk through your goals, share relevant examples of our work, and outline a creative direction. No commitment, no pressure — just a real conversation about what video can do for your brand.",
+    a: "Book a free 30-minute discovery call through our contact page. We'll talk through your goals, share relevant examples of our work, and outline a creative direction. No commitment, no pressure   just a real conversation about what video can do for your brand.",
   },
 ];
 
@@ -177,7 +177,7 @@ export default function ClientStoriesPage() {
           </h1>
 
           <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
-            From Kanata tech startups to Centretown nonprofits — Ottawa businesses of every kind have
+            From Kanata tech startups to Centretown nonprofits   Ottawa businesses of every kind have
             trusted Surgo Studios to tell their story on camera. Watch what they had to say.
           </p>
 
@@ -229,7 +229,7 @@ export default function ClientStoriesPage() {
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto">
               Surgo Studios has produced video content for businesses across Ottawa&apos;s most
-              competitive sectors — we understand your audience because we&apos;ve filmed for them.
+              competitive sectors   we understand your audience because we&apos;ve filmed for them.
             </p>
           </div>
 
@@ -257,7 +257,7 @@ export default function ClientStoriesPage() {
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto mb-12">
             Our studio is in downtown Ottawa, but our crew travels anywhere your story needs to
-            be told — from Kanata to Toronto to Miami to Los Angeles. Great video knows no borders.
+            be told   from Kanata to Toronto to Miami to Los Angeles. Great video knows no borders.
           </p>
 
           <div className="flex flex-wrap justify-center gap-3">
@@ -272,7 +272,7 @@ export default function ClientStoriesPage() {
           </div>
 
           <p className="text-gray-700 text-xs mt-10">
-            Headquartered at 150 Elgin Street, Ottawa ON — filming across Canada and the United States.
+            Headquartered at 150 Elgin Street, Ottawa ON   filming across Canada and the United States.
           </p>
         </div>
       </section>
@@ -336,7 +336,7 @@ export default function ClientStoriesPage() {
             </Link>
           </div>
           <p className="text-gray-700 text-xs mt-8">
-            150 Elgin Street, Ottawa ON — free call, no commitment.
+            150 Elgin Street, Ottawa ON   free call, no commitment.
           </p>
         </div>
       </section>

@@ -89,7 +89,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }));
     }
   } catch {
-    // Supabase unavailable at build time — skip dynamic posts
+    // Supabase unavailable at build time   skip dynamic posts
   }
 
   return [...staticRoutes, ...blogRoutes];

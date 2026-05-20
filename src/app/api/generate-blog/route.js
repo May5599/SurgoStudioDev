@@ -39,8 +39,8 @@ Return ONLY a valid JSON object with these exact fields:
 
 {
   "focusKeyphrase": "2-4 word primary search term (e.g. 'video marketing Ottawa', 'podcast studio Ottawa')",
-  "metaTitle": "Browser title — MUST contain focusKeyphrase verbatim, exactly 58-64 characters total including ' | Surgo Studios' at the end",
-  "metaDescription": "Google snippet — MUST contain focusKeyphrase in first 80 chars, exactly 150-158 characters total, end with 'Book a free call today.'",
+  "metaTitle": "Browser title   MUST contain focusKeyphrase verbatim, exactly 58-64 characters total including ' | Surgo Studios' at the end",
+  "metaDescription": "Google snippet   MUST contain focusKeyphrase in first 80 chars, exactly 150-158 characters total, end with 'Book a free call today.'",
   "slug": "4-6 lowercase hyphenated words matching the focusKeyphrase",
   "tags": ["Ottawa", "Video Production", "Surgo Studios", "plus 4 topic-specific tags"],
   "faqItems": [
@@ -51,7 +51,7 @@ Return ONLY a valid JSON object with these exact fields:
 }
 
 CRITICAL RULES:
-1. focusKeyphrase must appear WORD FOR WORD consecutively in metaTitle — no words between them
+1. focusKeyphrase must appear WORD FOR WORD consecutively in metaTitle   no words between them
 2. focusKeyphrase must appear WORD FOR WORD consecutively in metaDescription within the first 80 chars
 3. metaTitle: count every character. Must be 58-64 chars. Format: "[focusKeyphrase] [extra context] | Surgo Studios"
 4. metaDescription: count every character. Must be 150-158 chars. Never under 150.
@@ -103,7 +103,7 @@ CRITICAL RULES:
       .replace(/^-|-$/g, "")
       .slice(0, 65);
 
-    // ── CALL 2: Full article content (no JSON mode — full token budget) ───────
+    // ── CALL 2: Full article content (no JSON mode   full token budget) ───────
     const faqHtml = faqItems
       .map((f) => `<div class="faq-item"><h3>${f.question}</h3><p>${f.answer}</p></div>`)
       .join("\n");
@@ -115,66 +115,66 @@ CRITICAL RULES:
       messages: [
         {
           role: "system",
-          content: `You are the lead content writer for Surgo Studios — Ottawa's premier video production, podcast, and creative agency at 150 Elgin Street. You write long-form SEO blog articles (1,400+ words) that rank on Google's first page. You write with a cinematic, confident voice. You never use filler phrases. You never truncate — you always write the complete article.`,
+          content: `You are the lead content writer for Surgo Studios   Ottawa's premier video production, podcast, and creative agency at 150 Elgin Street. You write long-form SEO blog articles (1,400+ words) that rank on Google's first page. You write with a cinematic, confident voice. You never use filler phrases. You never truncate   you always write the complete article.`,
         },
         {
           role: "user",
           content: `Write a COMPLETE, LONG-FORM SEO blog article about: "${topic}"
 
-FOCUS KEYPHRASE: "${meta.focusKeyphrase}" — use this exact phrase naturally 4-5 times throughout the article.
+FOCUS KEYPHRASE: "${meta.focusKeyphrase}"   use this exact phrase naturally 4-5 times throughout the article.
 
 TARGET WORD COUNT: 1,400-1,600 words of readable body text. This is non-negotiable. Each H2 section must be 250-300 words.
 
 OUTPUT FORMAT: Return ONLY clean HTML. Start directly with <h1>. No markdown. No code fences. No backticks. No preamble.
 
-STRICT HTML STRUCTURE — follow this order exactly:
+STRICT HTML STRUCTURE   follow this order exactly:
 
-<h1>[Engaging title — include "${meta.focusKeyphrase}" + Ottawa — different from meta title, more editorial]</h1>
+<h1>[Engaging title   include "${meta.focusKeyphrase}" + Ottawa   different from meta title, more editorial]</h1>
 
-<p>[Opening paragraph — 5-6 sentences. FIRST SENTENCE must name a specific Ottawa neighbourhood or street. Include "${meta.focusKeyphrase}" within the first 100 words. Open with a bold stat or vivid Ottawa scene. Never start with "In today's" or "As a business owner".]</p>
+<p>[Opening paragraph   5-6 sentences. FIRST SENTENCE must name a specific Ottawa neighbourhood or street. Include "${meta.focusKeyphrase}" within the first 100 words. Open with a bold stat or vivid Ottawa scene. Never start with "In today's" or "As a business owner".]</p>
 
-<h2>[First major section — secondary keyword + Ottawa area name]</h2>
-<p>[Paragraph 1 — 4-5 sentences]</p>
-<p>[Paragraph 2 — 4-5 sentences, include <strong>key stat or phrase</strong>]</p>
-<p>[Paragraph 3 — 4-5 sentences]</p>
+<h2>[First major section   secondary keyword + Ottawa area name]</h2>
+<p>[Paragraph 1   4-5 sentences]</p>
+<p>[Paragraph 2   4-5 sentences, include <strong>key stat or phrase</strong>]</p>
+<p>[Paragraph 3   4-5 sentences]</p>
 
-<h2>[Second major section — include another Ottawa area like Kanata, Barrhaven, Orleans, or Nepean]</h2>
-<p>[Paragraph 1 — 4-5 sentences]</p>
-<p>[Paragraph 2 — 4-5 sentences with <strong>bold highlight</strong>]</p>
+<h2>[Second major section   include another Ottawa area like Kanata, Barrhaven, Orleans, or Nepean]</h2>
+<p>[Paragraph 1   4-5 sentences]</p>
+<p>[Paragraph 2   4-5 sentences with <strong>bold highlight</strong>]</p>
 <ul>
-  <li>[Point 1 — write a full sentence explanation, not just a label]</li>
-  <li>[Point 2 — full sentence]</li>
-  <li>[Point 3 — full sentence]</li>
-  <li>[Point 4 — full sentence]</li>
-  <li>[Point 5 — full sentence]</li>
-  <li>[Point 6 — full sentence]</li>
+  <li>[Point 1   write a full sentence explanation, not just a label]</li>
+  <li>[Point 2   full sentence]</li>
+  <li>[Point 3   full sentence]</li>
+  <li>[Point 4   full sentence]</li>
+  <li>[Point 5   full sentence]</li>
+  <li>[Point 6   full sentence]</li>
 </ul>
-<p>[Closing paragraph for this section — 3-4 sentences linking to <a href="/services">our video production services</a>]</p>
+<p>[Closing paragraph for this section   3-4 sentences linking to <a href="/services">our video production services</a>]</p>
 
-<h2>[Third major section — another Ottawa area, weave in content strategy angle]</h2>
-<p>[Paragraph 1 — 4-5 sentences]</p>
-<p>[Paragraph 2 — 4-5 sentences with <strong>bold highlight</strong>]</p>
-<p>[Paragraph 3 — 4-5 sentences]</p>
-<p>[Paragraph 4 — 3-4 sentences]</p>
+<h2>[Third major section   another Ottawa area, weave in content strategy angle]</h2>
+<p>[Paragraph 1   4-5 sentences]</p>
+<p>[Paragraph 2   4-5 sentences with <strong>bold highlight</strong>]</p>
+<p>[Paragraph 3   4-5 sentences]</p>
+<p>[Paragraph 4   3-4 sentences]</p>
 
-<h2>[Fourth major section — wrap-up angle, could be about ROI, results, or process]</h2>
-<p>[Paragraph 1 — 4-5 sentences]</p>
-<p>[Paragraph 2 — 4-5 sentences]</p>
-<p>[Paragraph 3 — 3-4 sentences with link to <a href="/contact">book a free discovery call</a>]</p>
+<h2>[Fourth major section   wrap-up angle, could be about ROI, results, or process]</h2>
+<p>[Paragraph 1   4-5 sentences]</p>
+<p>[Paragraph 2   4-5 sentences]</p>
+<p>[Paragraph 3   3-4 sentences with link to <a href="/contact">book a free discovery call</a>]</p>
 
 <h2>Frequently Asked Questions</h2>
 ${faqHtml}
 
-<p>[Closing CTA — 3-4 sentences. Name Surgo Studios explicitly. Reference Ottawa. Include <a href="/contact">book your free discovery call</a>. Compelling, not pushy.]</p>
+<p>[Closing CTA   3-4 sentences. Name Surgo Studios explicitly. Reference Ottawa. Include <a href="/contact">book your free discovery call</a>. Compelling, not pushy.]</p>
 
 CONTENT RULES:
 - Mention at least 6 Ottawa-area locations naturally: Kanata, Barrhaven, Orleans, Nepean, Gatineau, Hull, Manotick, Stittsville, Westboro, Glebe, Centretown, Vanier
 - Include 1 plausible 2026 Canadian video/content marketing statistic
 - Reference Surgo Studios 3 times as the expert authority
 - Use <strong> to bold 2-3 key phrases per section
-- No em-dashes (—) or en-dashes — use commas or hyphens
+- No em-dashes ( ) or en-dashes   use commas or hyphens
 - No filler openers, no "In conclusion", no "Whether you are"
-- Write every paragraph in full — do not stop early
+- Write every paragraph in full   do not stop early
 - The article is not done until all 4 H2 sections + FAQ + CTA are written completely`,
         },
       ],
@@ -182,7 +182,7 @@ CONTENT RULES:
 
     let content = (contentCompletion.choices[0]?.message?.content || "")
       .replace(/```html|```/g, "")
-      .replace(/[—–]/g, "-")
+      .replace(/[ –]/g, "-")
       .trim();
 
     // Pull display title from H1
@@ -203,7 +203,7 @@ CONTENT RULES:
       faqItems,
       wordCount,
       warning: wordCount < 1000
-        ? `Content is only ${wordCount} words — click Generate again for a fuller article.`
+        ? `Content is only ${wordCount} words   click Generate again for a fuller article.`
         : null,
     });
   } catch (error) {

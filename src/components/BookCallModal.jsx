@@ -147,7 +147,7 @@ export default function BookCallModal({ isOpen, onClose }) {
             >
               {allowedTimes.map((t) => (
                 <option key={t} value={t} disabled={bookedTimes.includes(t)}>
-                  {t} {bookedTimes.includes(t) ? "— Booked" : ""}
+                  {t} {bookedTimes.includes(t) ? "  Booked" : ""}
                 </option>
               ))}
             </select>

@@ -81,7 +81,7 @@ export async function POST(req) {
 
     // ✅ STEP 5: Create event
     const event = {
-      summary: `Call with ${name} — ${reason}`,
+      summary: `Call with ${name}   ${reason}`,
       description: `Reason: ${reason}\nPhone: ${phone}\nEmail: ${email}\n\n${message || ""}`,
       start: { dateTime: startDateTime.toISOString(), timeZone: "America/Toronto" },
       end: { dateTime: endDateTime.toISOString(), timeZone: "America/Toronto" },

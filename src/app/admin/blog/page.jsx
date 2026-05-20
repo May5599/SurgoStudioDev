@@ -191,7 +191,7 @@ export default function BlogAdminPage() {
       if (data.warning) {
         showStatus(`⚠️ ${data.warning}`, "error");
       } else {
-        showStatus("Generated. Review all fields — especially meta title and description — then publish.", "info");
+        showStatus("Generated. Review all fields   especially meta title and description   then publish.", "info");
       }
     } catch (err) {
       showStatus(err.message, "error");
@@ -311,7 +311,7 @@ export default function BlogAdminPage() {
         <div className="flex items-center gap-6">
           <div>
             <h1 className="text-xl font-bold text-white tracking-tight">Surgo Blog Studio</h1>
-            <p className="text-xs text-gray-500 mt-0.5">Publish directly to the site — no deploy needed</p>
+            <p className="text-xs text-gray-500 mt-0.5">Publish directly to the site   no deploy needed</p>
           </div>
           <div className="flex gap-1 bg-zinc-900 border border-zinc-800 rounded-xl p-1">
             {["create", "manage"].map((tab) => (
@@ -606,7 +606,7 @@ export default function BlogAdminPage() {
                       rows={2}
                       className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-yellow-400 transition resize-none"
                     />
-                    <p className="text-xs text-gray-600 mt-1">Shown on the page — can be longer than meta title</p>
+                    <p className="text-xs text-gray-600 mt-1">Shown on the page   can be longer than meta title</p>
                   </div>
 
                   {/* Meta title */}

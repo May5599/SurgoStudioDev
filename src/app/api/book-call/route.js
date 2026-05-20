@@ -10,7 +10,7 @@ export async function POST(req) {
 
     console.log("📅 Booking Request:", { name, email, phone, reason, date, time });
 
-    // ✅ STEP 1 — Load credentials (works both locally and on Vercel)
+    // ✅ STEP 1   Load credentials (works both locally and on Vercel)
     let credentials;
     if (process.env.GOOGLE_CREDENTIALS) {
       console.log("🔐 Using credentials from environment variable");
@@ -21,7 +21,7 @@ export async function POST(req) {
       credentials = JSON.parse(await fs.readFile(credentialsPath, "utf8"));
     }
 
-    // ✅ STEP 2 — Authenticate with Google Calendar
+    // ✅ STEP 2   Authenticate with Google Calendar
     const auth = new google.auth.GoogleAuth({
       credentials,
       scopes: ["https://www.googleapis.com/auth/calendar"],
@@ -30,7 +30,7 @@ export async function POST(req) {
     const calendar = google.calendar({ version: "v3", auth });
     const calendarId = "marotimayank@gmail.com"; // 🗓 your calendar ID
 
-    // ✅ STEP 3 — Parse date/time and validate
+    // ✅ STEP 3   Parse date/time and validate
     const startDateTime = new Date(`${date.split("T")[0]}T${time}:00`);
     const endDateTime = new Date(startDateTime.getTime() + 30 * 60000);
 
@@ -50,7 +50,7 @@ export async function POST(req) {
       );
     }
 
-    // ✅ STEP 4 — Check for conflicts (with 30-min buffer)
+    // ✅ STEP 4   Check for conflicts (with 30-min buffer)
     const eventsRes = await calendar.events.list({
       calendarId,
       timeMin: new Date(startDateTime.getTime() - 60 * 60 * 1000).toISOString(),
@@ -77,16 +77,16 @@ export async function POST(req) {
       );
     }
 
-    // ✅ STEP 5 — Create event
+    // ✅ STEP 5   Create event
     const event = {
-      summary: `Call with ${name} — ${reason}`,
+      summary: `Call with ${name}   ${reason}`,
       description: `Reason: ${reason}\nPhone: ${phone}\nEmail: ${email}\n\n${message || ""}`,
       start: { dateTime: startDateTime.toISOString(), timeZone: "America/Toronto" },
       end: { dateTime: endDateTime.toISOString(), timeZone: "America/Toronto" },
       reminders: { useDefault: true },
     };
 
-    // ✅ STEP 6 — Insert event (no invites to avoid permission errors)
+    // ✅ STEP 6   Insert event (no invites to avoid permission errors)
     const response = await calendar.events.insert({
       calendarId,
       requestBody: event,
@@ -103,7 +103,7 @@ export async function POST(req) {
 🕒 Time: ${startDateTime.toLocaleString("en-US", { timeZone: "America/Toronto" })}
 `);
 
-    // ✅ STEP 7 — Respond success
+    // ✅ STEP 7   Respond success
     return NextResponse.json({
       success: true,
       eventLink: response.data.htmlLink,

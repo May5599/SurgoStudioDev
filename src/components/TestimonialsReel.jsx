@@ -104,7 +104,7 @@ export default function TestimonialsReel() {
                   preload="metadata"
                 />
 
-                {/* BIG PLAY OVERLAY — initial state only */}
+                {/* BIG PLAY OVERLAY   initial state only */}
                 {playingMap[index] === undefined && (
                   <div
                     onClick={() => handlePlay(index)}
@@ -116,7 +116,7 @@ export default function TestimonialsReel() {
                   </div>
                 )}
 
-                {/* CONTROLS — play/pause + mute, shown after first interaction */}
+                {/* CONTROLS   play/pause + mute, shown after first interaction */}
                 {playingMap[index] !== undefined && (
                   <div className="absolute bottom-12 right-3 flex flex-col gap-2">
                     <button

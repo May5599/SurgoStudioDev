@@ -63,7 +63,7 @@ export async function POST(req) {
         })
         .eq("id", inserted.id)
         .then(() => null)
-        .catch(() => null); // silent — these columns may not exist yet
+        .catch(() => null); // silent   these columns may not exist yet
     }
 
     // Revalidate the blog list and the individual post page
