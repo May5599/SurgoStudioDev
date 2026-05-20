@@ -12,7 +12,7 @@ export const metadata = {
     title: "Services | Surgo Studios - Ottawa Video Production Company",
     description:
       "Surgo Studios offers full-service video production in Ottawa: brand films, campaigns, video podcasts, reels, and creative storytelling for Canadian and U.S. businesses.",
-    url: "https://www.surgostudios.com/services",
+    url: "https://surgostudios.com/services",
     siteName: "Surgo Studios",
     images: [
       {
@@ -35,13 +35,99 @@ export const metadata = {
     ],
   },
   alternates: {
-    canonical: "https://www.surgostudios.com/services",
+    canonical: "https://surgostudios.com/services",
   },
+};
+
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Surgo Studios Video Production Services",
+  description: "Professional video production services offered by Surgo Studios in Ottawa, Canada.",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      item: {
+        "@type": "Service",
+        name: "Brand Film Production",
+        provider: { "@type": "LocalBusiness", name: "Surgo Studios", url: "https://surgostudios.com" },
+        areaServed: [{ "@type": "City", name: "Ottawa" }, { "@type": "City", name: "Toronto" }],
+        serviceType: "Video Production",
+        description: "Cinematic brand films that tell your company's story and captivate audiences.",
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      item: {
+        "@type": "Service",
+        name: "Commercial & Ad Production",
+        provider: { "@type": "LocalBusiness", name: "Surgo Studios", url: "https://surgostudios.com" },
+        areaServed: [{ "@type": "City", name: "Ottawa" }, { "@type": "City", name: "Toronto" }],
+        serviceType: "Commercial Video Production",
+        description: "High-impact TV and digital commercials for brands across Ottawa and Canada.",
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      item: {
+        "@type": "Service",
+        name: "Video Podcast Production",
+        provider: { "@type": "LocalBusiness", name: "Surgo Studios", url: "https://surgostudios.com" },
+        areaServed: [{ "@type": "City", name: "Ottawa" }],
+        serviceType: "Podcast Studio",
+        description: "Full-service video podcast recording, editing, and distribution at our Ottawa studio.",
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      item: {
+        "@type": "Service",
+        name: "Social Media Reels & Content",
+        provider: { "@type": "LocalBusiness", name: "Surgo Studios", url: "https://surgostudios.com" },
+        areaServed: [{ "@type": "City", name: "Ottawa" }, { "@type": "City", name: "Toronto" }],
+        serviceType: "Social Media Video Production",
+        description: "Short-form reels, TikTok videos, and Instagram content engineered for engagement.",
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 5,
+      item: {
+        "@type": "Service",
+        name: "Corporate Video Production",
+        provider: { "@type": "LocalBusiness", name: "Surgo Studios", url: "https://surgostudios.com" },
+        areaServed: [{ "@type": "City", name: "Ottawa" }, { "@type": "City", name: "Toronto" }],
+        serviceType: "Corporate Video",
+        description: "Professional corporate videos, training films, and internal communications for Ottawa businesses.",
+      },
+    },
+  ],
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://surgostudios.com" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://surgostudios.com/services" },
+  ],
 };
 
 export default function Services() {
   return (
     <main className="bg-black text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Navbar />
       <ServicesPage />
       <ImpactStrip />

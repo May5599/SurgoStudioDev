@@ -10,7 +10,7 @@ export const metadata = {
     title: "About Us | Surgo Studios - Ottawa Video Production Company",
     description:
       "Discover Surgo Studios' story, partners, strategic advisor, and leadership team. Based in Ottawa, we produce cinematic video content for brands in Toronto, Montreal, Vancouver, Miami, Los Angeles, and beyond.",
-    url: "https://www.surgostudios.com/about",
+    url: "https://surgostudios.com/about",
     siteName: "Surgo Studios",
     images: [
       {
@@ -33,7 +33,7 @@ export const metadata = {
     ],
   },
   alternates: {
-    canonical: "https://www.surgostudios.com/about",
+    canonical: "https://surgostudios.com/about",
   },
 };
 
@@ -42,23 +42,39 @@ export default function AboutPage() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Surgo Studios",
-    url: "https://www.surgostudios.com",
-    logo: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto/v1757010350/VAF02794_copy_fv8vur.jpg",
+    url: "https://surgostudios.com",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://res.cloudinary.com/drt92o4ye/image/upload/v1758309720/white-logo_w6xinb_yz8p9u.png",
+      width: 240,
+      height: 80,
+    },
+    image: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto/v1757010350/VAF02794_copy_fv8vur.jpg",
     description:
       "Surgo Studios is an Ottawa-based video production company specializing in cinematic storytelling for brands across Canada and the U.S.",
     foundingLocation: {
       "@type": "Place",
-      name: "Ottawa, Canada",
+      name: "Ottawa, Ontario, Canada",
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "150 Elgin Street",
+      addressLocality: "Ottawa",
+      addressRegion: "ON",
+      postalCode: "K2P 1L4",
+      addressCountry: "CA",
     },
     sameAs: [
-      "https://www.facebook.com/yourpage",
-      "https://www.instagram.com/yourpage",
-      "https://www.linkedin.com/company/yourpage",
+      "https://www.instagram.com/surgo.studios/",
+      "https://www.linkedin.com/company/surgo-media/",
+      "https://www.youtube.com/@surgostudios",
     ],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Service",
       email: "raha@surgomedia.com",
+      areaServed: ["Ottawa", "Toronto", "Canada"],
+      availableLanguage: ["English", "French"],
     },
   };
 

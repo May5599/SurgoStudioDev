@@ -19,7 +19,7 @@ export const metadata = {
     title: "Portfolio | Surgo Studios - Ottawa Video Production Company",
     description:
       "See Surgo Studios' creative portfolio: brand films, corporate campaigns, reels, and testimonials. Trusted by businesses in Ottawa, Toronto, Montreal, Vancouver, and beyond for cinematic storytelling.",
-    url: "https://www.surgostudios.com/portfolio",
+    url: "https://surgostudios.com/portfolio",
     siteName: "Surgo Studios",
     images: [
       {
@@ -42,7 +42,7 @@ export const metadata = {
     ],
   },
   alternates: {
-    canonical: "https://www.surgostudios.com/portfolio",
+    canonical: "https://surgostudios.com/portfolio",
   },
 };
 

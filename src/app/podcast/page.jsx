@@ -8,12 +8,12 @@ export const metadata = {
   title: "Surgo Studios | Ottawa Podcast Recording & Video Podcast Studio",
   description:
     "Record your podcast in Ottawa with Surgo Studios. Our professional podcast recording studio includes microphones, cameras, an engineer, editing, and distribution so you can focus on your conversation.",
-  alternates: { canonical: "https://www.surgo.ca/podcast" },
+  alternates: { canonical: "https://surgostudios.com/podcast" },
   openGraph: {
     title: "Surgo Studios | Ottawa Podcast Recording & Video Podcast Studio",
     description:
       "Book a professional podcast studio in Ottawa with everything included microphones, cameras, engineer, editing, and distribution. Reserve your session at Surgo Studios.",
-    url: "https://www.surgo.ca/podcast",
+    url: "https://surgostudios.com/podcast",
     siteName: "Surgo Studios",
     images: [
       {
@@ -51,10 +51,9 @@ export default function PodcastPage() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             name: "Surgo Studios",
-            url: "https://www.surgo.ca/podcast",
+            url: "https://surgostudios.com",
             image:
               "https://res.cloudinary.com/drt92o4ye/image/upload/v1757103107/IMG_6606_siaca8.jpg",
-            telephone: "+1-XXX-XXX-XXXX", // add phone later if you want Google Maps ranking
             email: "raha@surgomedia.com",
             address: {
               "@type": "PostalAddress",

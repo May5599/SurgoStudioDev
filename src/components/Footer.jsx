@@ -26,9 +26,9 @@ export default function Footer() {
         </div>
         {/* Quick Links */}
         <div>
-          <h2 className="text-white font-mozilla font-bold mb-4 text-lg">
+          <h3 className="text-white font-mozilla font-bold mb-4 text-lg">
             Quick Links
-          </h2>
+          </h3>
           <ul className="space-y-2 text-sm">
             <li>
               <Link href="/services" className="hover:text-yellow-400 transition">
@@ -65,9 +65,9 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <h2 className="text-white font-mozilla font-bold mb-4 text-lg">
+          <h3 className="text-white font-mozilla font-bold mb-4 text-lg">
             Contact
-          </h2>
+          </h3>
           <ul className="space-y-2 text-sm text-gray-400">
             <li>
               Email:{" "}
@@ -84,14 +84,14 @@ export default function Footer() {
 
         {/* Social */}
         <div>
-          <h2 className="text-white font-mozilla font-bold mb-4 text-lg">
+          <h3 className="text-white font-mozilla font-bold mb-4 text-lg">
             Follow Us
-          </h2>
+          </h3>
           <div className="flex space-x-4">
             {[
-              { icon: FaInstagram, href: "https://www.instagram.com/surgo.studios/?hl=en", label: "Instagram" },
-              { icon: FaLinkedin, href: "https://www.linkedin.com/company/surgo-media/?originalSubdomain=ca", label: "LinkedIn" },
-              { icon: FaYoutube, href: "#", label: "YouTube" },
+              { icon: FaInstagram, href: "https://www.instagram.com/surgo.studios/", label: "Instagram" },
+              { icon: FaLinkedin, href: "https://www.linkedin.com/company/surgo-media/", label: "LinkedIn" },
+              { icon: FaYoutube, href: "https://www.youtube.com/@surgostudios", label: "YouTube" },
             ].map(({ icon: Icon, href, label }, i) => (
               <a
                 key={i}

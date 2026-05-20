@@ -10,7 +10,7 @@ export const metadata = {
     title: "Contact Surgo Studios | Ottawa Podcast & Video Production Company",
     description:
       "Make your podcast in Ottawa with Surgo Studios. We provide professional podcast recording, editing, and video production services for creators, businesses, and brands across Ottawa and Canada.",
-    url: "https://www.surgostudios.com/contact",
+    url: "https://surgostudios.com/contact",
     siteName: "Surgo Studios",
     images: [
       {
@@ -33,7 +33,7 @@ export const metadata = {
     ],
   },
   alternates: {
-    canonical: "https://www.surgostudios.com/contact",
+    canonical: "https://surgostudios.com/contact",
   },
 };
 
@@ -42,35 +42,42 @@ export default function Contact() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Surgo Studios",
-    url: "https://www.surgostudios.com",
-    logo: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto/v1757010350/VAF02794_copy_fv8vur.jpg",
-    image:
-      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto/v1757010350/VAF02794_copy_fv8vur.jpg",
+    url: "https://surgostudios.com",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://res.cloudinary.com/drt92o4ye/image/upload/v1758309720/white-logo_w6xinb_yz8p9u.png",
+    },
+    image: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto/v1757010350/VAF02794_copy_fv8vur.jpg",
     description:
-      "Surgo Studios is Ottawa’s leading podcast studio and video production company. We help creators, entrepreneurs, and businesses record, produce, and launch professional podcasts with cinematic quality.",
+      "Surgo Studios is Ottawa’s leading video production and podcast studio. We help creators, entrepreneurs, and businesses record, produce, and launch professional video content and podcasts with cinematic quality.",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "123 Example St", // replace with real address
+      streetAddress: "150 Elgin Street",
       addressLocality: "Ottawa",
       addressRegion: "ON",
-      postalCode: "K1A 0A1", // replace with real postal code
-      addressCountry: "Canada",
+      postalCode: "K2P 1L4",
+      addressCountry: "CA",
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 45.420449194844615,
+      longitude: -75.69341459232902,
+    },
+    hasMap: "https://www.google.com/maps/place/150+Elgin+St,+Ottawa,+ON+K2P+1L4",
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+1-XXX-XXX-XXXX", // replace with real number
       contactType: "Customer Service",
-      email: "raha@surgomedia.com", // replace with real email
-      areaServed: "Ottawa, Ontario, Canada",
+      email: "raha@surgomedia.com",
+      areaServed: ["Ottawa", "Toronto", "Ontario", "Canada"],
       availableLanguage: ["English", "French"],
     },
     sameAs: [
-      "https://www.facebook.com/yourpage",
-      "https://www.instagram.com/yourpage",
-      "https://www.linkedin.com/company/yourpage",
+      "https://www.instagram.com/surgo.studios/",
+      "https://www.linkedin.com/company/surgo-media/",
+      "https://www.youtube.com/@surgostudios",
     ],
     priceRange: "$$",
-    openingHours: "Mo-Fr 09:00-18:00",
+    openingHours: ["Mo-Fr 09:00-18:00", "Sa 10:00-16:00"],
   };
 
   const faqSchema = {
