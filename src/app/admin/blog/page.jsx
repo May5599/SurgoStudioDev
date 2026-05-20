@@ -188,7 +188,11 @@ export default function BlogAdminPage() {
       setTags(data.tags?.length ? data.tags : DEFAULT_TAGS);
       setFaqItems(data.faqItems || []);
       setStep("editing");
-      showStatus("Generated. Review all fields — especially meta title and description — then publish.", "info");
+      if (data.warning) {
+        showStatus(`⚠️ ${data.warning}`, "error");
+      } else {
+        showStatus("Generated. Review all fields — especially meta title and description — then publish.", "info");
+      }
     } catch (err) {
       showStatus(err.message, "error");
       setStep("idle");

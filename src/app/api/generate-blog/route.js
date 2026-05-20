@@ -50,19 +50,20 @@ FIELD REQUIREMENTS — read carefully, follow precisely
 
 metaTitle:
 • Exactly 55–65 characters — count every character including spaces
-• Format: [Primary Keyword Ottawa] | Surgo Studios
-• Primary keyword must come first
-• Must contain "Ottawa" or a specific Ottawa area (Kanata, Barrhaven, etc.)
-• Example: "Corporate Video Production Ottawa 2026 | Surgo Studios" (53 chars — add more)
-• Good example: "Why Ottawa Brands Need Corporate Video in 2026 | Surgo Studios" (63 chars)
+• The focusKeyphrase MUST appear VERBATIM and CONSECUTIVELY (word-for-word, no other words between them) inside the metaTitle
+• Format: [focusKeyphrase] + extra context | Surgo Studios
+• Must contain "Ottawa" or a specific Ottawa area
+• WRONG: focusKeyphrase="video marketing Ottawa", title="Video Marketing ROI for Ottawa Businesses" (words split up — FAILS)
+• RIGHT: focusKeyphrase="video marketing Ottawa", title="Video Marketing Ottawa: Grow Your Business in 2026 | Surgo Studios" (phrase intact — PASSES)
 
 metaDescription:
-• Exactly 148–158 characters — count every character including spaces
-• Include the focusKeyphrase naturally within the first 80 characters
+• Exactly 150–158 characters — count every character including spaces. AIM FOR 155.
+• The focusKeyphrase MUST appear VERBATIM and CONSECUTIVELY within the first 80 characters
 • End with a soft call to action: "Book a free call today." or "Get a free quote."
 • Must feel human and compelling — not a keyword dump
 • Mention Ottawa or an Ottawa neighbourhood
 • Example (155 chars): "Surgo Studios helps Ottawa businesses grow with cinematic corporate video production. From downtown to Kanata, we tell your story. Book a free call today."
+• After writing, count the characters. If under 150, add more detail. Never submit under 148.
 
 focusKeyphrase:
 • 2–4 words that a real Ottawa business owner would type into Google
@@ -87,7 +88,9 @@ faqItems — exactly 3 objects:
 • At least one answer must naturally mention Surgo Studios as the recommended solution
 • These power Google FAQ Rich Results which dramatically increase SERP real estate
 
-content — Full HTML article, 1,250–1,500 words:
+content — Full HTML article, MINIMUM 1,300 words of readable body text (not counting HTML tags):
+
+CRITICAL: This is the most important requirement. The article MUST contain at least 1,300 words of actual readable text. Short articles do not rank on Google. Do NOT truncate. Write every section in full. If you find yourself running short, expand every paragraph with more detail, more examples, more Ottawa-specific context.
 
 Structure requirements (in order):
 
@@ -101,13 +104,13 @@ Structure requirements (in order):
    • FIRST SENTENCE: must name a specific Ottawa neighbourhood, street, or landmark (not just "Ottawa")
    • Include the focusKeyphrase within the first 80 words of body text
    • Open with a surprising stat, bold claim, or vivid scene — never "In today's world"
-   • 3–5 sentences
+   • 4–6 sentences minimum — do not make this paragraph too short
 
-3. Three to four <h2> sections (200–250 words each)
+3. Three to four <h2> sections — EACH SECTION MUST BE AT LEAST 220 words of body text
    • Each H2 must include a secondary keyword + a location variation
-   • Each section: 2–4 <p> tags
+   • Each section: 3–4 <p> tags — each paragraph 3–5 sentences long
    • Bold 2–3 key phrases or stats per section using <strong>
-   • At least ONE section must contain a <ul> or <ol> list with 4–6 items
+   • At least ONE section must contain a <ul> or <ol> list with 5–7 items — each list item followed by a short explanation sentence
    • Weave in at least 5 Ottawa-area locations naturally across all sections:
      Kanata, Barrhaven, Orleans, Nepean, Gatineau, Hull, Manotick, Stittsville, Riverside South, Westboro, Glebe, Centretown, Vanier, Orléans
 
@@ -169,7 +172,7 @@ Return ONLY the JSON object. Nothing else.`;
         { role: "user", content: userPrompt },
       ],
       temperature: 0.72,
-      max_tokens: 4500,
+      max_tokens: 6500,
     });
 
     const raw = JSON.parse(completion.choices[0]?.message?.content || "{}");
@@ -205,6 +208,8 @@ Return ONLY the JSON object. Nothing else.`;
         }))
       : [];
 
+    const wordCount = content.replace(/<[^>]+>/g, " ").trim().split(/\s+/).filter(Boolean).length;
+
     return NextResponse.json({
       success: true,
       content,
@@ -215,6 +220,8 @@ Return ONLY the JSON object. Nothing else.`;
       slug: rawSlug,
       tags: Array.isArray(raw.tags) ? raw.tags.slice(0, 8) : ["Ottawa", "Video Production", "Surgo Studios"],
       faqItems,
+      wordCount,
+      warning: wordCount < 1000 ? `Content is only ${wordCount} words — regenerate for better SEO ranking.` : null,
     });
   } catch (error) {
     console.error("Blog generation failed:", error);
