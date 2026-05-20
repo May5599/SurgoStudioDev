@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Surgo Studios Journal | Ottawa & Toronto Video Production Insights",
   description:
-    "Creative insights, stories, and cinematic breakdowns from Surgo Studios   the leading video and podcast production agency in Ottawa and Toronto.",
+    "Creative insights, stories, and cinematic breakdowns from Surgo Studios — the leading video and podcast production agency in Ottawa and Toronto.",
   keywords: [
     "Ottawa video production",
     "Toronto video agency",
@@ -22,14 +22,31 @@ export const metadata = {
     description:
       "Explore behind-the-scenes stories, cinematic trends, and production insights from Ottawa and Toronto's most forward-thinking video studio.",
     url: "https://surgostudios.com/blog",
+    siteName: "Surgo Studios",
+    locale: "en_CA",
+    type: "website",
     images: [
       {
-        url: "/og-blog.jpg",
+        url: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757010350/VAF02794_copy_fv8vur.jpg",
         width: 1200,
         height: 630,
-        alt: "Surgo Studios Journal - Creative Blog",
+        alt: "Surgo Studios Journal - Ottawa Video Production Blog",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@surgostudios",
+    creator: "@surgostudios",
+    title: "Surgo Studios Journal | Ottawa Video Production Insights",
+    description:
+      "Behind-the-scenes stories, cinematic trends, and production insights from Ottawa's leading video studio.",
+    images: [
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757010350/VAF02794_copy_fv8vur.jpg",
+    ],
+  },
+  alternates: {
+    canonical: "https://surgostudios.com/blog",
   },
 };
 

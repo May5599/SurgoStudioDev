@@ -23,6 +23,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: "https://surgostudios.com/sitemap.xml",
-    host: "https://surgostudios.com",
   };
 }

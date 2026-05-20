@@ -7,7 +7,6 @@ import PortfolioPreview from "../components/PortfolioPreview";
 import HowItWorksSection from "../components/HowItWorksSection";
 import WhyWorkWithUs from "../components/WhyWorkWithUs";
 import Footer from "../components/Footer";
-import PreloaderWrapper from "../components/PreLoader";
 import TestimonialsReel from "../components/TestimonialsReel";
 
 export const metadata = {
@@ -60,7 +59,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <PreloaderWrapper>
+    <>
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
@@ -70,18 +69,18 @@ export default function Home() {
             "@type": "Organization",
             name: "Surgo Studios",
             url: "https://surgostudios.com",
-            logo: "https://res.cloudinary.com/drt92o4ye/image/upload/v1757081567/white-logo_w6xinb.png",
+            logo: "https://res.cloudinary.com/drt92o4ye/image/upload/v1758309720/white-logo_w6xinb_yz8p9u.png",
             contactPoint: {
               "@type": "ContactPoint",
-              email: "hello@surgostudios.com",
+              email: "raha@surgomedia.com",
               contactType: "customer service",
-              areaServed: "CA",
-              availableLanguage: "en",
+              areaServed: ["Ottawa", "Toronto", "Canada"],
+              availableLanguage: ["English", "French"],
             },
             sameAs: [
-              "https://instagram.com/surgostudios",
-              "https://linkedin.com/company/surgostudios",
-              "https://youtube.com/@surgostudios",
+              "https://www.instagram.com/surgo.studios/",
+              "https://www.linkedin.com/company/surgo-media/",
+              "https://www.youtube.com/@surgostudios",
             ],
           }),
         }}
@@ -125,8 +124,8 @@ export default function Home() {
       <HowItWorksSection />
       <WhyWorkWithUs />
       <TestimonialsReel />
-      
+
       <Footer />
-    </PreloaderWrapper>
+    </>
   );
 }

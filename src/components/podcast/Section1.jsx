@@ -302,9 +302,8 @@ function PackagesCTA({ onOpenModal }) {
   ];
 
   const showcaseImages = [
-    "https://res.cloudinary.com/duwtym7w7/image/upload/v1758043388/IMG_8219_ysmzfi.heic",
-    
-    "https://res.cloudinary.com/duwtym7w7/image/upload/v1758043551/IMG_8223_niakkv.jpg",
+    "https://res.cloudinary.com/duwtym7w7/image/upload/f_auto,q_auto,w_800/v1758043388/IMG_8219_ysmzfi.heic",
+    "https://res.cloudinary.com/duwtym7w7/image/upload/f_auto,q_auto,w_800/v1758043551/IMG_8223_niakkv.jpg",
     "https://res.cloudinary.com/drt92o4ye/image/upload/v1758309719/IMG_6606_siaca8_gtj6vx.jpg",
 
     "https://res.cloudinary.com/duwtym7w7/image/upload/v1757624050/VAF02914_copy_ccdwmd.jpg",
@@ -373,7 +372,7 @@ function PackagesCTA({ onOpenModal }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="relative flex flex-col justify-between rounded-3xl border border-white/10 bg-gradient-to-b from-zinc-900/60 to-zinc-950/90 p-8 shadow-2xl backdrop-blur-sm"
+              className="relative flex flex-col justify-between rounded-3xl border border-white/10 bg-linear-to-b from-zinc-900/60 to-zinc-950/90 p-8 shadow-2xl backdrop-blur-sm"
             >
               <div className="absolute inset-0 opacity-15 [background:radial-gradient(70%_80%_at_50%_-10%,#320A6B,transparent)]" />
               <div className="relative space-y-4">

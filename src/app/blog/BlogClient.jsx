@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function BlogClient({ posts }) {
   return (
@@ -19,17 +20,19 @@ export default function BlogClient({ posts }) {
               className="group flex flex-col overflow-hidden rounded-3xl bg-zinc-950 border border-gray-800 hover:border-yellow-400 hover:shadow-[0_0_40px_-10px_rgba(250,204,21,0.3)] transition-all duration-500 h-full"
             >
               {/* Cover image */}
-              <div className="overflow-hidden rounded-t-3xl">
-                <img
+              <div className="relative overflow-hidden rounded-t-3xl h-56">
+                <Image
                   src={post.coverImage}
                   alt={post.title}
-                  className="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-700"
-                  loading={i < 3 ? "eager" : "lazy"}
+                  fill
+                  className="object-cover transform group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  priority={i < 3}
                 />
               </div>
 
               {/* Text */}
-              <div className="p-6 flex flex-col justify-between flex-grow">
+              <div className="p-6 flex flex-col justify-between grow">
                 <div>
                   {post.tags && post.tags.length > 0 && (
                     <div className="flex flex-wrap gap-2 mb-3">

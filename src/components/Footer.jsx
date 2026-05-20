@@ -5,7 +5,7 @@ import Image from "next/image";
 import { FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
-  return ( <footer className="relative bg-gradient-to-b from-black via-[#0a0a0a] to-black text-gray-300 pt-16 pb-8 px-6 sm:px-12 md:px-20 overflow-hidden">
+  return ( <footer className="relative bg-linear-to-b from-black via-[#0a0a0a] to-black text-gray-300 pt-16 pb-8 px-6 sm:px-12 md:px-20 overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 border-b border-white/10 pb-12 relative z-10">
         {/* Logo & Tagline */}
         <div className="text-center sm:text-left">
@@ -19,7 +19,7 @@ export default function Footer() {
               alt="Surgo Studios Logo"
               width={240}   // 🔥 increased logo size
               height={80}
-              className="mb-4 w-[240px] sm:w-[280px] md:w-[300px] h-auto mx-auto sm:mx-0"
+              className="mb-4 w-60 sm:w-70 md:w-75 h-auto mx-auto sm:mx-0"
               priority={false}
             />
           </Link>
@@ -50,9 +50,14 @@ export default function Footer() {
                 Blog
               </Link>
             </li>
-             <li>
+            <li>
               <Link href="/about" className="hover:text-yellow-400 transition">
                 About
+              </Link>
+            </li>
+            <li>
+              <Link href="/client-stories" className="hover:text-yellow-400 transition">
+                Client Stories
               </Link>
             </li>
             <li>
@@ -134,8 +139,8 @@ export default function Footer() {
 
       {/* Ambient Glow Background */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute w-[500px] h-[500px] bg-yellow-500/10 rounded-full blur-[180px] top-[-10%] left-[10%] animate-pulse-slow" />
-        <div className="absolute w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-[160px] bottom-[-15%] right-[10%] animate-pulse-slow delay-1000" />
+        <div className="absolute w-125 h-125 bg-yellow-500/10 rounded-full blur-[180px] top-[-10%] left-[10%] animate-pulse-slow" />
+        <div className="absolute w-100 h-100 bg-purple-500/10 rounded-full blur-[160px] bottom-[-15%] right-[10%] animate-pulse-slow delay-1000" />
       </div>
 
       <style jsx>{`

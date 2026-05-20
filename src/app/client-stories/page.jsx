@@ -128,9 +128,9 @@ export default function ClientStoriesPage() {
     geo: { "@type": "GeoCoordinates", latitude: 45.4201, longitude: -75.6931 },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "47",
-      bestRating: "5",
+      ratingValue: 4.9,
+      reviewCount: 47,
+      bestRating: 5,
     },
     areaServed: [
       { "@type": "City", name: "Ottawa" },

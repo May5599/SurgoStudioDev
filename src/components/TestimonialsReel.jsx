@@ -4,11 +4,11 @@ import { useRef, useState } from "react";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 
 const videos = [
-  { src: "/ben.mp4", poster: "/posters/ben.jpg", name: "Ben Azadi" },
-  { src: "/hina.mp4", poster: "/posters/hina.jpg", name: "Hina Khan" },
-  { src: "/majeed.mp4", poster: "/posters/majeed.jpg", name: "Majeed" },
-  { src: "/neha.mp4", poster: "/posters/neha.jpg", name: "Neha" },
-  { src: "/surgo.mp4", poster: "/posters/surgo.jpg", name: "Client Story" },
+  { src: "/ben.mp4", name: "Ben Azadi" },
+  { src: "/hina.mp4", name: "Hina Khan" },
+  { src: "/majeed.mp4", name: "Majeed" },
+  { src: "/neha.mp4", name: "Neha" },
+  { src: "/surgo.mp4", name: "Client Story" },
 ];
 
 export default function TestimonialsReel() {
@@ -98,7 +98,6 @@ export default function TestimonialsReel() {
                 <video
                   ref={(el) => (videoRefs.current[index] = el)}
                   src={video.src}
-                  poster={video.poster}
                   className="w-full h-full object-cover"
                   playsInline
                   preload="metadata"
