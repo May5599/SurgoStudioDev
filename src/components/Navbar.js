@@ -25,9 +25,9 @@ export default function Navbar() {
     { label: "Services", href: "/services" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Podcast", href: "/podcast" },
-    
+    { label: "Client Stories", href: "/client-stories" },
     { label: "About Us", href: "/about" },
-        { label: "Blogs", href: "/blog" },
+    { label: "Blogs", href: "/blog" },
     { label: "Contact", href: "/contact" },
   ];
 
