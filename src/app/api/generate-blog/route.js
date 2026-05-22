@@ -193,7 +193,7 @@ CONTENT RULES (non-negotiable):
 
     let content = (contentCompletion.choices[0]?.message?.content || "")
       .replace(/```html|```/g, "")
-      .replace(/[ –]/g, "-")
+      .replace(/[—–]/g, "-")
       .trim();
 
     // Pull display title from H1
