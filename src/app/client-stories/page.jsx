@@ -4,7 +4,7 @@ import TestimonialsReel from "../../components/TestimonialsReel";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Client Testimonials Ottawa | Video Production Results | Surgo Studios",
+  title: "Client Testimonials Ottawa - Video Production Results",
   description:
     "See real video testimonials from Ottawa businesses who chose Surgo Studios for video production, brand films, and podcast production. Serving Kanata, Barrhaven, Orleans, Nepean, Westboro, and all of Ottawa.",
   keywords: [

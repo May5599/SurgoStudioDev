@@ -4,7 +4,7 @@ import Footer from "../../components/Footer";
 
 // ---------- SEO: App Router Metadata ----------
 export const metadata = {
-  title: "Surgo Studios | Ottawa Podcast Recording & Video Podcast Studio",
+  title: "Ottawa Podcast Recording & Video Podcast Studio",
   description:
     "Record your podcast in Ottawa with Surgo Studios. Our professional podcast recording studio includes microphones, cameras, an engineer, editing, and distribution so you can focus on your conversation.",
   keywords: [

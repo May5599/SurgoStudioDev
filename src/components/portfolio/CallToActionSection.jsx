@@ -38,7 +38,7 @@ Turning Ideas Into Iconic Moments
 
         <p className="mt-6 text-sm text-white/50">
           Prefer email? Drop us a note at{" "}
-          <a href="mailto:hello@surgostudios.com" className="underline">
+          <a href="mailto:raha@surgomedia.com" className="underline">
             raha@surgomedia.com
           </a>
         </p>

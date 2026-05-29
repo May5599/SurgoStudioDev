@@ -3,12 +3,14 @@
 import { useRef, useState } from "react";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 
+const CF = "https://d1y0fmcrb9qnj1.cloudfront.net";
+
 const videos = [
-  { src: "/ben.mp4", name: "Ben Azadi" },
-  { src: "/hina.mp4", name: "Hina Khan" },
-  { src: "/majeed.mp4", name: "Majeed" },
-  { src: "/neha.mp4", name: "Neha" },
-  { src: "/surgo.mp4", name: "Client Story" },
+  { src: `${CF}/ben.mp4`, name: "Ben Azadi" },
+  { src: `${CF}/hina.mp4`, name: "Hina Khan" },
+  { src: `${CF}/majeed.mp4`, name: "Majeed" },
+  { src: `${CF}/neha.mp4`, name: "Neha" },
+  { src: `${CF}/surgo.mp4`, name: "Client Story" },
 ];
 
 export default function TestimonialsReel() {

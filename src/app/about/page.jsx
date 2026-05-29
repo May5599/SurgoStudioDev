@@ -3,7 +3,7 @@ import AboutUs from "../../components/about/Aboutus";
 import Footer from "../../components/Footer";
 
 export const metadata = {
-  title: "About Us | Surgo Studios - Ottawa Video Production Company",
+  title: "About Us - Ottawa Video Production Company",
   description:
     "Surgo Studios is an Ottawa-based video production company specializing in cinematic storytelling. Meet our partners, advisor, and leadership team trusted by brands across Canada and the U.S.",
   openGraph: {

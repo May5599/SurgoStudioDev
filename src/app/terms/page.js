@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Terms & Conditions | Surgo Studios",
+  title: "Terms & Conditions",
 };
 
 export default function TermsPage() {

@@ -3,9 +3,9 @@ import ContactPage from "../../components/contact/Contactpage";
 import Footer from "../../components/Footer";
 
 export const metadata = {
-  title: "Contact Surgo Studios | Ottawa Podcast & Video Production Company",
+  title: "Contact - Ottawa Video Production Agency",
   description:
-    "Looking to start a podcast in Ottawa? Surgo Studios is your trusted local podcast studio and video production company. Contact us today to record, produce, and launch your podcast with professional quality.",
+    "Book a free discovery call with Surgo Studios, Ottawa's cinematic video production agency. Get in touch to discuss your brand film, podcast, or campaign.",
   openGraph: {
     title: "Contact Surgo Studios | Ottawa Podcast & Video Production Company",
     description:

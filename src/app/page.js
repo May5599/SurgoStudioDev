@@ -10,7 +10,7 @@ import Footer from "../components/Footer";
 import TestimonialsReel from "../components/TestimonialsReel";
 
 export const metadata = {
-  title: "Surgo Studios | Ottawa Video Production & Creative Content Agency",
+  title: { absolute: "Surgo Studios | Ottawa Video Production & Creative Content Agency" },
   description:
     "Surgo Studios is an Ottawa-based video production agency crafting cinematic reels, commercials, podcasts, and social media content that inspires and engages audiences across Canada and the U.S.",
   keywords: [
@@ -33,7 +33,7 @@ export const metadata = {
     siteName: "Surgo Studios",
     images: [
       {
-        url: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757081567/white-logo_w6xinb.png",
+        url: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757010350/VAF02794_copy_fv8vur.jpg",
         width: 1200,
         height: 630,
         alt: "Surgo Studios - Video Production Agency Ottawa",
@@ -48,7 +48,7 @@ export const metadata = {
     description:
       "Ottawa-based creative video agency for reels, commercials, social media, and podcasts.",
     images: [
-      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757081567/white-logo_w6xinb.png",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757010350/VAF02794_copy_fv8vur.jpg",
     ],
   },
   alternates: {
@@ -96,7 +96,7 @@ export default function Home() {
       description:
         "Cinematic brand stories, ad commercials, social media reels, and podcasts by Surgo Studios in Ottawa, Canada.",
       thumbnailUrl: [
-        "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757081567/white-logo_w6xinb.png"
+        "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757010350/VAF02794_copy_fv8vur.jpg"
       ], // ideally replace with an actual still frame from your video
       uploadDate: "2025-09-05",
       contentUrl:

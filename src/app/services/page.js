@@ -5,7 +5,7 @@ import SurgoServices from "../../components/services/SurgoServices";
 import Footer from "../../components/Footer";
 
 export const metadata = {
-  title: "Services | Surgo Studios - Ottawa Video Production Company",
+  title: "Services - Ottawa Video Production Company",
   description:
     "Explore Surgo Studios’ professional video production services in Ottawa. From brand films and corporate campaigns to video podcasts and reels, we deliver cinematic storytelling trusted by businesses across Canada and the U.S.",
   openGraph: {

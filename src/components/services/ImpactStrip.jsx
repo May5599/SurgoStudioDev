@@ -61,7 +61,7 @@ function StatCell({ label, value, note, index }) {
 }
 
 const DEFAULT_ITEMS = [
-  { label: "Projects Completed", value: "500+" },
+  { label: "Projects Completed", value: "300+" },
   { label: "Launch Window", value: "21 Days" },
   { label: "Views Generated", value: "1B+" },
   { label: "Hours of Content Produced", value: "5000+" },

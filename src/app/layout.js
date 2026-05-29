@@ -68,7 +68,7 @@ export const metadata = {
       "Ottawa's cinematic video production agency. Brand films, commercials, video podcasts, and social media reels that drive results.",
     images: [
       {
-        url: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757081567/white-logo_w6xinb.png",
+        url: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757010350/VAF02794_copy_fv8vur.jpg",
         width: 1200,
         height: 630,
         alt: "Surgo Studios - Ottawa Video Production Agency",
@@ -83,7 +83,7 @@ export const metadata = {
     description:
       "Ottawa-based cinematic video agency for brand films, commercials, podcasts, and social media reels.",
     images: [
-      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757081567/white-logo_w6xinb.png",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757010350/VAF02794_copy_fv8vur.jpg",
     ],
   },
   alternates: {

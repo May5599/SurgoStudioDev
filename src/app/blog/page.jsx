@@ -6,7 +6,7 @@ import Footer from "../../components/Footer";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Surgo Studios Journal | Ottawa & Toronto Video Production Insights",
+  title: "Journal - Ottawa & Toronto Video Production Insights",
   description:
     "Creative insights, stories, and cinematic breakdowns from Surgo Studios — the leading video and podcast production agency in Ottawa and Toronto.",
   keywords: [

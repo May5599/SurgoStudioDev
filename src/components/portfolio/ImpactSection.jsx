@@ -148,7 +148,7 @@ function AnimatedStrip({ icon, label, value, suffix, delay }) {
           {startCount ? (
             <CountUp end={value} duration={2.5} suffix={suffix} />
           ) : (
-            "0" + suffix
+            value + suffix
           )}
         </div>
         <div className="text-sm text-gray-400">{label}</div>

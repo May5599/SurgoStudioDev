@@ -202,11 +202,11 @@ export default function AboutPage() {
     {/* Trust Stats */}
     <div className="grid grid-cols-3 gap-6 text-center md:text-left">
       <div>
-        <h3 className="text-3xl font-bold text-black">100+</h3>
+        <h3 className="text-3xl font-bold text-black">300+</h3>
         <p className="text-gray-600">Productions</p>
       </div>
       <div>
-        <h3 className="text-3xl font-bold text-black">30+</h3>
+        <h3 className="text-3xl font-bold text-black">50+</h3>
         <p className="text-gray-600">Brands</p>
       </div>
       <div>
@@ -219,7 +219,7 @@ export default function AboutPage() {
   {/* Visual */}
   <div className="flex justify-center items-center">
     <img
-      src="https://res.cloudinary.com/duwtym7w7/image/upload/v1757345952/Dark-Logo_o0u2xj.png"
+      src="https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757010350/VAF02794_copy_fv8vur.jpg"
       alt="Surgo Studios team recording a podcast in Ottawa"
       className="w-full max-w-[500px] rounded-2xl shadow-xl object-cover"
       loading="lazy"
