@@ -23,7 +23,7 @@ export const metadata = {
     siteName: "Surgo Studios",
     images: [
       {
-        url: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757081567/white-logo_w6xinb.png",
+        url: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200,h_630,c_fill/v1757010350/VAF02794_copy_fv8vur.jpg",
         width: 1200,
         height: 630,
         alt: "Client Stories - Surgo Studios Ottawa Video Production",
@@ -38,7 +38,7 @@ export const metadata = {
     description:
       "Real video testimonials from Ottawa businesses. Surgo Studios   cinematic video production at 150 Elgin Street.",
     images: [
-      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757081567/white-logo_w6xinb.png",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200,h_630,c_fill/v1757010350/VAF02794_copy_fv8vur.jpg",
     ],
   },
   alternates: {
@@ -116,7 +116,7 @@ export default function ClientStoriesPage() {
     "@type": "LocalBusiness",
     name: "Surgo Studios",
     url: "https://surgostudios.com",
-    image: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757081567/white-logo_w6xinb.png",
+    image: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200,h_630,c_fill/v1757010350/VAF02794_copy_fv8vur.jpg",
     address: {
       "@type": "PostalAddress",
       streetAddress: "150 Elgin Street",

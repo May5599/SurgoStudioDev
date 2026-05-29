@@ -27,7 +27,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757010350/VAF02794_copy_fv8vur.jpg",
+        url: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200,h_630,c_fill/v1757010350/VAF02794_copy_fv8vur.jpg",
         width: 1200,
         height: 630,
         alt: "Surgo Studios Journal - Ottawa Video Production Blog",
@@ -42,7 +42,7 @@ export const metadata = {
     description:
       "Behind-the-scenes stories, cinematic trends, and production insights from Ottawa's leading video studio.",
     images: [
-      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757010350/VAF02794_copy_fv8vur.jpg",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200,h_630,c_fill/v1757010350/VAF02794_copy_fv8vur.jpg",
     ],
   },
   alternates: {

@@ -16,7 +16,7 @@ export const metadata = {
     siteName: "Surgo Studios",
     images: [
       {
-        url: "https://res.cloudinary.com/duwtym7w7/image/upload/f_auto,q_auto/v1757345952/Dark-Logo_o0u2xj.png",
+        url: "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200,h_630,c_fill/v1757010350/VAF02794_copy_fv8vur.jpg",
         width: 1200,
         height: 630,
         alt: "Surgo Studios - Ottawa Video Production Services",
@@ -31,7 +31,7 @@ export const metadata = {
     description:
       "Discover Surgo Studios' Ottawa video production services: cinematic brand films, corporate campaigns, video podcasts, reels, and creative storytelling.",
     images: [
-      "https://res.cloudinary.com/duwtym7w7/image/upload/f_auto,q_auto/v1757345952/Dark-Logo_o0u2xj.png",
+      "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200,h_630,c_fill/v1757010350/VAF02794_copy_fv8vur.jpg",
     ],
   },
   alternates: {

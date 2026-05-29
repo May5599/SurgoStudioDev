@@ -6,6 +6,9 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://surgostudios.com/sitemap.xml",
+    sitemap: [
+      "https://surgostudios.com/sitemap.xml",
+      "https://surgostudios.com/video-sitemap.xml",
+    ],
   };
 }

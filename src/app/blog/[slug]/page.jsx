@@ -25,7 +25,7 @@ export async function generateMetadata({ params }) {
   const seoTitle = data.meta_title || data.title;
   const ogImage =
     data.cover_image_url ||
-    "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200/v1757081567/white-logo_w6xinb.png";
+    "https://res.cloudinary.com/drt92o4ye/image/upload/f_auto,q_auto,w_1200,h_630,c_fill/v1757010350/VAF02794_copy_fv8vur.jpg";
 
   return {
     title: seoTitle,
@@ -229,8 +229,33 @@ export default async function BlogPostPage({ params }) {
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
 
+        {/* Related Services — internal linking to money pages */}
+        <aside className="mt-16 p-6 rounded-2xl bg-white/[0.04] border border-white/8">
+          <p className="text-xs uppercase tracking-widest text-gray-500 mb-4">From Surgo Studios</p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/services"
+              className="px-5 py-2.5 rounded-full border border-yellow-400/30 text-yellow-400 text-sm hover:bg-yellow-400/10 transition-colors"
+            >
+              Our Services →
+            </Link>
+            <Link
+              href="/portfolio"
+              className="px-5 py-2.5 rounded-full border border-white/15 text-gray-300 text-sm hover:border-yellow-400/30 hover:text-yellow-400 transition-colors"
+            >
+              View Portfolio →
+            </Link>
+            <Link
+              href="/client-stories"
+              className="px-5 py-2.5 rounded-full border border-white/15 text-gray-300 text-sm hover:border-yellow-400/30 hover:text-yellow-400 transition-colors"
+            >
+              Client Stories →
+            </Link>
+          </div>
+        </aside>
+
         {/* Footer byline */}
-        <footer className="mt-16 pt-8 border-t border-white/10">
+        <footer className="mt-12 pt-8 border-t border-white/10">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <p className="text-sm text-gray-500">
