@@ -111,7 +111,26 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
+      {/* Areas We Serve */}
+      <div className="mt-10 pt-8 border-t border-white/10 relative z-10">
+        <p className="text-xs uppercase tracking-widest text-gray-600 mb-4">Areas We Serve</p>
+        <div className="flex flex-wrap gap-2">
+          {[
+            "Ottawa", "Toronto", "Montreal", "Vancouver", "Calgary",
+            "Edmonton", "Mississauga", "Miami", "New York", "Los Angeles",
+            "Kanata", "Barrhaven", "Orleans", "Westboro", "Nepean",
+            "Ontario", "Quebec", "British Columbia",
+          ].map((city) => (
+            <span
+              key={city}
+              className="text-xs px-3 py-1 rounded-full border border-white/10 text-gray-500 hover:text-gray-300 hover:border-white/20 transition-colors cursor-default"
+            >
+              {city}
+            </span>
+          ))}
+        </div>
+      </div>
+
       {/* Bottom Bar */}
 <div className="mt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 relative z-10 gap-3">
 
