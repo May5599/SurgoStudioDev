@@ -2,6 +2,7 @@ import { Merriweather_Sans } from "next/font/google";
 import "./globals.css";
 import PreloaderWrapper from "../components/PreLoader";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 const merriweatherSans = Merriweather_Sans({
   variable: "--font-merriweather-sans",
@@ -184,6 +185,7 @@ export default function RootLayout({ children }) {
         />
 
         <PreloaderWrapper>{children}</PreloaderWrapper>
+        <Analytics />
       </body>
     </html>
   );
